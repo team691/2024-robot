@@ -1,0 +1,56 @@
+package frc.robot.subsystems;
+import java.time.*;
+import edu.wpi.first.wpilibj.ADIS16470_IMU;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+public class Gyro extends SubsystemBase {
+
+    // Creates an ADXRS450_Gyro object on the onboard SPI port
+    ADIS16470_IMU gyro = new ADIS16470_IMU();
+
+    // Initialize function
+    @Override
+    public void robotInit() {
+        gyro.reset();
+        gyro.calibrate();
+    }
+
+    @Override
+    public void autonomousPeriodic() {
+        // Get the angle of the gyro
+        double angle = gyro.getAngle();
+        System.out.println(angle);
+        SmartDashboard.putNumber("Gyro angle", angle);
+        // Checking to see if the gyro is level
+        
+        if (angle >= 2) {
+            SmartDashboard.putString("Check", "Upward");
+        //    upBot();
+        } else {
+            if (angle <= -2)
+                SmartDashboard.putString("Check", "Downward");
+        //        downBot();
+        }
+        /*
+        if (angle <= 10 && angle >= -10) {
+            SmartDashboard.putString("Check", "Level");
+        } else {
+            SmartDashboard.putString("Check", "Not Level");
+        }
+        */
+    }
+
+    public void upBot() {
+        //Make robot go forward
+        m_left.set(0.25);
+        m_right.set(0.25); 
+    }
+
+    public void downBot() {
+        //Make robot go backward
+        m_left.set(-0.25);
+        m_right.set(-0.25);
+    }
+
+}
