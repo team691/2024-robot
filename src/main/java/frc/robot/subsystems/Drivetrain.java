@@ -20,6 +20,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.AutoConstants;
 
+
+
 public class DriveTrain extends SubsystemBase {
 
   private final CANSparkMax m_frontLeftMotor = new CANSparkMax(1, MotorType.kBrushless);
@@ -55,6 +57,7 @@ public class DriveTrain extends SubsystemBase {
   
    private final ADIS16470_IMU gyro = new ADIS16470_IMU();
 
+   double angle;
 
    public DriveTrain() {
       // Sets the distance per pulse for the encoders
@@ -129,7 +132,7 @@ public class DriveTrain extends SubsystemBase {
    }
 
    // Code to check angle, run until the angle is zero, then set motors to zero when
-   public CommandBase balanceCommand (double angle, double zRotation) {
+   public CommandBase balanceCommand () {
       return run(
          () -> {
             getAngle();

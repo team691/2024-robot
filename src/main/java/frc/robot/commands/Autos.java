@@ -35,6 +35,12 @@ public final class Autos {
     .withTimeout(AutoConstants.kTimeoutSeconds);
   }
 
+  public static CommandBase balanceEnergyStation(DriveTrain m_drive) {
+
+    return m_drive
+    .balanceCommand();
+  }
+
   private Autos() {
     throw new UnsupportedOperationException("This is a utility class!");
   }
