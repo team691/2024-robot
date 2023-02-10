@@ -4,6 +4,26 @@
 
 package frc.robot;
 
+// 
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Button;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+// ooh funky little command imports 
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.RunCommand;
+
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
+
+// constants
+import frc.robot.Constants.AutoConstants;
+import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.Autos;
+
 // stuff fo the examples because templete
 //import static edu.wpi.first.wpilibj2.command.Commands.parallel;
 //import frc.robot.commands.ExampleCommand;
@@ -11,25 +31,6 @@ package frc.robot;
 
 // subsystems
 import frc.robot.subsystems.DriveTrain;
-
-// constants
-// import frc.robot.Constants.AutoConstants;
-import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.Autos;
-
-// 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.XboxController.Button;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-
-// ooh funky little command imports 
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.RunCommand;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
-
 
 /**
  *
@@ -106,5 +107,6 @@ public class RobotContainer {
    /*  return m_drive
         .driveDistanceCommand(AutoConstants.kDriveDistanceMeters, AutoConstants.kDriveSpeed)
         .withTimeout(AutoConstants.kTimeoutSeconds);*/
+      //return Autos.balanceEnergyStation(m_drive);
   }
 }
