@@ -77,8 +77,8 @@ public class DriveTrain extends SubsystemBase {
    
    
    // Controller-based drive
-   public CommandBase drive (double xSpeed, double zRotation) {
-      return run(() -> m_drive.arcadeDrive(xSpeed, zRotation));
+   public void drive (double xSpeed, double zRotation) {
+      m_drive.arcadeDrive(xSpeed, zRotation);
    }
 
    /* option 2?
