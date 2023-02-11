@@ -36,7 +36,6 @@ public final class Autos {
   }
 
   public static CommandBase balanceEnergyStation(DriveTrain m_drive) {
-
     return m_drive
     .balanceCommand();
   }

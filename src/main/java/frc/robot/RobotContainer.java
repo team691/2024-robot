@@ -103,7 +103,9 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-      return Autos.goForward(m_drive);
+      return Autos.goForward(m_drive)
+      .andThen(Autos.goBackward(m_drive))
+      .andThen(Autos.balanceEnergyStation(m_drive));
    /*  return m_drive
         .driveDistanceCommand(AutoConstants.kDriveDistanceMeters, AutoConstants.kDriveSpeed)
         .withTimeout(AutoConstants.kTimeoutSeconds);*/

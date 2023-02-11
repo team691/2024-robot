@@ -128,7 +128,7 @@ public class Arm extends SubsystemBase {
         final double gravitationalAccelerationMillis = 9.8 / 1_000_000;
         final double gravitationalForce = Arm.armMass * gravitationalAccelerationMillis;
         final double deltaTime = (double) Duration.between(startTime, endTime).toMillis();
-        final double gravity = gravitationalForce / deltatime;
+        final double gravity = gravitationalForce / deltaTime;
         return gravity;
     }
 
