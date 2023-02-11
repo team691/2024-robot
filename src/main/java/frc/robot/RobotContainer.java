@@ -14,8 +14,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
-import edu.wpi.first.wpilibj2.command.CommandBase;
-import static edu.wpi.first.wpilibj2.command.Commands.parallel;
+/* import edu.wpi.first.wpilibj2.command.CommandBase;
+import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -51,28 +51,36 @@ public class RobotContainer {
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
 
+<<<<<<< HEAD
   private final Joystick stick = new Joystick(OperatorConstants.kStick1ControllerPort);
   private final Joystick stick2 = new Joystick(OperatorConstants.kStick2ControllerPort);
   private final XboxController c = new XboxController(OperatorConstants.kXboxControllerPort);
+=======
+  Joystick stick = new Joystick(OperatorConstants.kStick1ControllerPort);
+  Joystick stick2 = new Joystick(OperatorConstants.kStick2ControllerPort);
+  // private final XboxController c = new XboxController(OperatorConstants.kXboxControllerPort);
+>>>>>>> 7c9d0229ba3d7abd98c352a20cdf7eecedfcb929
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
 
-
+   /*  m_drive.setDefaultCommand(
+        m_drive.arcadeDriveCommand(
+            () -> -stick.getY(), () -> (stick2.getZ())/1.2));*/ 
     // Configure default commands
     // Set the default drive command to split-stick arcade drive
-     /* m_drive.setDefaultCommand(
+    m_drive.setDefaultCommand(
             // Makes robot drive
           new RunCommand(
               () ->
                   m_drive.drive(
                   -stick.getY(),
                   stick2.getZ()/1.2
-                        )
+                        ), m_drive
                 ) 
-                );*/
+                );
   }
 
 
@@ -94,12 +102,16 @@ public class RobotContainer {
     /**new JoystickButton(stick, 2)
     .onTrue(new InstantCommand(() -> m_drive.setMaxOutput(0.5)))
     .onFalse(new InstantCommand(() -> m_drive.setMaxOutput(1)));
+<<<<<<< HEAD
 **/
   // referenced from FIRST and other WPILib contributors
     m_drive.setDefaultCommand(
         m_drive.arcadeDriveCommand(
             () -> -stick.getY(), () -> (stick2.getZ())/1.2));
             
+=======
+
+>>>>>>> 7c9d0229ba3d7abd98c352a20cdf7eecedfcb929
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
    // m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
