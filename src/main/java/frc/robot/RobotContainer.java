@@ -61,16 +61,16 @@ public class RobotContainer {
 
     // Configure default commands
     // Set the default drive command to split-stick arcade drive
-   m_drive.setDefaultCommand(
-        // Makes robot drive
-        new RunCommand(
-            () ->
-                m_drive.drive(
-                    -stick.getY(),
-                    stick2.getZ()/1.2
-                    )
-            )
-            );
+      m_drive.setDefaultCommand(
+            // Makes robot drive
+          new RunCommand(
+              () ->
+                  m_drive.drive(
+                  -stick.getY(),
+                  stick2.getZ()/1.2
+                        )
+                )
+                );
   }
 
   /**
