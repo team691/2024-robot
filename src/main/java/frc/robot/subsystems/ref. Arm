@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.math.controller.ArmFeedforward;
+import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import java.time.Duration;
@@ -17,9 +18,16 @@ public class Arm extends SubsystemBase {
     public static final double initialArmLength = 0.0;
     public static final double initialArmAngle = 0.0;
 
+    public static final double initialArmStaticGain = 0.0;
+    public static final double initialArmGravityGain = 0.0;
+    public static final double initialArmAccelerationGain = 0.0;
+    public static final double initialArmVelocityGain = 0.0;
     public static final double initialArmVelocity = 0.0;
 
     private ArmFeedforward feedforward;
+
+    private PWMSparkMax gripperNeoMotor;
+    private PWMSparkMax baseFalconMotor;
 
     private double lastArmLength;
     private double lastArmAngle;
@@ -180,6 +188,6 @@ public class Arm extends SubsystemBase {
      * Updates the robot arm hardware to match the code state
      */
     private void updateArmHardware() {
-        // TODO: Update the arm hardware
+        // TODO: Update the neo and falcon motors
     }
 }

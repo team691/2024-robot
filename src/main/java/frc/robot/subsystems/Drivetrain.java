@@ -74,8 +74,8 @@ public class DriveTrain extends SubsystemBase {
    /* DRIVE IG */
    
    // Controller-based drive
-   public void drive (double xSpeed, double zRotation) {
-      m_drive.arcadeDrive(xSpeed, zRotation);
+   public CommandBase drive (double xSpeed, double zRotation) {
+      return run(() -> m_drive.arcadeDrive(xSpeed, zRotation));
    }
 
    // Autonomous driving commands

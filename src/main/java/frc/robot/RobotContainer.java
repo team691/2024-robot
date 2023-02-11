@@ -61,15 +61,16 @@ public class RobotContainer {
 
     // Configure default commands
     // Set the default drive command to split-stick arcade drive
-   m_drive.setDefaultCommand(
-        // Makes robot drive
-        new RunCommand(
-            () ->
-                m_drive.drive(
-                    stick.getY(),
-                    stick2.getZ()/1.2
-                    ),
-            m_drive));
+      m_drive.setDefaultCommand(
+            // Makes robot drive
+          new RunCommand(
+              () ->
+                  m_drive.drive(
+                  -stick.getY(),
+                  stick2.getZ()/1.2
+                        )
+                )
+                );
   }
 
   /**
@@ -88,7 +89,7 @@ public class RobotContainer {
 
     // Schedules the motor output to be half max output when the right bumper is pressed
     // idk man its a button
-    new JoystickButton(stick, 6)
+    new JoystickButton(stick, 1)
     .onTrue(new InstantCommand(() -> m_drive.setMaxOutput(0.5)))
     .onFalse(new InstantCommand(() -> m_drive.setMaxOutput(1)));
 
