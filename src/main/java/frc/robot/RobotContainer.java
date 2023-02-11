@@ -6,27 +6,22 @@ package frc.robot;
 
 // 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 // ooh funky little command imports 
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 /* import edu.wpi.first.wpilibj2.command.CommandBase;
 import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 // constants
 //import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 
-// stuff fo the examples because templete
+// stuff for the examples because templete
 //import static edu.wpi.first.wpilibj2.command.Commands.parallel;
 //import frc.robot.commands.ExampleCommand;
 //import frc.robot.subsystems.ExampleSubsystem;
@@ -34,13 +29,13 @@ import frc.robot.commands.Autos;
 // subsystems
 import frc.robot.subsystems.DriveTrain;
 
-/**
- *
- * This class is where the bulk of the robot should be declared. Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
- * subsystems, commands, and trigger mappings) should be declared here.
- */
+
+
+// This class is where the bulk of the robot should be declared. Since Command-based is a
+// "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
+// periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
+// subsystems, commands, and trigger mappings) should be declared here.
+
 public class RobotContainer {
   // exampleeee
  // private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
@@ -64,6 +59,7 @@ public class RobotContainer {
         m_drive.arcadeDriveCommand(
             () -> -stick.getY(), () -> (stick2.getZ())/1.2));*/ 
     // Configure default commands
+
     // Set the default drive command to split-stick arcade drive
     m_drive.setDefaultCommand(
             // Makes robot drive
@@ -77,15 +73,15 @@ public class RobotContainer {
                 );
   }
 
-  /**
-   * Use this method to define your trigger->command mappings. Triggers can be created via the
-   * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
-   * predicate, or via the named factories in {@link
-   * edu.wpi.first.wpilibj2.command.button.CommandGenericHID}'s subclasses for {@link
-   * CommandXboxController Xbox}/{@link edu.wpi.first.wpilibj2.command.button.CommandPS4Controller
-   * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
-   * joysticks}.
-   */
+
+  // Use this method to define your trigger->command mappings. Triggers can be created via the
+  // {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
+  // predicate, or via the named factories in {@link
+  // edu.wpi.first.wpilibj2.command.button.CommandGenericHID}'s subclasses for {@link
+  // CommandXboxController Xbox}/{@link edu.wpi.first.wpilibj2.command.button.CommandPS4Controller
+  // PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
+  // joysticks}.
+  
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
    /* new Trigger(m_exampleSubsystem::exampleCondition)
@@ -93,10 +89,9 @@ public class RobotContainer {
 
     // Schedules the motor output to be half max output when the right bumper is pressed
     // idk man its a button
-    new JoystickButton(stick, 1)
+    /**new JoystickButton(stick, 2)
     .onTrue(new InstantCommand(() -> m_drive.setMaxOutput(0.5)))
-    .onFalse(new InstantCommand(() -> m_drive.setMaxOutput(1)));
-
+    .onFalse(new InstantCommand(() -> m_drive.setMaxOutput(1))); */
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
    // m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
