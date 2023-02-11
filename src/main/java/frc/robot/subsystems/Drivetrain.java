@@ -135,7 +135,7 @@ public class DriveTrain extends SubsystemBase {
    /* GYRO STUFF */
 
    public double getAngle() {
-      double angle = gyro.getAngle();
+      angle = gyro.getAngle();
       System.out.println(angle);
       return angle;
    }

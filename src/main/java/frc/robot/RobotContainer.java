@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 
 
+
 // constants
 //import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.OperatorConstants;
@@ -29,7 +30,13 @@ import frc.robot.commands.Autos;
 // subsystems
 import frc.robot.subsystems.DriveTrain;
 
-
+// camera
+import edu.wpi.first.cameraserver.CameraServer;
+// import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.cscore.UsbCamera;
+import edu.wpi.first.util.sendable.Sendable;
+import edu.wpi.first.cscore.CvSource;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 // This class is where the bulk of the robot should be declared. Since Command-based is a
 // "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -54,6 +61,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+    displayCamera();
 
    /*  m_drive.setDefaultCommand(
         m_drive.arcadeDriveCommand(
@@ -111,5 +119,13 @@ public class RobotContainer {
         .driveDistanceCommand(AutoConstants.kDriveDistanceMeters, AutoConstants.kDriveSpeed)
         .withTimeout(AutoConstants.kTimeoutSeconds);*/
       //return Autos.balanceEnergyStation(m_drive);
+  }
+  public void displayCamera() {
+    UsbCamera camera = CameraServer.startAutomaticCapture();
+    camera.setResolution(640, 480);
+    CameraServer.startAutomaticCapture();
+    CvSource outputStream = CameraServer.putVideo("Rectangle", 640, 480);
+    outputStream.putFrame(null);
+    SmartDashboard.putData((Sendable) outputStream);
   }
 }
