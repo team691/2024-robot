@@ -16,16 +16,16 @@ package frc.robot;
 
 public final class Constants {
   public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
+   // public static final int kDriverControllerPort = 0;
     public static final int kStick1ControllerPort = 0;
     public static final int kStick2ControllerPort = 1;
     public static final int kXboxControllerPort = 2;
   }
   public static class DriveConstants {
-    public static final int kFrontLeftMotorPort = 0;
-    public static final int kRearLeftMotorPort = 1;
-    public static final int kFrontRightMotorPort = 2;
-    public static final int kRearRightMotorPort = 3;
+    public static final int kFrontLeftMotorPort = 1;
+    public static final int kRearLeftMotorPort = 2;
+    public static final int kFrontRightMotorPort = 3;
+    public static final int kRearRightMotorPort = 4;
 
     public static final int[] kLeftEncoderPorts = new int[] {0, 1};
     public static final int[] kRightEncoderPorts = new int[] {2, 3};

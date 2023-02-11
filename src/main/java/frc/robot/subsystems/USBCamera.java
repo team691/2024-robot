@@ -1,4 +1,4 @@
-import edu.wpi.first.cameraserver;
+/**import edu.wpi.first.cameraserver;
 import edu.wpi.first.vision;
 import edu.wpi.first.cscore; 
 import edu.wpi.first.TimedRobot;
@@ -18,4 +18,4 @@ public class USBCamera extends SubsystemBase {
         server.startAutomaticCapture(name);
     }
 
-}
+}**/
