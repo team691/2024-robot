@@ -95,7 +95,6 @@ public class Limelight extends SubsystemBase {
      * @return Whether the Limelight has a valid Target based on given requirements
      */
 
-     // TODO: Should be renamed (maybe to 'isValidTarget') because this method checks if a target with specific parameters is valid, while the 'hasValidTarget' method below this one returns whether the Limelight has a valid target. It does not take in any specific arguments
     public static boolean hasValidTarget(double targetHeightThreshold, double minRatio, double maxRatio,double angleThreshold) {
         return hasAnyTarget() 
         && hasValidHeight(targetHeightThreshold) 

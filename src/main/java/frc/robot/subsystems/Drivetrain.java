@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 // COMMANDS
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 // CONSTANTS
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.AutoConstants;
@@ -73,11 +74,19 @@ public class DriveTrain extends SubsystemBase {
    
    /* DRIVE IG */
    
+   
    // Controller-based drive
    public CommandBase drive (double xSpeed, double zRotation) {
       return run(() -> m_drive.arcadeDrive(xSpeed, zRotation));
    }
 
+   /* option 2?
+   public CommandBase arcadeDriveCommand(DoubleSupplier fwd, DoubleSupplier rot) {
+      // A split-stick arcade command, with forward/backward controlled by the left
+      // hand, and turning controlled by the right.
+      return run(() -> m_drive.arcadeDrive(fwd.getAsDouble(), rot.getAsDouble()))
+          .withName("arcadeDrive");
+    } */
    // Autonomous driving commands
 
    // referenced from RapidReactCommandBot Example as supplied by WPILIB
