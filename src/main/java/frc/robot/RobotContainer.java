@@ -66,7 +66,7 @@ public class RobotContainer {
         new RunCommand(
             () ->
                 m_drive.drive(
-                    -stick.getY(),
+                    stick.getY(),
                     stick2.getZ()/1.2
                     ),
             m_drive));
