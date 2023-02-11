@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.math.controller.ArmFeedforward;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
+import edu.wpi.first.wpilibj.motorcontrol.PWMTalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import java.time.Duration;
@@ -12,6 +13,7 @@ public class Arm extends SubsystemBase {
     public static final double armMass = 0.0;
 
     // Lengths measured in <some unit>
+    // TODO: Get maximum/minimum arm lengths
     public static final double maxArmLength = 0.0;
     public static final double minArmLength = 0.0;
     
@@ -24,10 +26,20 @@ public class Arm extends SubsystemBase {
     public static final double initialArmVelocityGain = 0.0;
     public static final double initialArmVelocity = 0.0;
 
+    // Motor channels
+    // TODO: Get motor channels from design/manufacturing teams
+    public static final int gripperNeoMotorChannel = 0;
+    public static final int baseFalconMotorChannel = 0;
+
+    // Feedforward control for arm
     private ArmFeedforward feedforward;
 
-    private PWMSparkMax gripperNeoMotor;
-    private PWMSparkMax baseFalconMotor;
+    // Motors
+    private final PWMSparkMax extensionMotor = new PWMSparkMax(Arm.gripperNeoMotorChannel);
+    private final PWMTalonFX rotationMotor = new PWMTalonFX(Arm.baseFalconMotorChannel);
+
+    // Motor encoders
+    // TODO: Setup motor encoders
 
     private double lastArmLength;
     private double lastArmAngle;
@@ -188,6 +200,7 @@ public class Arm extends SubsystemBase {
      * Updates the robot arm hardware to match the code state
      */
     private void updateArmHardware() {
-        // TODO: Update the neo and falcon motors
+        // TODO: Extend arm using extensionMotor
+        // TODO: Rotate arm using rotationMotor
     }
 }
