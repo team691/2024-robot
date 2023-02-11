@@ -52,7 +52,7 @@ public class RobotContainer {
   // Replace with CommandPS4Controller or CommandJoystick if needed
 
   private final Joystick stick = new Joystick(OperatorConstants.kStick1ControllerPort);
-  private final Joystick stick2 = new Joystick(OperatorConstants.kStick1ControllerPort);
+  private final Joystick stick2 = new Joystick(OperatorConstants.kStick2ControllerPort);
   private final XboxController c = new XboxController(OperatorConstants.kXboxControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -75,15 +75,15 @@ public class RobotContainer {
                 );*/
   }
 
-  /**
-   * Use this method to define your trigger->command mappings. Triggers can be created via the
-   * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
-   * predicate, or via the named factories in {@link
-   * edu.wpi.first.wpilibj2.command.button.CommandGenericHID}'s subclasses for {@link
-   * CommandXboxController Xbox}/{@link edu.wpi.first.wpilibj2.command.button.CommandPS4Controller
-   * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
-   * joysticks}.
-   */
+
+  // Use this method to define your trigger->command mappings. Triggers can be created via the
+  // {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
+  // predicate, or via the named factories in {@link
+  // edu.wpi.first.wpilibj2.command.button.CommandGenericHID}'s subclasses for {@link
+  // CommandXboxController Xbox}/{@link edu.wpi.first.wpilibj2.command.button.CommandPS4Controller
+  // PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
+  // joysticks}.
+  //
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
    /* new Trigger(m_exampleSubsystem::exampleCondition)
@@ -91,10 +91,10 @@ public class RobotContainer {
 
     // Schedules the motor output to be half max output when the right bumper is pressed
     // idk man its a button
-    new JoystickButton(stick, 1)
+    /**new JoystickButton(stick, 2)
     .onTrue(new InstantCommand(() -> m_drive.setMaxOutput(0.5)))
     .onFalse(new InstantCommand(() -> m_drive.setMaxOutput(1)));
-
+**/
   // referenced from FIRST and other WPILib contributors
     m_drive.setDefaultCommand(
         m_drive.arcadeDriveCommand(
