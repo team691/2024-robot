@@ -7,7 +7,7 @@ package frc.robot;
 // 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.XboxController.Button;
+//import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 // ooh funky little command imports 
@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 // constants
-import frc.robot.Constants.AutoConstants;
+//import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 
@@ -87,7 +87,8 @@ public class RobotContainer {
         .onTrue(new ExampleCommand(m_exampleSubsystem)); */
 
     // Schedules the motor output to be half max output when the right bumper is pressed
-    new JoystickButton(c, Button.kRightBumper.value)
+    // idk man its a button
+    new JoystickButton(stick, 6)
     .onTrue(new InstantCommand(() -> m_drive.setMaxOutput(0.5)))
     .onFalse(new InstantCommand(() -> m_drive.setMaxOutput(1)));
 
