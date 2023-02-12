@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.ADIS16470_IMU.CalibrationTime;
 import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
 import edu.wpi.first.wpilibj.SPI.Port;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 // DIFFERENTIAL DRIVE
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -59,8 +60,8 @@ public class DriveTrain extends SubsystemBase {
    );
   
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU();
-
-   private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kOnboardCS0, CalibrationTime._32ms);
+   private final ADIS16470_IMU gyro = new ADIS16470_IMU();
+   //private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kOnboardCS0, CalibrationTime._32ms);
    
 
    double angle;
