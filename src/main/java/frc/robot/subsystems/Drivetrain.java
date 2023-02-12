@@ -60,8 +60,7 @@ public class DriveTrain extends SubsystemBase {
       DriveConstants.kRightEncoderReversed
    );
   
-   private final ADIS16470_IMU gyro = new ADIS16470_IMU();
-   
+   //private final ADIS16470_IMU gyro = new ADIS16470_IMU();
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kMXP, CalibrationTime._32ms);
    
 
