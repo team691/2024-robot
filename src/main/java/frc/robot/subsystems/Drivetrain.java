@@ -62,7 +62,7 @@ public class DriveTrain extends SubsystemBase {
   
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU();
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kMXP, CalibrationTime._32ms);
-   
+   private AHRS navx = new AHRS(SerialPort.Port.kUSB);
 
    double angle;
 
