@@ -32,7 +32,6 @@ public final class Constants {
 
     public static final boolean kLeftEncoderReversed = false;
     public static final boolean kRightEncoderReversed = true;
-
     
   /* cycles per revolution; this isn't actually the constants for the variables;
   it's just referenced from the MechanumControllerCommand Example as provided by the WPLib extention on VSCode*/

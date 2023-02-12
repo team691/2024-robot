@@ -8,6 +8,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 // import java.time.*;
 import edu.wpi.first.wpilibj.ADIS16470_IMU;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.ADIS16470_IMU.CalibrationTime;
 import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
 // DIFFERENTIAL DRIVE
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -57,6 +58,9 @@ public class DriveTrain extends SubsystemBase {
    );
   
    private final ADIS16470_IMU gyro = new ADIS16470_IMU();
+
+   //private final ADIS16470_IMU gyro = new ADIS16470_IMU(kY, kOnboardCS0, CalibrationTime._32ms);
+   
 
    double angle;
 
