@@ -73,9 +73,9 @@ public class DriveTrain extends SubsystemBase {
       // We need to invert one side of the drivetrain so that positive voltages
       // result in both sides moving forward. 
       m_right.setInverted(true);
-      gyro.reset();
-      gyro.calibrate();
-      gyro.setYawAxis(IMUAxis.kX);
+      navx.reset();
+      navx.calibrate();
+     // gyro.setYawAxis(IMUAxis.kX);
    }
    
    /* DRIVE IG */
@@ -141,7 +141,7 @@ public class DriveTrain extends SubsystemBase {
    /* GYRO STUFF */
 
    public double getAngle() {
-      angle = gyro.getAngle();
+      angle = navx.getAngle();
       System.out.println(angle);
       return angle;
    }
@@ -165,7 +165,7 @@ public class DriveTrain extends SubsystemBase {
       // End command when close enough to 0 angle
       .until (
          () ->
-            gyro.getAngle() >= (.5) && gyro.getAngle() <= (-.5))
+            navx.getAngle() >= (.5) && navx.getAngle() <= (-.5))
       // Stop the drive when the command ends
       .finallyDo(interrupted -> m_drive.stopMotor());
    }
