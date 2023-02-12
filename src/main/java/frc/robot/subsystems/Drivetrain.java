@@ -6,11 +6,13 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 // GYRO
 // import java.time.*;
-import edu.wpi.first.wpilibj.ADIS16470_IMU;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.ADIS16470_IMU.CalibrationTime;
-import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
-import edu.wpi.first.wpilibj.SPI.Port;
+//import edu.wpi.first.wpilibj.ADIS16470_IMU;
+//import edu.wpi.first.wpilibj.Encoder;
+//import edu.wpi.first.wpilibj.ADIS16470_IMU.CalibrationTime;
+//import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
+//import edu.wpi.first.wpilibj.SPI.Port;
+import com.kauailabs.navx.frc.AHRS;
+import edu.wpi.first.wpilibj.SerialPort;
 // DIFFERENTIAL DRIVE
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -58,9 +60,9 @@ public class DriveTrain extends SubsystemBase {
       DriveConstants.kRightEncoderReversed
    );
   
-   //private final ADIS16470_IMU gyro = new ADIS16470_IMU();
-
-   private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kOnboardCS0, CalibrationTime._32ms);
+   private final ADIS16470_IMU gyro = new ADIS16470_IMU();
+   
+   //private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kMXP, CalibrationTime._32ms);
    
 
    double angle;
