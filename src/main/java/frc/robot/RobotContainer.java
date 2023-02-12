@@ -76,7 +76,7 @@ public class RobotContainer {
               () ->
                   m_drive.drive(
                   -stick.getY(),
-                  stick2.getZ()/1.2
+                  -stick2.getZ()/1.2
                         ), m_drive
                 ) 
                 );
