@@ -7,7 +7,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 // GYRO
 // import java.time.*;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU;
-//import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Encoder;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU.CalibrationTime;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
 //import edu.wpi.first.wpilibj.SPI.Port;
