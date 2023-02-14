@@ -13,6 +13,7 @@ public class Arm extends SubsystemBase {
     public static final double armMass = 0.0;
 
     // Lengths measured in <some unit>
+    // heads up, these can be moved over to the constants class for organization purposes
     // TODO: Get maximum/minimum arm lengths
     public static final double maxArmLength = 0.0;
     public static final double minArmLength = 0.0;

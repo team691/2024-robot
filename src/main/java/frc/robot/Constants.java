@@ -51,4 +51,7 @@ public final class Constants {
     public static final double kBalancingSpeed = 0.1;
   }
   
+  public static class ArmConstants{
+    
+  }
 }
