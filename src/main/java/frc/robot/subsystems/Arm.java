@@ -3,7 +3,10 @@ package frc.robot.subsystems;
 import edu.wpi.first.math.controller.ArmFeedforward;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj.motorcontrol.PWMTalonFX;
+//import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import frc.robot.Constants.ArmConstants;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -13,7 +16,7 @@ public class Arm extends SubsystemBase {
     public static final double armMass = 0.0;
 
     // Lengths measured in <some unit>
-    // heads up, these can be moved over to the constants class for organization purposes
+    // heads up, constants like min and max lengths and motor channels can be moved over to the constants class for organization purposes
     // TODO: Get maximum/minimum arm lengths
     public static final double maxArmLength = 0.0;
     public static final double minArmLength = 0.0;
@@ -204,4 +207,10 @@ public class Arm extends SubsystemBase {
         // TODO: Extend arm using extensionMotor
         // TODO: Rotate arm using rotationMotor
     }
+
+    public void teleopArmControls (double verticalSpeed, double telescopingSpeed){
+        rotationMotor.set(telescopingSpeed);
+        extensionMotor.set(verticalSpeed);
+    }
+
 }

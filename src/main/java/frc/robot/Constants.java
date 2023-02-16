@@ -54,4 +54,7 @@ public final class Constants {
   public static class ArmConstants{
     
   }
+  public static class GripperConstants{
+    public static final int kGripperMotorID = 5;
+  }
 }
