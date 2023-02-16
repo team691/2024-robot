@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.Joystick;
 
 // ooh funky little command imports 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /* import edu.wpi.first.wpilibj2.command.CommandBase;
 import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
-
-
 
 // constants
 //import frc.robot.Constants.AutoConstants;
@@ -98,9 +98,9 @@ public class RobotContainer {
 
     // Schedules the motor output to be half max output when the right bumper is pressed
     // idk man its a button
-    /**new JoystickButton(stick, 2)
+    new JoystickButton(stick, 1)
     .onTrue(new InstantCommand(() -> m_drive.setMaxOutput(0.5)))
-    .onFalse(new InstantCommand(() -> m_drive.setMaxOutput(1))); */
+    .onFalse(new InstantCommand(() -> m_drive.setMaxOutput(1))); 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
    // m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
