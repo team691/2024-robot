@@ -138,6 +138,8 @@ public class Arm extends SubsystemBase {
      * @return Static gain
      */
     private double calculateStaticGain(Instant startTime, Instant endTime) {
+        final double g = calculateGravityGain(startTime, endTime);
+        double kS = Arm.armMass * g;
         return kS;
     }
 
