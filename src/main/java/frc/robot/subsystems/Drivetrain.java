@@ -29,16 +29,21 @@ import frc.robot.Constants.AutoConstants;
 
 public class DriveTrain extends SubsystemBase {
 
+//Motor control group left
   private final CANSparkMax m_frontLeftMotor = new CANSparkMax(DriveConstants.kFrontLeftMotorID, MotorType.kBrushless);
   private final CANSparkMax m_rearLeftMotor = new CANSparkMax(DriveConstants.kRearLeftMotorID, MotorType.kBrushless);
   MotorControllerGroup m_left = new MotorControllerGroup(m_frontLeftMotor, m_rearLeftMotor);
 
-
+//Motor control group right
   private final CANSparkMax m_frontRightMotor = new CANSparkMax(DriveConstants.kFrontRightMotorID, MotorType.kBrushless);
   private final CANSparkMax m_rearRightMotor = new CANSparkMax(DriveConstants.kRearRightMotorID, MotorType.kBrushless);
-  //possible comment out right here
-  //private final MotorController m_gripperMotor = new WPI_TalonSRX(5);
   MotorControllerGroup m_right = new MotorControllerGroup(m_frontRightMotor, m_rearRightMotor);
+
+  //Motors defined in Arm subsystem, possibly uncomment right here
+  /*private final CANSparkMax m_gripperMotor = new CANSparkMax(DriveConstants.kGripperMotorID, MotorType.kBrushless);
+   *private final CANSparkMax m_verticalMotor = new CANSparkMax(DriveConstants.kVerticalMotorID, MotorType.kBrushless);
+   *private final CANSparkMax m_telescopingMotor = new CANSparkMax(DriveConstants.kTelescopingMotorID, MotorType.kBrushless);
+   */
 
    // The robot's drive
    //private final DifferentialDrive m_drive = new DifferentialDrive(m_left, m_right);
