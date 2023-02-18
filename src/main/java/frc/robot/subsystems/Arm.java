@@ -218,12 +218,11 @@ public class Arm extends SubsystemBase {
         // TODO: Rotate arm using rotationMotor
     }
 
-    public void teleopArmControls (double verticalSpeed, double telescopingSpeed){
+    public void teleopArmControls (double verticalSpeed, double telescopingSpeed, double openingSpeed){
         rotationMotor.set(telescopingSpeed);
         extensionMotor.set(verticalSpeed);
-    }
-    public void Gripper (double openingSpeed){
         gripperMotor.set(openingSpeed);
+
     }
 
 }
