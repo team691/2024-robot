@@ -32,18 +32,18 @@ public class Arm extends SubsystemBase {
 
     // Motor channels
     // TODO: Get motor channels from design/manufacturing teams
-    public static final int gripperNeoMotorChannel = 0;
-    public static final int baseFalconMotorChannel = 0;
-    public static final int gripperNeoMotorChannel1 = 0;
+    public static final int m_gripperMotor = 0;
+    public static final int m_verticalMotor = 0;
+    public static final int m_telescopingMotor = 0;
 
 
     // Feedforward control for arm
     private ArmFeedforward feedforward;
 
     // Motors
-    private final PWMSparkMax extensionMotor = new PWMSparkMax(Arm.gripperNeoMotorChannel);
-    private final PWMTalonFX rotationMotor = new PWMTalonFX(Arm.baseFalconMotorChannel);
-    private final PWMSparkMax gripperMotor = new PWMSparkMax(Arm.gripperNeoMotorChannel1);
+    private final PWMSparkMax extensionMotor = new PWMSparkMax(Arm.m_verticalMotor); //chain motor
+    private final PWMTalonFX rotationMotor = new PWMTalonFX(Arm.m_telescopingMotor); //telescoping motor
+    private final PWMSparkMax gripperMotor = new PWMSparkMax(Arm.m_gripperMotor); //mini neo gripper motor
 
 
     // Motor encoders
@@ -133,7 +133,8 @@ public class Arm extends SubsystemBase {
         updateFeedforward();
         updateArmHardware();
     }
-    
+
+    // TODO: Calculate static gain
     /**
      * Calculates the static gain of the robot arm from one moment to another
      * @param startTime The start moment
