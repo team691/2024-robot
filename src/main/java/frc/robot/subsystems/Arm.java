@@ -1,5 +1,4 @@
 package frc.robot.subsystems;
-
 import edu.wpi.first.math.controller.ArmFeedforward;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj.motorcontrol.PWMTalonFX;
@@ -10,6 +9,8 @@ import frc.robot.Constants.ArmConstants;
 
 import java.time.Duration;
 import java.time.Instant;
+
+import com.kauailabs.navx.frc.AHRS;
 
 public class Arm extends SubsystemBase {
     // Mass measured in grams
@@ -138,9 +139,15 @@ public class Arm extends SubsystemBase {
      * @return Static gain
      */
     private double calculateStaticGain(Instant startTime, Instant endTime) {
-        final double g = calculateGravityGain(startTime, endTime);
-        double kS = Arm.armMass * g;
-        return kS;
+        final double gForce = calculateGravityGain(startTime, endTime) * Arm.armMass;
+        final double frictionalCoefficient = 0.0;
+        final double C = 0.0;
+
+        double normalForce = gForce * Math.cos(getCurrentArmAngle());
+        double NkS = normalForce * frictionalCoefficient;
+        double VkS = (NkS * getLastArmLength())/C;
+        
+        return VkS;
     }
 
     /**
