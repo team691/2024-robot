@@ -36,6 +36,8 @@ public class DriveTrain extends SubsystemBase {
 
   private final CANSparkMax m_frontRightMotor = new CANSparkMax(DriveConstants.kFrontRightMotorID, MotorType.kBrushless);
   private final CANSparkMax m_rearRightMotor = new CANSparkMax(DriveConstants.kRearRightMotorID, MotorType.kBrushless);
+  //possible comment out right here
+  //private final MotorController m_gripperMotor = new WPI_TalonSRX(5);
   MotorControllerGroup m_right = new MotorControllerGroup(m_frontRightMotor, m_rearRightMotor);
 
    // The robot's drive
