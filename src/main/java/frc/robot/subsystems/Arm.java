@@ -34,6 +34,8 @@ public class Arm extends SubsystemBase {
     // TODO: Get motor channels from design/manufacturing teams
     public static final int gripperNeoMotorChannel = 0;
     public static final int baseFalconMotorChannel = 0;
+    public static final int gripperNeoMotorChannel1 = 0;
+
 
     // Feedforward control for arm
     private ArmFeedforward feedforward;
@@ -41,6 +43,8 @@ public class Arm extends SubsystemBase {
     // Motors
     private final PWMSparkMax extensionMotor = new PWMSparkMax(Arm.gripperNeoMotorChannel);
     private final PWMTalonFX rotationMotor = new PWMTalonFX(Arm.baseFalconMotorChannel);
+    private final PWMSparkMax gripperMotor = new PWMSparkMax(Arm.gripperNeoMotorChannel1);
+
 
     // Motor encoders
     // TODO: Setup motor encoders
@@ -138,7 +142,7 @@ public class Arm extends SubsystemBase {
      * @return Static gain
      */
     private double calculateStaticGain(Instant startTime, Instant endTime) {
-        return kS;
+        return 0.0;
     }
 
     /**
@@ -211,6 +215,9 @@ public class Arm extends SubsystemBase {
     public void teleopArmControls (double verticalSpeed, double telescopingSpeed){
         rotationMotor.set(telescopingSpeed);
         extensionMotor.set(verticalSpeed);
+    }
+    public void Gripper (double openingSpeed){
+        gripperMotor.set(openingSpeed);
     }
 
 }
