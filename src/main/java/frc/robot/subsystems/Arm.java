@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import java.time.Duration;
 import java.time.Instant;
 
-import com.kauailabs.navx.frc.AHRS;
-
 public class Arm extends SubsystemBase {
     // Mass measured in grams
     public static final double armMass = 0.0;
