@@ -138,7 +138,7 @@ public class Arm extends SubsystemBase {
      * @return Static gain
      */
     private double calculateStaticGain(Instant startTime, Instant endTime) {
-        return 0.0;
+        return kS;
     }
 
     /**
