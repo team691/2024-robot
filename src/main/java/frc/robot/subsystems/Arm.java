@@ -142,13 +142,10 @@ public class Arm extends SubsystemBase {
      * @return Static gain
      */
     private double calculateStaticGain(Instant startTime, Instant endTime) {
-        final double gForce = calculateGravityGain(startTime, endTime) * Arm.armMass;
-        final double frictionalCoefficient = 0.0;
         final double deltaTime = (double) Duration.between(startTime, endTime).toMillis();
         final double C = 17.6*(deltaTime);
 
-        double normalForce = gForce * Math.cos(getCurrentArmAngle());
-        double NkS = normalForce * frictionalCoefficient;
+        double NkS = Arm.armMass * calculateAccelerationGain(startTime, endTime);
         double VkS = (NkS * getLastArmLength())/C;
         
         return VkS;
