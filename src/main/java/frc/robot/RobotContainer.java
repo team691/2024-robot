@@ -87,7 +87,11 @@ public class RobotContainer {
         () ->
             m_arm.teleopArmControls(
             -stick.getY(),
-            stick2.getY())
+            stick2.getY(),
+            
+            )
+            //sticks on the "xbox" controller for extension and right stick for up and down)
+            //third argument sets the gripper itself to open and close
             )
           );
   }
