@@ -228,10 +228,10 @@ public class Arm extends SubsystemBase {
             gripperMotor.set(-1); //speed = negative: to close
         }
         if (stillgripper1 == true) {
-            gripperMotor.set(0); //speed = 0: to keep gripper either open or close
+            gripperMotor.set(0); //speed = 0: to keep gripper closed
         }
         if (stillgripper2 == true) {
-            gripperMotor.set(0); //speed = 0: to keep gripper either open or close
+            gripperMotor.set(0); //speed = 0: to keep gripper opened
         }
     }
 
