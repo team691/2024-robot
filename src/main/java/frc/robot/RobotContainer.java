@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.XboxController.Button;
 // ooh funky little command imports 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -59,9 +58,9 @@ public class RobotContainer {
 
   Joystick stick = new Joystick(OperatorConstants.kStick1ControllerPort);
   Joystick stick2 = new Joystick(OperatorConstants.kStick2ControllerPort);
-  XboxController leftstick = new XboxController(OperatorConstants.kXboxControllerPort);
-  XboxController rightstick = new XboxController(OperatorConstants.kXboxControllerPort);
-  XboxController buttons = new XboxController(OperatorConstants.kXboxControllerPort);
+  XboxController leftstick = new XboxController(OperatorConstants.kXboxControllerPort); //extend arm
+  XboxController rightstick = new XboxController(OperatorConstants.kXboxControllerPort); //vertical arm
+  XboxController buttons = new XboxController(OperatorConstants.kXboxControllerPort); //open and close gripper
 
 
 
