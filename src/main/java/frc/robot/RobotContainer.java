@@ -94,10 +94,10 @@ public class RobotContainer {
             m_arm.teleopArmControls(
             leftstick.getLeftTriggerAxis(), //telescoping
             rightstick.getRightTriggerAxis(), //vertical movement
-            buttons.getBButtonPressed(), //open gripper
-            buttons.getAButtonPressed(), //close gripper
-            buttons.getAButtonReleased(), //stop closing
-            buttons.getBButtonReleased() //stop opening
+            buttons.getRightBumperPressed(), //open gripper
+            buttons.getLeftBumperPressed(), //close gripper
+            buttons.getLeftBumperReleased(), //stop closing
+            buttons.getRightBumperReleased() //stop opening
             )
             //sticks on the "xbox" controller for extension and right stick for up and down)
             //third argument sets the gripper itself to open and close
