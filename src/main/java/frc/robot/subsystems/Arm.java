@@ -2,6 +2,8 @@ package frc.robot.subsystems;
 import edu.wpi.first.math.controller.ArmFeedforward;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj.motorcontrol.PWMTalonFX;
+import edu.wpi.first.wpilibj2.command.CommandBase;
+//import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -209,7 +211,7 @@ public class Arm extends SubsystemBase {
 
         this.feedforward = new ArmFeedforward(staticGain, gravityGain, velocityGain, accelerationGain);
     }
-    
+
     /**
      * Updates the robot arm hardware to match the code state
      */
@@ -230,9 +232,44 @@ public class Arm extends SubsystemBase {
         if (stillgripper1 == true) {
             gripperMotor.set(0); //speed = 0: to keep gripper closed
         }
-        if (stillgripper2 == true) {
+      if (stillgripper2 == true) {
             gripperMotor.set(0); //speed = 0: to keep gripper opened
         }
+    }
+
+    // computer button a pressed 
+    public CommandBase returnToFloor(){
+        return runOnce(
+        () -> {
+          /* one-time action goes here */
+          //using encoders or timer to measure distance needed
+        });
+    }
+
+    public CommandBase lowGoal (){
+        return runOnce(
+        () -> {
+          /* one-time action goes here */
+            
+        });
+    }
+
+    // computer button b pressed
+    public CommandBase midGoal (){
+        return runOnce(
+        () -> {
+          /* one-time action goes here */
+
+        });
+    }
+
+    // computer button y pressed
+    public CommandBase highGoal() {
+        return runOnce(
+        () -> {
+          /* one-time action goes here */
+
+        });
     }
 
 }
