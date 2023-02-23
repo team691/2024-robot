@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.math.controller.ArmFeedforward;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj.motorcontrol.PWMTalonFX;
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -43,7 +44,7 @@ public class Arm extends SubsystemBase {
     // Motors
     private final PWMSparkMax extensionMotor = new PWMSparkMax(Arm.m_verticalMotor); //chain motor
     private final PWMTalonFX rotationMotor = new PWMTalonFX(Arm.m_telescopingMotor); //telescoping motor
-    private final PWMSparkMax gripperMotor = new PWMSparkMax(Arm.m_gripperMotor); //mini neo gripper motor
+    private final Talon gripperMotor = new Talon(Arm.m_gripperMotor); //mini neo gripper motor
 
 
     // Motor encoders

@@ -3,7 +3,6 @@ package frc.robot.subsystems;
 // BASIC MOTORS AND ENCODERS
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
 // GYRO
 // import java.time.*;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU;
