@@ -54,10 +54,16 @@ public class RobotContainer {
   private final Arm m_arm = new Arm();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
+  XboxController opControls = new XboxController(OperatorConstants.kXboxControllerPort);
 
   Joystick stick = new Joystick(OperatorConstants.kStick1ControllerPort);
   Joystick stick2 = new Joystick(OperatorConstants.kStick2ControllerPort);
-  XboxController opControls = new XboxController(OperatorConstants.kXboxControllerPort);
+  XboxController leftstick = new XboxController(OperatorConstants.kXboxControllerPort); //extend arm
+  XboxController rightstick = new XboxController(OperatorConstants.kXboxControllerPort); //vertical arm
+  XboxController buttons = new XboxController(OperatorConstants.kXboxControllerPort); //open and close gripper
+
+
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -86,8 +92,15 @@ public class RobotContainer {
       new RunCommand(
         () ->
             m_arm.teleopArmControls(
-            -stick.getY(),
-            stick2.getY())
+            leftstick.getLeftTriggerAxis(), //telescoping
+            rightstick.getRightTriggerAxis(), //vertical movement
+            buttons.getRightBumperPressed(), //open gripper
+            buttons.getLeftBumperPressed(), //close gripper
+            buttons.getLeftBumperReleased(), //stop closing
+            buttons.getRightBumperReleased() //stop opening
+            )
+            //sticks on the "xbox" controller for extension and right stick for up and down)
+            //third argument sets the gripper itself to open and close
             )
           );
   }

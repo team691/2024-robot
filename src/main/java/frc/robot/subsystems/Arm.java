@@ -217,11 +217,21 @@ public class Arm extends SubsystemBase {
         // TODO: Rotate arm using rotationMotor
     }
 
-    public void teleopArmControls (double verticalSpeed, double telescopingSpeed, double openingSpeed){
+    public void teleopArmControls (double verticalSpeed, double telescopingSpeed, boolean opengripper, boolean closegripper, boolean stillgripper1, boolean stillgripper2){
         rotationMotor.set(telescopingSpeed);
         extensionMotor.set(verticalSpeed);
-        gripperMotor.set(openingSpeed);
-
+        if (opengripper == true) {
+            gripperMotor.set(1); //speed = positive: to open
+        }
+        if (closegripper == true) {
+            gripperMotor.set(-1); //speed = negative: to close
+        }
+        if (stillgripper1 == true) {
+            gripperMotor.set(0); //speed = 0: to keep gripper closed
+        }
+        if (stillgripper2 == true) {
+            gripperMotor.set(0); //speed = 0: to keep gripper opened
+        }
     }
 
 }
