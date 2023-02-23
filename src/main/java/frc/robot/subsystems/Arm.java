@@ -134,7 +134,6 @@ public class Arm extends SubsystemBase {
         updateArmHardware();
     }
 
-    // TODO: Calculate static gain
     /**
      * Calculates the static gain of the robot arm from one moment to another
      * @param startTime The start moment
