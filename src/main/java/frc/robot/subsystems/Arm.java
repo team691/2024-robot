@@ -226,8 +226,9 @@ public class Arm extends SubsystemBase {
      * Updates the robot arm hardware to match the code state
      */
     private void updateArmHardware() {
-        // TODO: Extend arm using extensionMotor
-        // TODO: Rotate arm using rotationMotor
+        final Instant currentArmChangeTimestampt = Instant.now();
+        extensionMotor.setVoltage(feedforward.calculate(getCurrentArmAngle(), calculateVelocityGain(lastArmChangeTimestamp, currentArmChangeTimestampt), calculateAccelerationGain(lastArmChangeTimestamp, currentArmChangeTimestampt)));
+        rotationMotor.setVoltage(feedforward.calculate(getCurrentArmAngle(), calculateVelocityGain(lastArmChangeTimestamp, currentArmChangeTimestampt), calculateAccelerationGain(lastArmChangeTimestamp, currentArmChangeTimestampt)));
     }
 
     public void teleopArmControls (double verticalSpeed, double telescopingSpeed, boolean opengripper, boolean closegripper, boolean stillgripper1, boolean stillgripper2){
