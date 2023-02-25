@@ -247,7 +247,9 @@ public class Arm extends SubsystemBase {
         }
     }
 
-    // computer button a pressed 
+    // WARNING: THIS HAS A LOT OF OPPURTUNITY TO GO WRONG AND IS VERY IMPRECISE, BUT IT'S 
+
+    // button x pressed 
     public CommandBase returnToFloor(){//RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
         return runOnce(
         () -> {
@@ -257,7 +259,7 @@ public class Arm extends SubsystemBase {
           armPosition = 0;
         });
     }
-
+    // button a pressed
     public CommandBase lowGoal (){//RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
         return runOnce(
         () -> {
@@ -278,7 +280,7 @@ public class Arm extends SubsystemBase {
         });
     }
 
-    // computer button b pressed
+    // button b pressed
     public CommandBase midGoal (){//RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
         return runOnce(
         () -> {
@@ -300,7 +302,7 @@ public class Arm extends SubsystemBase {
         });
     }
 
-    // computer button y pressed
+    // button y pressed
     public CommandBase highGoal() {//RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
         return runOnce(
         () -> {
