@@ -8,10 +8,16 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 //Possible Solution: Comment Out Arm Constants
-//import frc.robot.Constants.ArmConstants;
+import frc.robot.Constants.ArmConstants;
+
 
 import java.time.Duration;
 import java.time.Instant;
+
+// Timer instead of encoders for rotation
+import edu.wpi.first.wpilibj.Timer;
+
+
 
 public class Arm extends SubsystemBase {
     // Mass measured in grams
@@ -34,21 +40,26 @@ public class Arm extends SubsystemBase {
 
     // Motor channels
     // TODO: Get motor channels from design/manufacturing teams
-    public static final int m_gripperMotor = 0;
-    public static final int m_verticalMotor = 0;
-    public static final int m_telescopingMotor = 0;
 
 
     // Feedforward control for arm
     private ArmFeedforward feedforward;
 
     // Motors
-    private final PWMSparkMax extensionMotor = new PWMSparkMax(Arm.m_verticalMotor); //chain motor
-    private final PWMTalonFX rotationMotor = new PWMTalonFX(Arm.m_telescopingMotor); //telescoping motor
-    private final PWMSparkMax gripperMotor = new PWMSparkMax(Arm.m_gripperMotor); //mini neo gripper motor
-
+    private final PWMSparkMax extensionMotor = new PWMSparkMax(ArmConstants.m_verticalMotor); //chain motor
+    private final PWMTalonFX rotationMotor = new PWMTalonFX(ArmConstants.m_telescopingMotor); //telescoping motor
+    private final PWMSparkMax gripperMotor = new PWMSparkMax(ArmConstants.m_gripperMotor); //mini neo gripper motor
 
     // Motor encoders
+
+    // ARM POSITION AUTOMATED
+    // Timer
+    private final Timer armTime = new Timer();
+
+    public double armPosition = 0;
+
+
+
     // TODO: Setup motor encoders
 
     private double lastArmLength;
@@ -237,38 +248,92 @@ public class Arm extends SubsystemBase {
     }
 
     // computer button a pressed 
-    public CommandBase returnToFloor(){
+    public CommandBase returnToFloor(){//RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
         return runOnce(
         () -> {
           /* one-time action goes here */
           //using encoders or timer to measure distance needed
+          armTime.reset();
+          armPosition = 0;
         });
     }
 
-    public CommandBase lowGoal (){
+    public CommandBase lowGoal (){//RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
         return runOnce(
         () -> {
-          /* one-time action goes here */
-            
+          armTime.reset();
+          armTime.start();
+          
+          if (armPosition == 0){
+            upArm(ArmConstants.floorToLow);
+          }
+          else if (armPosition == 2){
+            downArm(ArmConstants.midToLow);
+          }
+          else if (armPosition == 3){
+            downArm(ArmConstants.highToLow);
+          }
+
+          armPosition = 1;
         });
     }
 
     // computer button b pressed
-    public CommandBase midGoal (){
+    public CommandBase midGoal (){//RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
         return runOnce(
         () -> {
           /* one-time action goes here */
+          armTime.reset();
+          armTime.start();
+
+          if (armPosition == 0){
+            upArm(ArmConstants.floorToMid);
+          }
+          else if (armPosition == 1){
+            downArm(ArmConstants.lowToMid);
+          }
+          else if (armPosition == 3){
+            downArm(ArmConstants.highToMid);
+          }
+          armPosition = 2;
 
         });
     }
 
     // computer button y pressed
-    public CommandBase highGoal() {
+    public CommandBase highGoal() {//RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
         return runOnce(
         () -> {
           /* one-time action goes here */
+          armTime.reset();
+          armTime.start();
 
+          if (armPosition == 0){
+            upArm(ArmConstants.floorToHigh);
+          }
+          else if (armPosition == 1){
+            downArm(ArmConstants.lowToHigh);
+          }
+          else if (armPosition == 2){
+            downArm(ArmConstants.midToHigh);
+          }
+          armPosition = 3;
         });
     }
+
+    public void upArm(double timeToPos){
+        while (armTime.get() < timeToPos){
+            rotationMotor.set(ArmConstants.defaultArmSpeed);
+        }
+        rotationMotor.stopMotor();
+    }
+
+    public void downArm(double timeToPos){
+        while (armTime.get() < timeToPos){
+            rotationMotor.set(-ArmConstants.defaultArmSpeed);
+        }
+        rotationMotor.stopMotor();
+    }
+
 
 }

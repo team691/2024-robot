@@ -52,7 +52,27 @@ public final class Constants {
   }
   
   public static class ArmConstants{
+    public static final int m_gripperMotor = 0;
+    public static final int m_verticalMotor = 0;
+    public static final int m_telescopingMotor = 0;
+
+    // rotation constants for time
+    public static final double floorToLow = 0;
+    public static final double floorToMid = 0;
+    public static final double floorToHigh = 0;
+    public static final double lowToMid = 0;
+    public static final double lowToHigh = 0;
+    public static final double midToHigh = 0;
+
+    public static final double midToLow = 0;
+    public static final double highToMid = 0;
+    public static final double highToLow = 0;
+
+    public static final double lowToFloor = 0;
+    public static final double midToFloor = 0;
+    public static final double highToFloor = 0;
     
+    public static final double defaultArmSpeed = 0;
   }
   public static class GripperConstants{
     public static final int kGripperMotorID = 5;
