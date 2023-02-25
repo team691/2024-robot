@@ -247,7 +247,7 @@ public class Arm extends SubsystemBase {
         } */
     }
 
-    // WARNING: THIS HAS A LOT OF OPPURTUNITY TO GO WRONG AND IS VERY IMPRECISE, BUT IT'S 
+    // WARNING: THIS HAS A LOT OF OPPURTUNITY TO GO WRONG AND IS VERY IMPRECISE, BUT IT'S WHAT WE GOT FOR NOW
 
     // button x pressed 
     public CommandBase returnToFloor(){//RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT

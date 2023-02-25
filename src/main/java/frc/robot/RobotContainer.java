@@ -6,6 +6,8 @@ package frc.robot;
 
 // 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 // import edu.wpi.first.wpilibj.XboxController;
@@ -63,6 +65,8 @@ public class RobotContainer {
   CommandXboxController rightstick = new CommandXboxController(OperatorConstants.kXboxControllerPort); //vertical arm*/
  // XboxController buttons = new XboxController(OperatorConstants.kXboxControllerPort); //open and close gripper
 
+  // A chooser for autonomous commands
+  SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 
 
@@ -104,6 +108,13 @@ public class RobotContainer {
             //third argument sets the gripper itself to open and close
             )
           );
+
+        // Add commands to the autonomous command chooser
+    /*m_chooser.setDefaultOption("Simple Auto", );
+    m_chooser.addOption("Complex Auto", m_complexAuto); */
+
+    // Put the chooser on the dashboard
+    Shuffleboard.getTab("Autonomous").add(m_chooser);
   }
 
 
@@ -166,4 +177,6 @@ public class RobotContainer {
     outputStream.putFrame(null);
     SmartDashboard.putData((Sendable) outputStream);
   }*/
+
+
 }

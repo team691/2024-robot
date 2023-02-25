@@ -175,4 +175,8 @@ public class DriveTrain extends SubsystemBase {
       // Stop the drive when the command ends
       .finallyDo(interrupted -> m_drive.stopMotor());
    }
+
+   public double getAverageEncoderDistance() {
+      return (m_leftEncoder.getDistance() + m_rightEncoder.getDistance()) / 2.0;
+   }
 }
