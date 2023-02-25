@@ -56,7 +56,7 @@ public final class Constants {
     public static final int m_verticalMotor = 0;
     public static final int m_telescopingMotor = 0;
 
-    // rotation constants for time
+    // rotation constants for time - needs HEAVY trial and error
     public static final double floorToLow = 0;
     public static final double floorToMid = 0;
     public static final double floorToHigh = 0;
