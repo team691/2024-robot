@@ -6,6 +6,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 // import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.LimelightConstants;
 
 //NOTICE Limelight is connected to port 22 on the power distribution
 
@@ -64,8 +65,11 @@ public class Limelight extends SubsystemBase {
                 //SmartDashboard.putNumberConnection("Limelight Time Difference", timeDifference);
             SmartDashboard.putNumber("Limelight Time Difference", timeDifference);
         }
-
         return connected;
+    }
+    public void setLedOn(boolean isConnected) {
+        if (isConnected)
+        LEDModeEntry.setNumber(LimelightConstants.LED_ON);
     }
 
     /*
