@@ -8,7 +8,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.XboxController;
+// import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 // ooh funky little command imports 
 import edu.wpi.first.wpilibj2.command.Command;
@@ -61,7 +61,7 @@ public class RobotContainer {
   Joystick stick2 = new Joystick(OperatorConstants.kStick2ControllerPort);
   /*CommandXboxController xboxControl = new CommandXboxController(OperatorConstants.kXboxControllerPort); //extend arm
   CommandXboxController rightstick = new CommandXboxController(OperatorConstants.kXboxControllerPort); //vertical arm*/
-  XboxController buttons = new XboxController(OperatorConstants.kXboxControllerPort); //open and close gripper
+ // XboxController buttons = new XboxController(OperatorConstants.kXboxControllerPort); //open and close gripper
 
 
 
@@ -94,11 +94,11 @@ public class RobotContainer {
         () ->
             m_arm.teleopArmControls(
             opControls.getLeftTriggerAxis(), //telescoping
-            opControls.getRightTriggerAxis(), //vertical movement
+            opControls.getRightTriggerAxis() /* , //vertical movement
             buttons.getRightBumperPressed(), //open gripper
             buttons.getLeftBumperPressed(), //close gripper
             buttons.getLeftBumperReleased(), //stop closing
-            buttons.getRightBumperReleased() //stop opening
+            buttons.getRightBumperReleased() //stop opening*/
             )
             //sticks on the "xbox" controller for extension and right stick for up and down)
             //third argument sets the gripper itself to open and close
@@ -123,16 +123,24 @@ public class RobotContainer {
     // Schedules the motor output to be half max output when the right bumper is pressed
     // idk man its a button
     new JoystickButton(stick, 1)
-    .onTrue(new InstantCommand(() -> m_drive.setMaxOutput(0.5)))
+    .whileTrue(new InstantCommand(() -> m_drive.setMaxOutput(0.5)))
     .onFalse(new InstantCommand(() -> m_drive.setMaxOutput(1))); 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     // debounces exampleButton with a 0.1s debounce time, rising edges only
-    
+    opControls.rightBumper()
+    .whileTrue(m_arm.openGripper())
+    .onFalse(m_arm.stillGripper());
+
+    opControls.leftBumper()
+    .whileTrue(m_arm.closeGripper())
+    .onFalse(m_arm.stillGripper());
+
     opControls.x().onTrue(m_arm.returnToFloor());
     opControls.a().onTrue(m_arm.lowGoal());
     opControls.b().onTrue(m_arm.midGoal());
     opControls.y().onTrue(m_arm.highGoal());
+
   }
 
   /**

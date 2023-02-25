@@ -59,7 +59,6 @@ public class Arm extends SubsystemBase {
     public double armPosition = 0;
 
 
-
     // TODO: Setup motor encoders
 
     private double lastArmLength;
@@ -230,10 +229,10 @@ public class Arm extends SubsystemBase {
         // TODO: Rotate arm using rotationMotor
     }
 
-    public void teleopArmControls (double verticalSpeed, double telescopingSpeed, boolean opengripper, boolean closegripper, boolean stillgripper1, boolean stillgripper2){
+    public void teleopArmControls (double verticalSpeed, double telescopingSpeed/* , boolean opengripper, boolean closegripper, boolean stillgripper1, boolean stillgripper2*/){
         rotationMotor.set(telescopingSpeed);
         extensionMotor.set(verticalSpeed);
-        if (opengripper == true) {
+        /*if (opengripper == true) {
             gripperMotor.set(1); //speed = positive: to open
         }
         if (closegripper == true) {
@@ -244,7 +243,7 @@ public class Arm extends SubsystemBase {
         }
       if (stillgripper2 == true) {
             gripperMotor.set(0); //speed = 0: to keep gripper opened
-        }
+        } */
     }
 
     // WARNING: THIS HAS A LOT OF OPPURTUNITY TO GO WRONG AND IS VERY IMPRECISE, BUT IT'S 
@@ -337,5 +336,27 @@ public class Arm extends SubsystemBase {
         rotationMotor.stopMotor();
     }
 
+    public CommandBase openGripper() {
+      return runOnce(
+      () -> {
+        /* one-time action goes here */
+        gripperMotor.set(ArmConstants.defaultGripperSpeed);
+      });
+  }
+    public CommandBase closeGripper() {
+      return runOnce(
+      () -> {
+        /* one-time action goes here */
+        gripperMotor.set(-ArmConstants.defaultGripperSpeed);
+      });
+    }
 
+    public CommandBase stillGripper() {
+      return runOnce(
+      () -> {
+        /* one-time action goes here */
+        gripperMotor.stopMotor();
+      });
+      
+}
 }

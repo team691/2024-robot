@@ -75,6 +75,7 @@ public final class Constants {
     public static final double highToFloor = 0;
     
     public static final double defaultArmSpeed = 0;
+    public static final double defaultGripperSpeed = 0;
   }
   public static class GripperConstants{
     public static final int kGripperMotorID = 5;
