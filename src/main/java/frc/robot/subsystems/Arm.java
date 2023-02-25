@@ -46,9 +46,9 @@ public class Arm extends SubsystemBase {
     private ArmFeedforward feedforward;
 
     // Motors
-    private final PWMSparkMax extensionMotor = new PWMSparkMax(ArmConstants.m_verticalMotor); //chain motor
-    private final PWMTalonFX rotationMotor = new PWMTalonFX(ArmConstants.m_telescopingMotor); //telescoping motor
-    private final PWMSparkMax gripperMotor = new PWMSparkMax(ArmConstants.m_gripperMotor); //mini neo gripper motor
+    private final PWMSparkMax extensionMotor = new PWMSparkMax(ArmConstants.verticalMotorChannel); //chain motor
+    private final PWMTalonFX rotationMotor = new PWMTalonFX(ArmConstants.telescopingMotorChannel); //telescoping motor
+    private final PWMSparkMax gripperMotor = new PWMSparkMax(ArmConstants.gripperMotorChannel); //mini neo gripper motor
 
     // Motor encoders
 
