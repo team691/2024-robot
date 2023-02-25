@@ -10,7 +10,7 @@ package frc.robot;
  * globally (i.e. public static). Do not put anything functional in this class.
  *
  * <p>It is advised to statically import this class (or one of its inner classes) wherever the
- * constants are needed, to reduce verbosity.
+ * constants are needed, to reduce verbosity.</p>
  */
 
 public final class Constants {
@@ -52,9 +52,9 @@ public final class Constants {
   }
   
   public static class ArmConstants{
-    public static final int m_gripperMotor = 0;
-    public static final int m_verticalMotor = 0;
-    public static final int m_telescopingMotor = 0;
+    public static final int gripperMotorChannel = 0;
+    public static final int verticalMotorChannel = 0;
+    public static final int telescopingMotorChannel = 0;
 
     // rotation constants for time - needs HEAVY trial and error
     // TODO: Trial and error the movement time need
