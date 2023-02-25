@@ -24,7 +24,7 @@ import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 //import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
-import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.New.Arm;
 
 // stuff for the examples because templete
 //import static edu.wpi.first.wpilibj2.command.Commands.parallel;
