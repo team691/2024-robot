@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 // ooh funky little command imports 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -54,12 +55,12 @@ public class RobotContainer {
   private final Arm m_arm = new Arm();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  XboxController opControls = new XboxController(OperatorConstants.kXboxControllerPort);
+  CommandXboxController opControls = new CommandXboxController(OperatorConstants.kXboxControllerPort);
 
   Joystick stick = new Joystick(OperatorConstants.kStick1ControllerPort);
   Joystick stick2 = new Joystick(OperatorConstants.kStick2ControllerPort);
-  XboxController leftstick = new XboxController(OperatorConstants.kXboxControllerPort); //extend arm
-  XboxController rightstick = new XboxController(OperatorConstants.kXboxControllerPort); //vertical arm
+  /*CommandXboxController xboxControl = new CommandXboxController(OperatorConstants.kXboxControllerPort); //extend arm
+  CommandXboxController rightstick = new CommandXboxController(OperatorConstants.kXboxControllerPort); //vertical arm*/
   XboxController buttons = new XboxController(OperatorConstants.kXboxControllerPort); //open and close gripper
 
 
@@ -92,8 +93,8 @@ public class RobotContainer {
       new RunCommand(
         () ->
             m_arm.teleopArmControls(
-            leftstick.getLeftTriggerAxis(), //telescoping
-            rightstick.getRightTriggerAxis(), //vertical movement
+            opControls.getLeftTriggerAxis(), //telescoping
+            opControls.getRightTriggerAxis(), //vertical movement
             buttons.getRightBumperPressed(), //open gripper
             buttons.getLeftBumperPressed(), //close gripper
             buttons.getLeftBumperReleased(), //stop closing
@@ -126,7 +127,12 @@ public class RobotContainer {
     .onFalse(new InstantCommand(() -> m_drive.setMaxOutput(1))); 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-   // m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    // debounces exampleButton with a 0.1s debounce time, rising edges only
+    
+    opControls.x().onTrue(m_arm.returnToFloor());
+    opControls.a().onTrue(m_arm.lowGoal());
+    opControls.b().onTrue(m_arm.midGoal());
+    opControls.y().onTrue(m_arm.highGoal());
   }
 
   /**
