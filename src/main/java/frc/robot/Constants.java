@@ -50,6 +50,14 @@ public final class Constants {
     public static final double kTurnSpeed = 0.75;
     public static final double kBalancingSpeed = 0.1;
   }
+
+  public static class LimelightConstants{
+    public static final int LED_ON = 3;
+    public static final int LED_OFF = 1;
+    public static final int TARGET_PIPELINE = 0;
+    public static final int DEFAULT_PIPELINE = 0;
+    public static final int DRIVE_PIPELINE = 2;
+  }
   
   public static class ArmConstants{
     public static final int gripperMotorChannel = 0;
