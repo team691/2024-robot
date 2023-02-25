@@ -8,6 +8,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+//import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
 
 //Possible Solution: Comment Out Arm Constants
 import frc.robot.Constants.ArmConstants;
@@ -42,8 +45,8 @@ public class Arm extends SubsystemBase {
   private ArmFeedforward feedforward;
 
   // Motors
-  private final PWMSparkMax extensionMotor = new PWMSparkMax(ArmConstants.verticalMotorChannel); // chain motor
-  private final PWMTalonFX rotationMotor = new PWMTalonFX(ArmConstants.telescopingMotorChannel); // telescoping motor
+  private final WPI_VictorSPX extensionMotor = new WPI_VictorSPX(ArmConstants.extensionMotorChannel); // chain motor
+  private final PWMTalonFX rotationMotor = new PWMTalonFX(ArmConstants.rotationMotorChannel); // telescoping motor
   private final PWMSparkMax gripperMotor = new PWMSparkMax(ArmConstants.gripperMotorChannel); // mini neo gripper motor
 
   // Motor encoders

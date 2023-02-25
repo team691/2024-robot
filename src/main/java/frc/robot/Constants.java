@@ -60,9 +60,9 @@ public final class Constants {
   }
   
   public static class ArmConstants{
-    public static final int gripperMotorChannel = 0;
-    public static final int verticalMotorChannel = 0;
-    public static final int telescopingMotorChannel = 0;
+    public static final int gripperMotorChannel = 5;
+    public static final int rotationMotorChannel = 7;
+    public static final int extensionMotorChannel = 6;
 
     // rotation constants for time - needs HEAVY trial and error
     // TODO: Trial and error the movement time need
