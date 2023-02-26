@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-// import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj.XboxController;
+//import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 // ooh funky little command imports 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /* import edu.wpi.first.wpilibj2.command.CommandBase;
 import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
-
+//import edu.wpi.first.wpilibj2.command.button.Trigger;
 // constants
 //import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.OperatorConstants;
@@ -57,8 +57,14 @@ public class RobotContainer {
   private final Arm m_arm = new Arm();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  CommandXboxController opControls = new CommandXboxController(OperatorConstants.kXboxControllerPort);
-
+  XboxController opControls = new XboxController(OperatorConstants.kXboxControllerPort);
+  /* Trigger yButton = new JoystickButton(opControls, XboxController.Button.kY.value);
+  Trigger xButton = new JoystickButton(opControls, XboxController.Button.kX.value);
+  Trigger aButton = new JoystickButton(opControls, XboxController.Button.kA.value);
+  Trigger bButton = new JoystickButton(opControls, XboxController.Button.kB.value);
+  Trigger leftBumper = new JoystickButton(opControls, XboxController.Button.kLeftBumper.value);
+  Trigger rightBumper = new JoystickButton(opControls, XboxController.Button.kRightBumper.value); */
+  
   Joystick stick = new Joystick(OperatorConstants.kStick1ControllerPort);
   Joystick stick2 = new Joystick(OperatorConstants.kStick2ControllerPort);
   /*CommandXboxController xboxControl = new CommandXboxController(OperatorConstants.kXboxControllerPort); //extend arm
@@ -139,18 +145,21 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     // debounces exampleButton with a 0.1s debounce time, rising edges only
-    opControls.rightBumper()
+    new JoystickButton(opControls, XboxController.Button.kRightBumper.value)
     .whileTrue(m_arm.openGripper())
     .onFalse(m_arm.stillGripper());
 
-    opControls.leftBumper()
+    new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
     .whileTrue(m_arm.closeGripper())
     .onFalse(m_arm.stillGripper());
 
-    opControls.x().onTrue(m_arm.returnToFloor());
-    opControls.a().onTrue(m_arm.lowGoal());
-    opControls.b().onTrue(m_arm.midGoal());
-    opControls.y().onTrue(m_arm.highGoal());
+    new JoystickButton(opControls, XboxController.Button.kX.value).onTrue(m_arm.returnToFloor());
+
+    new JoystickButton(opControls, XboxController.Button.kA.value).onTrue(m_arm.lowGoal());
+
+    new JoystickButton(opControls, XboxController.Button.kB.value).onTrue(m_arm.midGoal());
+
+    new JoystickButton(opControls, XboxController.Button.kY.value).onTrue(m_arm.highGoal());
 
   }
 
