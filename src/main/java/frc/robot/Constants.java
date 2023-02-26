@@ -53,6 +53,7 @@ public final class Constants {
     public static double kAutoDriveSpeed;
     public static double rot;
     public static double rot1;
+    public static double rot2;
   }
 
   public static class LimelightConstants{

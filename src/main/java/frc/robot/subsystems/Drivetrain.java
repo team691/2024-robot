@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj2.command.Command;
 // COMMANDS
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -68,7 +69,7 @@ public class DriveTrain extends SubsystemBase {
   
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU();
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kMXP, CalibrationTime._32ms);
-   private AHRS navx = new AHRS(SerialPort.Port.kUSB);
+   private final AHRS navx = new AHRS(SerialPort.Port.kUSB);
 
    double angle;
 
@@ -103,7 +104,7 @@ public class DriveTrain extends SubsystemBase {
 
    // referenced from RapidReactCommandBot Example as supplied by WPILIB
 
-   public CommandBase driveDistanceCommand(double distanceMeters, double speed, double zRotation) {
+  /* public CommandBase driveDistanceCommand(double distanceMeters, double speed, double zRotation) {
       return runOnce(
          () -> {
             // Reset encoders at the start of the command
@@ -119,7 +120,7 @@ public class DriveTrain extends SubsystemBase {
          >= distanceMeters)
       // Stop the drive when the command ends
       .finallyDo(interrupted -> m_drive.stopMotor());
-   }
+   }*/ 
 
    /* SLOWER MODE OPTION THING */
    public void setMaxOutput(double maxOutput) {
@@ -147,7 +148,7 @@ public class DriveTrain extends SubsystemBase {
    /* GYRO STUFF */
 
    public double getAngle() {
-      angle = navx.getAngle();
+      double angle = navx.getAngle();
       System.out.println(angle);
       return angle;
    }
@@ -158,11 +159,11 @@ public class DriveTrain extends SubsystemBase {
          () -> {
             getAngle();
             // Reset encoders at the start of the command
-            if (angle >= .5) {
+            if (getAngle() >= .5) {
             SmartDashboard.putString("Check", "Upward");
             m_drive.arcadeDrive(AutoConstants.kBalancingSpeed, 0);
             } else {
-               if (angle <= -.5) {
+               if (getAngle() <= -.5) {
                   SmartDashboard.putString("Check", "Downward");
                   m_drive.arcadeDrive(-AutoConstants.kBalancingSpeed, 0);
                }
@@ -171,7 +172,7 @@ public class DriveTrain extends SubsystemBase {
       // End command when close enough to 0 angle
       .until (
          () ->
-            navx.getAngle() >= (.5) && navx.getAngle() <= (-.5))
+            getAngle() >= (.5) && getAngle() <= (-.5))
       // Stop the drive when the command ends
       .finallyDo(interrupted -> m_drive.stopMotor());
    }
