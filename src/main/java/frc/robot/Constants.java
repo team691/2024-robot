@@ -49,6 +49,8 @@ public final class Constants {
     public static final double kDriveSpeed = 0.5;
     public static final double kTurnSpeed = 0.75;
     public static final double kBalancingSpeed = 0.1;
+    public static double kAutoDriveDistanceInches;
+    public static double kAutoDriveSpeed;
   }
 
   public static class LimelightConstants{
