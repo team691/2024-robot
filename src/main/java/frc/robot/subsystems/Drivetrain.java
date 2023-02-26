@@ -164,7 +164,7 @@ public class DriveTrain extends SubsystemBase {
             } else {
                if (angle <= -.5) {
                   SmartDashboard.putString("Check", "Downward");
-                  m_drive.arcadeDrive(AutoConstants.kBalancingSpeed, 180);
+                  m_drive.arcadeDrive(-AutoConstants.kBalancingSpeed, 0);
                }
             }
          })

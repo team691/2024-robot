@@ -11,6 +11,7 @@ public class DriveDistance extends CommandBase {
   private final DriveTrain m_drive;
   private final double m_distance;
   private final double m_speed;
+  private final double m_rotation;
 
   /**
    * Creates a new DriveDistance.
@@ -19,22 +20,23 @@ public class DriveDistance extends CommandBase {
    * @param speed The speed at which the robot will drive
    * @param drive The drive subsystem on which this command will run
    */
-  public DriveDistance(double inches, double speed, DriveTrain drive) {
+  public DriveDistance(double inches, double speed, double zRotation, DriveTrain drive) {
     m_distance = inches;
     m_speed = speed;
     m_drive = drive;
+    m_rotation = zRotation;
     addRequirements(m_drive);
   }
 
   @Override
   public void initialize() {
     m_drive.resetEncoders();
-    m_drive.drive(m_speed, 0);
+    m_drive.drive(m_speed, m_rotation);
   }
 
   @Override
   public void execute() {
-    m_drive.drive(m_speed, 0);
+    m_drive.drive(m_speed, m_rotation);
   }
 
   @Override
