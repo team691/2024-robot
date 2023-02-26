@@ -103,7 +103,7 @@ public class RobotContainer {
             buttons.getLeftBumperPressed(), //close gripper
             buttons.getLeftBumperReleased(), //stop closing
             buttons.getRightBumperReleased() //stop opening*/
-            )
+            ), m_arm
             //sticks on the "xbox" controller for extension and right stick for up and down)
             //third argument sets the gripper itself to open and close
             )
