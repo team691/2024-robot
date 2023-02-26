@@ -8,6 +8,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.XboxController;
@@ -16,6 +17,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /* import edu.wpi.first.wpilibj2.command.CommandBase;
 import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
@@ -23,7 +25,8 @@ import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 // constants
 //import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.Autos;
+import frc.robot.commands.BalanceAuto;
+import frc.robot.commands.Score;
 import frc.robot.subsystems.New.Arm;
 
 // stuff for the examples because templete
@@ -72,7 +75,10 @@ public class RobotContainer {
  // XboxController buttons = new XboxController(OperatorConstants.kXboxControllerPort); //open and close gripper
 
   // A chooser for autonomous commands
-  SendableChooser<Command> m_chooser = new SendableChooser<>();
+  SendableChooser<Command> m_autoChooser = new SendableChooser<>();
+
+  // A complex auto routine that drives forward, drops a hatch, and then drives backward.
+  //private final Command BalanceAuto = new BalanceAuto(m_drive);
 
 
 
@@ -104,8 +110,8 @@ public class RobotContainer {
         () ->
             m_arm.teleopArmControls(
               // if left trigger axis being bound to [0,1] is a problem, subtract .5, and multiply by 2
-            opControls.getLeftTriggerAxis(), //telescoping
-            opControls.getRightTriggerAxis() /* , //vertical movement
+            (opControls.getLeftTriggerAxis()-.5)*2, //telescoping
+            (opControls.getRightTriggerAxis()-.5)*2 /* , //vertical movement
             buttons.getRightBumperPressed(), //open gripper
             buttons.getLeftBumperPressed(), //close gripper
             buttons.getLeftBumperReleased(), //stop closing
@@ -121,7 +127,7 @@ public class RobotContainer {
     m_chooser.addOption("Complex Auto", m_complexAuto); */
 
     // Put the chooser on the dashboard
-    Shuffleboard.getTab("Autonomous").add(m_chooser);
+    Shuffleboard.getTab("Autonomous").add(m_autoChooser);
   }
 
 
@@ -171,9 +177,9 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-      return Autos.goForward(m_drive)
+      return m_autoChooser.getSelected(); /*Autos.goForward(m_drive)
       .andThen(Autos.goBackward(m_drive))
-      .andThen(Autos.balanceEnergyStation(m_drive));
+      .andThen(Autos.balanceEnergyStation(m_drive));*/
    /*  return m_drive
         .driveDistanceCommand(AutoConstants.kDriveDistanceMeters, AutoConstants.kDriveSpeed)
         .withTimeout(AutoConstants.kTimeoutSeconds);*/
@@ -188,5 +194,11 @@ public class RobotContainer {
     SmartDashboard.putData((Sendable) outputStream);
   }*/
 
+  public void initializeAutoChooser(){
+    m_autoChooser.setDefaultOption("Do Nothing", new WaitCommand(0));
+    m_autoChooser.addOption("Balance", new BalanceAuto(m_drive));
+    m_autoChooser.addOption("Score", new Score());
+    SmartDashboard.putData("Auto Selecter", m_autoChooser);
+  }
 
 }
