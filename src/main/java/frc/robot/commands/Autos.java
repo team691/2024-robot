@@ -15,6 +15,11 @@ import frc.robot.Constants.AutoConstants;
 import frc.robot.subsystems.DriveTrain;
 
 
+/*// Shuffleboard
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard*/
+
 public final class Autos {
   // private final DriveTrain m_drive = new DriveTrain();
   /** Example static factory for an autonomous command. */
@@ -39,6 +44,7 @@ public final class Autos {
     return m_drive
     .balanceCommand();
   }
+
 
   private Autos() {
     throw new UnsupportedOperationException("This is a utility class!");

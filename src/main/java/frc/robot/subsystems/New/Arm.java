@@ -248,8 +248,8 @@ public class Arm extends SubsystemBase {
                                                                               * closegripper, boolean stillgripper1,
                                                                               * boolean stillgripper2
                                                                               */) {
-    rotationMotor.set(telescopingSpeed);
-    extensionMotor.set(verticalSpeed);
+    rotationMotor.set(verticalSpeed);
+    extensionMotor.set(telescopingSpeed);
     /*
      * if (opengripper == true) {
      * gripperMotor.set(1); //speed = positive: to open
