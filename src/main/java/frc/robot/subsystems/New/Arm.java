@@ -243,13 +243,18 @@ public class Arm extends SubsystemBase {
         calculateAccelerationGain(lastArmChangeTimestamp, currentArmChangeTimestampt)));
   }
 
-  public void teleopArmControls(double verticalSpeed, double telescopingSpeed/*
+  public void teleopArmControls(double extension, double reduction/*  double rotation*/) /*double verticalSpeed, double telescopingSpeed
                                                                               * , boolean opengripper, boolean
                                                                               * closegripper, boolean stillgripper1,
                                                                               * boolean stillgripper2
-                                                                              */) {
-    rotationMotor.set(verticalSpeed);
-    extensionMotor.set(telescopingSpeed);
+                                                                              */ {
+    //rotationMotor.set(rotation);
+    if (extension > 0){
+      extensionMotor.set(extension);
+    }
+    else if (reduction < 0){
+      extensionMotor.set(reduction);
+    }
     /*
      * if (opengripper == true) {
      * gripperMotor.set(1); //speed = positive: to open
