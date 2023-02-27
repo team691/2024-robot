@@ -110,7 +110,8 @@ public class RobotContainer {
         () ->
             m_arm.teleopArmControls(
             (opControls.getLeftTriggerAxis()), //telescoping
-            (-opControls.getRightTriggerAxis()) /* 
+            (-opControls.getRightTriggerAxis()),
+            opControls.getRightY() /* 
             buttons.getRightBumperPressed(), //open gripper
             buttons.getLeftBumperPressed(), //close gripper
             buttons.getLeftBumperReleased(), //stop closing
