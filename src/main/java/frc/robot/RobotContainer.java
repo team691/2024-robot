@@ -110,8 +110,8 @@ public class RobotContainer {
         () ->
             m_arm.teleopArmControls(
               // if left trigger axis being bound to [0,1] is a problem, subtract .5, and multiply by 2
-            (opControls.getLeftTriggerAxis()-.5)*2, //telescoping
-            (opControls.getRightTriggerAxis()-.5)*2 /* , //vertical movement
+            (opControls.getLeftTriggerAxis()), //telescoping
+            (opControls.getRightTriggerAxis()) /* , //vertical movement
             buttons.getRightBumperPressed(), //open gripper
             buttons.getLeftBumperPressed(), //close gripper
             buttons.getLeftBumperReleased(), //stop closing
