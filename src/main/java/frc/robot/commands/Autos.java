@@ -23,7 +23,7 @@ public final class Autos {
   }
   */
 
-  public static CommandBase goForward(DriveTrain m_drive) {
+ /* public static CommandBase goForward(DriveTrain m_drive) {
     return m_drive
     .driveDistanceCommand(AutoConstants.kDriveDistanceMeters, AutoConstants.kDriveSpeed, 0)
     .withTimeout(AutoConstants.kTimeoutSeconds);
@@ -33,7 +33,7 @@ public final class Autos {
     return m_drive
     .driveDistanceCommand(AutoConstants.kDriveDistanceMeters, AutoConstants.kDriveSpeed, 180)
     .withTimeout(AutoConstants.kTimeoutSeconds);
-  }
+  } */
 
   public static CommandBase balanceEnergyStation(DriveTrain m_drive) {
     return m_drive
