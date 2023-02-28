@@ -26,8 +26,10 @@ import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 //import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.BalanceAuto;
-import frc.robot.commands.Score;
+import frc.robot.commands.ScoreAuto;
+// import frc.robot.commands.gripperControlCommand;
 import frc.robot.subsystems.New.Arm;
+//import frc.robot.subsystems.New.ArmPosition;
 
 // stuff for the examples because templete
 //import static edu.wpi.first.wpilibj2.command.Commands.parallel;
@@ -160,13 +162,17 @@ public class RobotContainer {
     .whileTrue(m_arm.closeGripper())
     .onFalse(m_arm.stillGripper());
 
-    new JoystickButton(opControls, XboxController.Button.kX.value).onTrue(m_arm.returnToFloor());
+    new JoystickButton(opControls, XboxController.Button.kX.value)
+      .onTrue(m_arm.returnToFloor());
 
-    new JoystickButton(opControls, XboxController.Button.kA.value).onTrue(m_arm.lowGoal());
+    new JoystickButton(opControls, XboxController.Button.kA.value)
+      .onTrue(m_arm.lowGoal());
 
-    new JoystickButton(opControls, XboxController.Button.kB.value).onTrue(m_arm.midGoal());
+    new JoystickButton(opControls, XboxController.Button.kB.value)
+      .onTrue(m_arm.midGoal());
 
-    new JoystickButton(opControls, XboxController.Button.kY.value).onTrue(m_arm.highGoal());
+    new JoystickButton(opControls, XboxController.Button.kY.value)
+      .onTrue(m_arm.highGoal());
 
   }
 
@@ -197,7 +203,7 @@ public class RobotContainer {
   public void initializeAutoChooser(){
     m_autoChooser.setDefaultOption("Do Nothing", new WaitCommand(0));
     m_autoChooser.addOption("Balance", new BalanceAuto(m_drive));
-    m_autoChooser.addOption("Score", new Score());
+    m_autoChooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
     SmartDashboard.putData("Auto Selecter", m_autoChooser);
   }
 

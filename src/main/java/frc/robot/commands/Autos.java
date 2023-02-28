@@ -13,6 +13,7 @@ import frc.robot.Constants.AutoConstants;
 
 // Subsystems
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.New.Arm;
 
 
 /*// Shuffleboard
@@ -45,6 +46,33 @@ public final class Autos {
     .balanceCommand();
   }
 
+  public static CommandBase returnToFloorAuto (Arm m_arm){
+    return m_arm
+    .returnToFloor();
+  }
+  public static CommandBase lowGoalAuto(Arm m_arm){
+    return m_arm
+    .lowGoal();
+  }
+  public static CommandBase midGoalAuto(Arm m_arm){
+    return m_arm
+    .midGoal();
+  }
+
+  public static CommandBase highGoalAuto(Arm m_arm){
+    return m_arm
+    .highGoal();
+  }
+
+  public static CommandBase closeGripper(Arm m_arm){
+    return m_arm
+    .closeGripper();
+  }
+
+  public static CommandBase openGripper(Arm m_arm){
+    return m_arm
+    .openGripper();
+  }
 
   private Autos() {
     throw new UnsupportedOperationException("This is a utility class!");

@@ -5,10 +5,15 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.New.Arm;
+import frc.robot.subsystems.New.ArmPosition;
 
-public class Score extends CommandBase {
+public class gripperControlCommand extends CommandBase {
+  private final Arm m_arm;
   /** Creates a new ScoreAuto. */
-  public Score() {
+  public gripperControlCommand(Arm arm) {
+    m_arm = arm;
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -18,7 +23,9 @@ public class Score extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    Autos.openGripper(m_arm);
+  }
 
   // Called once the command ends or is interrupted.
   @Override

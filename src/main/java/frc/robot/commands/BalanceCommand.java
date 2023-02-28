@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.subsystems.DriveTrain;
 
-public class Balance extends CommandBase{
+public class BalanceCommand extends CommandBase{
   private final DriveTrain m_drive;
   
-    public Balance(DriveTrain drive) {
+    public BalanceCommand(DriveTrain drive) {
         m_drive = drive;
         // Use addRequirements() here to declare subsystem dependencies.
         addRequirements(drive);

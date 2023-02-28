@@ -35,7 +35,7 @@ public final class Constants {
     
   /* cycles per revolution; this isn't actually the constants for the variables;
   it's just referenced from the MechanumControllerCommand Example as provided by the WPLib extention on VSCode*/
-    public static final int kEncoderCPR = 1024;
+    public static final int kEncoderCPR = 42;
     public static final double kWheelDiameterMeters = 0.15;
     public static final double kEncoderDistancePerPulse =
       // Assumes the encoders are directly mounted on the wheel shafts
