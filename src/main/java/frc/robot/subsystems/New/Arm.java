@@ -53,9 +53,10 @@ public class Arm extends SubsystemBase {
   // Motor encoders
 
   // ARM POSITION AUTOMATED
-  // Timer
-  private final Timer armTime = new Timer();
+  // Timers
+  private final Timer rotationTime = new Timer();
   private final Timer gripperTime = new Timer();
+  private final Timer feedForwardTime = new Timer();
 
   public ArmPosition armPosition = ArmPosition.LOW;
 
@@ -286,7 +287,7 @@ public class Arm extends SubsystemBase {
         () -> {
           /* one-time action goes here */
           // using encoders or timer to measure distance needed
-          armTime.reset();
+          rotationTime.reset();
           armPosition = ArmPosition.GROUND;
         });
   }
@@ -295,8 +296,8 @@ public class Arm extends SubsystemBase {
   public CommandBase lowGoal() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
     return runOnce(
         () -> {
-          armTime.reset();
-          armTime.start();
+          rotationTime.reset();
+          rotationTime.start();
 
           if (armPosition == ArmPosition.GROUND) {
             upArm(ArmConstants.floorToLow);
@@ -315,8 +316,8 @@ public class Arm extends SubsystemBase {
     return runOnce(
         () -> {
           /* one-time action goes here */
-          armTime.reset();
-          armTime.start();
+          rotationTime.reset();
+          rotationTime.start();
 
           if (armPosition == ArmPosition.GROUND) {
             upArm(ArmConstants.floorToMid);
@@ -335,8 +336,8 @@ public class Arm extends SubsystemBase {
     return runOnce(
         () -> {
           /* one-time action goes here */
-          armTime.reset();
-          armTime.start();
+          rotationTime.reset();
+          rotationTime.start();
 
           if (armPosition == ArmPosition.GROUND) {
             upArm(ArmConstants.floorToHigh);
@@ -351,16 +352,16 @@ public class Arm extends SubsystemBase {
   }
 
   public void upArm(double timeToPos) {
-    while (armTime.get() < timeToPos) {
-      rotationMotor.set(ArmConstants.defaultArmSpeed);
+    while (rotationTime.get() < timeToPos) {
+      rotationMotor.set(ArmConstants.defaultRotationSpeed);
     }
 
     rotationMotor.stopMotor();
   }
 
   public void downArm(double timeToPos) {
-    while (armTime.get() < timeToPos) {
-      rotationMotor.set(-ArmConstants.defaultArmSpeed);
+    while (rotationTime.get() < timeToPos) {
+      rotationMotor.set(-ArmConstants.defaultRotationSpeed);
     }
     rotationMotor.stopMotor();
   }
@@ -398,6 +399,17 @@ public class Arm extends SubsystemBase {
         () -> {
           /* one-time action goes here */
           gripperMotor.stopMotor();
+        });
+  }
+
+  public CommandBase retractArm(double retractionTime){
+    return runOnce(
+        () -> {
+          while (rotationTime.get() < retractionTime){
+            extensionMotor.set(-ArmConstants.defaultRotationSpeed);
+          }
+          /* one-time action goes here */
+          extensionMotor.stopMotor();
         });
   }
 }

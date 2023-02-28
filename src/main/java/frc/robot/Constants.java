@@ -92,7 +92,8 @@ public final class Constants {
     public static final double midToFloor = 0;
     public static final double highToFloor = 0;
     
-    public static final double defaultArmSpeed = 0;
+    public static final double defaultRotationSpeed = 0;
+    public static final double defaultExtensionSpeed = 0;
     public static final double defaultGripperSpeed = 0;
   }
   public static class GripperConstants{
