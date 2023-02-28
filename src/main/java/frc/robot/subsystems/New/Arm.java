@@ -30,10 +30,10 @@ public class Arm extends SubsystemBase {
   // heads up, constants like min and max lengths and motor channels can be moved
   // over to the constants class for organization purposes
   // TODO: Get maximum/minimum arm lengths
-  public static final double maxArmLength = 0.0;
-  public static final double minArmLength = 0.0;
+  public static final double maxArmLength = 44.0;
+  public static final double minArmLength = 6.0;
 
-  public static final double initialArmLength = 0.0;
+  public static final double initialArmLength = 6.0;
   public static final double initialArmAngle = 0.0;
 
   public static final double initialArmStaticGain = 0.0;

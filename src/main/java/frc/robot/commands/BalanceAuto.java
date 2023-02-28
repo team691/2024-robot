@@ -19,9 +19,7 @@ public class BalanceAuto extends SequentialCommandGroup {
     addCommands(
         // Drive forward the specified distance
         new DriveDistanceCommand(
-            AutoConstants.kAutoDriveDistanceInches, AutoConstants.kAutoDriveSpeed,AutoConstants.rot1, drive),
-        new DriveDistanceCommand(
-            AutoConstants.kAutoDriveDistanceInches, AutoConstants.kAutoDriveSpeed,AutoConstants.rot2, drive),
+            AutoConstants.kAutoDriveDistanceInchesBalance, AutoConstants.kAutoDriveSpeed,0, drive),
         new BalanceCommand(drive)
     );
   } 
