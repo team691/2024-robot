@@ -1,0 +1,103 @@
+Measurements (unfinished):
+Alliance Area:
+Size:
+Width: 20 ft.
+Depth: 9 ft., 10.25 in.
+— — — —
+Axis to “start” of Robot:
+11 ft.
+— — — —
+Barriers:
+Size:
+Length: 7 ft., 4 in.
+— — — —
+Barrier Bases:
+Size:
+Width: 1 ft., 4 in.
+Height: 0.25 in.
+— — — —
+Barrier Base Supported Polycarbonate Wall:
+Size:
+Thickness: 0.5 in.
+Height: 1 ft., 0.25 in.
+— — — —
+Cable Protectors:
+Size:
+Length: 5 ft., 6 in.
+— — — —
+Charge Stations:
+Size:
+Width: 8 ft., 1.25 in.
+Depth: 4.125 in.
+Location:
+Center from far edge of grid’s tape line to center of width of community: 8 ft., 2.625 in.
+— — — —
+Charge Station Main Pivoting Surface:
+Size:
+Width: 8 ft.
+Depth: 4 ft.
+— — — —
+Community:
+Size:
+Width: 18 in.
+Depth: 11 ft., 0.375 in. - 16 ft., 1.25 in.
+— — — —
+Exit Segments mount over guardrail:
+Size:
+Height: 1 ft., 8.75 in.
+Width: 6 in.
+Covers 1.75 in. of field
+— — — —
+Field:
+Size:
+Width: 26 ft., 3.5 in.
+Length: 54 ft., 3.25 in.
+— — — —
+Floor Segments:
+Size:
+Height: 0.75 in.
+Width: 7 in.
+Other Important Notes:
+Has ~45deg lead-in ramps on each leading edge and secured to carpet using hook fastener which increases height to 0.875 in.
+— — — —
+Gates:
+Size:
+Width: 3 ft., 2 in.
+— — — —
+Guardrails:
+Size:
+Height: 1 ft., 18 in.
+— — — —
+Marking Tape:
+Size:
+Width: 2 in.
+— — — —
+Loading Zone:
+Size:
+Width: 8 ft., 3 in.
+Depth: 11 ft., 0.25 in. - 22 ft., 0.25 in.
+— — — —
+Robot Bumpers:
+Size:
+Width: 39 in.
+— — — —
+Staging Mark:
+Size:
+Width: 4 in.
+Length: 4 in.
+Spacing: 4 ft.
+Location:
+From far edge of corresponding grid tape: 18 ft., 8 in.
+Other Important Notes:
+1 - 8 marks used to identify starting locations for game pieces
+Each set of 4 marks is centered about the width of the Community
+— — — —
+Starting Line:
+Location:
+From face of alliance wall to near edge of tape: 2 ft., 4 in.
+— — — —
+Substation Area:
+Size:
+Width: 12 ft.
+Depth: 18 ft., 7 in.
+— — — — 
