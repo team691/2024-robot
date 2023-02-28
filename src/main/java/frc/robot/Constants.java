@@ -69,8 +69,13 @@ public final class Constants {
     public static final int rotationMotorChannel = 7;
     public static final int extensionMotorChannel = 6;
 
+    // gripper constants to open or close - guesstimate
+    //TODO: Trial and error the gripper time needed
+    public static final double openGripperTime = 0;
+    public static final double closeGripperTime = 0;
+
     // rotation constants for time - needs HEAVY trial and error
-    // TODO: Trial and error the movement time need
+    // TODO: Trial and error the movement time needed
     public static final double floorToLow = 0;
     public static final double floorToMid = 0;
     public static final double floorToHigh = 0;

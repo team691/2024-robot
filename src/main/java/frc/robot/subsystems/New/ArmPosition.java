@@ -7,9 +7,9 @@ public enum ArmPosition {
     HIGH;
 
     public static final double groundNumericPosition = 0;
-    public static final double lowNumericPosition = 0;
-    public static final double mediumNumericPosition = 0;
-    public static final double highNumericPosition = 0;
+    public static final double lowNumericPosition = 1;
+    public static final double mediumNumericPosition = 2;
+    public static final double highNumericPosition = 3;
 
     public static double numericPosition(ArmPosition pos) {
         switch(pos) {

@@ -111,9 +111,11 @@ public class RobotContainer {
       new RunCommand(
         () ->
             m_arm.teleopArmControls(
-            (opControls.getLeftTriggerAxis()), //telescoping
-            (-opControls.getRightTriggerAxis()),
-            opControls.getLeftY() /* 
+              opControls.getLeftY(), // telescoping
+              opControls.getRightY(), // rotation
+              (opControls.getLeftTriggerAxis()), // open
+              (-opControls.getRightTriggerAxis()) // close
+            /* 
             buttons.getRightBumperPressed(), //open gripper
             buttons.getLeftBumperPressed(), //close gripper
             buttons.getLeftBumperReleased(), //stop closing
@@ -154,13 +156,6 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     // debounces exampleButton with a 0.1s debounce time, rising edges only
-    new JoystickButton(opControls, XboxController.Button.kRightBumper.value)
-    .whileTrue(m_arm.openGripper())
-    .onFalse(m_arm.stillGripper());
-
-    new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
-    .whileTrue(m_arm.closeGripper())
-    .onFalse(m_arm.stillGripper());
 
     new JoystickButton(opControls, XboxController.Button.kX.value)
       .onTrue(m_arm.returnToFloor());
