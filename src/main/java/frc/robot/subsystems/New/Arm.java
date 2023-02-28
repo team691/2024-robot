@@ -55,6 +55,7 @@ public class Arm extends SubsystemBase {
   // ARM POSITION AUTOMATED
   // Timer
   private final Timer armTime = new Timer();
+  private final Timer gripperTime = new Timer();
 
   public ArmPosition armPosition = ArmPosition.LOW;
 
@@ -367,17 +368,29 @@ public class Arm extends SubsystemBase {
   public CommandBase openGripper() {
     return runOnce(
         () -> {
+          gripperTime.reset();
+          gripperTime.start();
           /* one-time action goes here */
+        while (gripperTime.get() < ArmConstants.openGripperTime){
           gripperMotor.set(ArmConstants.defaultGripperSpeed);
-        });
+        }
+        gripperMotor.stopMotor();
+      }
+        );
   }
 
   public CommandBase closeGripper() {
     return runOnce(
         () -> {
+          gripperTime.reset();
+          gripperTime.start();
           /* one-time action goes here */
+        while (gripperTime.get() < ArmConstants.closeGripperTime){
           gripperMotor.set(-ArmConstants.defaultGripperSpeed);
-        });
+        }
+        gripperMotor.stopMotor();
+      }
+        );
   }
 
   public CommandBase stillGripper() {
