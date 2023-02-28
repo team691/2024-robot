@@ -412,4 +412,14 @@ public class Arm extends SubsystemBase {
           extensionMotor.stopMotor();
         });
   }
+  public CommandBase extendArm(double extensionTime){
+    return runOnce(
+        () -> {
+          while (rotationTime.get() < extensionTime){
+            extensionMotor.set(ArmConstants.defaultRotationSpeed);
+          }
+          /* one-time action goes here */
+          extensionMotor.stopMotor();
+        });
+  }
 }

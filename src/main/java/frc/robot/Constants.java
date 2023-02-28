@@ -55,6 +55,8 @@ public final class Constants {
     public static double rot;
     public static double rot1;
     public static double rot2;
+    public static double extensionTime;
+    public static double retractionTime;
   }
 
   public static class LimelightConstants{
@@ -91,6 +93,9 @@ public final class Constants {
     public static final double defaultRotationSpeed = 0;
     public static final double defaultExtensionSpeed = 0;
     public static final double defaultGripperSpeed = 0;
+
+    public static final double openGripperTime = 0;
+    public static final double closeGripperTime = 0;
   }
   public static class GripperConstants{
     public static final int kGripperMotorID = 5;

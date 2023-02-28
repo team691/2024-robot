@@ -74,6 +74,16 @@ public final class Autos {
     .openGripper();
   }
 
+  public static CommandBase extendArm(Arm m_arm){
+    return m_arm
+    .extendArm(AutoConstants.extensionTime);
+  }
+
+  public static CommandBase retractArm(Arm m_arm){
+    return m_arm
+    .extendArm(AutoConstants.retractionTime);
+  }
+
   private Autos() {
     throw new UnsupportedOperationException("This is a utility class!");
   }

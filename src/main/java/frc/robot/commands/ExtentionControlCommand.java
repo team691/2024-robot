@@ -17,30 +17,16 @@ public class ExtentionControlCommand extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
-    // not actual code fill in for now
-    if (m_command == "extend"){
-      Autos.openGripper(m_arm);
-        }
-    // May want to extend the code to close for specifically game peices
-      else if (m_command == "retract"){
-       Autos.closeGripper(m_arm);
-      }
-  }
-
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
+  public void execute() {
+        // not actual code fill in for now
+        if (m_command == "extend"){
+          Autos.extendArm(m_arm);
+            }
+        // May want to extend the code to close for specifically game peices
+          else if (m_command == "retract"){
+           Autos.retractArm(m_arm);
+          }
   }
 }
