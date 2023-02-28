@@ -49,7 +49,8 @@ public final class Constants {
     public static final double kDriveSpeed = 0.5;
     public static final double kTurnSpeed = 0.75;
     public static final double kBalancingSpeed = 0.1;
-    public static double kAutoDriveDistanceInches;
+    public static double kAutoDriveDistanceInchesF = 11.0;
+    public static double kAutoDriveDistanceInchesB = -90.0;
     public static double kAutoDriveDistanceInchesBalance = -54.0;
     public static double kAutoDriveSpeed;
     public static double rot;
@@ -88,8 +89,7 @@ public final class Constants {
     public static final double midToFloor = 0;
     public static final double highToFloor = 0;
     
-    public static final double defaultRotationSpeed = 0;
-    public static final double defaultExtensionSpeed = 0;
+    public static final double defaultArmSpeed = 0;
     public static final double defaultGripperSpeed = 0;
   }
   public static class GripperConstants{
