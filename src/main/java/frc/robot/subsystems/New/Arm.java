@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 //import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
@@ -47,7 +48,7 @@ public class Arm extends SubsystemBase {
 
   // Motors
   private final WPI_VictorSPX extensionMotor = new WPI_VictorSPX(ArmConstants.extensionMotorChannel); // chain motor
-  private final PWMTalonFX rotationMotor = new PWMTalonFX(ArmConstants.rotationMotorChannel); // telescoping motor
+  private final WPI_TalonFX rotationMotor = new WPI_TalonFX(ArmConstants.rotationMotorChannel); // telescoping motor
   private final PWMSparkMax gripperMotor = new PWMSparkMax(ArmConstants.gripperMotorChannel); // mini neo gripper motor
 
   // Motor encoders
@@ -256,8 +257,8 @@ public class Arm extends SubsystemBase {
     if (open > 0){
       gripperMotor.set(open);
     }
-    else if (close < 0){
-      gripperMotor.set(close);
+    else if (close > 0){
+      gripperMotor.set(-close);
     }
 
     rotationMotor.set(rotation);
