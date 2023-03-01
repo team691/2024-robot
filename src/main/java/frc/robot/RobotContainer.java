@@ -196,7 +196,7 @@ public class RobotContainer {
   }*/
 
   public void initializeAutoChooser(){
-    m_autoChooser.setDefaultOption("Do Nothing", new WaitCommand(0));
+    m_autoChooser.setDefaultOption("Do Nothing", new WaitCommand(15));
     m_autoChooser.addOption("Balance", new BalanceAuto(m_drive));
     m_autoChooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
     SmartDashboard.putData("Auto Selecter", m_autoChooser);
