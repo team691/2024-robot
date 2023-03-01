@@ -1,8 +1,8 @@
 package frc.robot.subsystems.New;
 
 import edu.wpi.first.math.controller.ArmFeedforward;
-import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
-import edu.wpi.first.wpilibj.motorcontrol.PWMTalonFX;
+//import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
+//import edu.wpi.first.wpilibj.motorcontrol.PWMTalonFX;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -11,7 +11,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 //import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 //Possible Solution: Comment Out Arm Constants
 import frc.robot.Constants.ArmConstants;
@@ -49,7 +50,7 @@ public class Arm extends SubsystemBase {
   // Motors
   private final WPI_VictorSPX extensionMotor = new WPI_VictorSPX(ArmConstants.extensionMotorChannel); // chain motor
   private final WPI_TalonFX rotationMotor = new WPI_TalonFX(ArmConstants.rotationMotorChannel); // telescoping motor
-  private final PWMSparkMax gripperMotor = new PWMSparkMax(ArmConstants.gripperMotorChannel); // mini neo gripper motor
+  private final CANSparkMax gripperMotor = new CANSparkMax(ArmConstants.gripperMotorChannel,  MotorType.kBrushless); // mini neo gripper motor
 
   // Motor encoders
 
