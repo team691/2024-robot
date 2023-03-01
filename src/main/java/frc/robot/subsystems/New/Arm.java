@@ -405,7 +405,7 @@ public class Arm extends SubsystemBase {
   public CommandBase retractArm(double retractionTime){
     return runOnce(
         () -> {
-          while (rotationTime.get() < retractionTime){
+          while (feedForwardTime.get() < retractionTime){
             extensionMotor.set(-ArmConstants.defaultRotationSpeed);
           }
           /* one-time action goes here */
@@ -415,7 +415,7 @@ public class Arm extends SubsystemBase {
   public CommandBase extendArm(double extensionTime){
     return runOnce(
         () -> {
-          while (rotationTime.get() < extensionTime){
+          while (feedForwardTime.get() < extensionTime){
             extensionMotor.set(ArmConstants.defaultRotationSpeed);
           }
           /* one-time action goes here */
