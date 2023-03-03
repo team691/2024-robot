@@ -255,11 +255,14 @@ public class Arm extends SubsystemBase {
                                                                               */ {
     //rotationMotor.set(rotation);
     extensionMotor.set(extension);
-    if (open > 0){
-      gripperMotor.set(open);
+    if (open > close){
+      gripperMotor.set(open/6);
     }
-    else if (close > 0){
-      gripperMotor.set(-close);
+    else if (close > open){
+      gripperMotor.set(-close/6);
+    }
+    else{
+      gripperMotor.stopMotor();
     }
 
     rotationMotor.set(rotation);

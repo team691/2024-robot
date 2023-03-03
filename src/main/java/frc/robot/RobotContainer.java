@@ -114,7 +114,7 @@ public class RobotContainer {
               opControls.getLeftY(), // telescoping
               opControls.getRightY(), // rotation
               (opControls.getLeftTriggerAxis()), // open
-              (-opControls.getRightTriggerAxis()) // close
+              (opControls.getRightTriggerAxis()) // close
             /* 
             buttons.getRightBumperPressed(), //open gripper
             buttons.getLeftBumperPressed(), //close gripper
@@ -169,6 +169,11 @@ public class RobotContainer {
     new JoystickButton(opControls, XboxController.Button.kY.value)
       .onTrue(m_arm.highGoal());
 
+    new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
+      .onTrue(m_arm.openGripper());
+
+    new JoystickButton(opControls, XboxController.Button.kRightBumper.value)
+      .onTrue(m_arm.closeGripper());
   }
 
   /**

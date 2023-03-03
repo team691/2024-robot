@@ -93,10 +93,10 @@ public final class Constants {
     
     public static final double defaultExtentionSpeed = 0;
     public static final double defaultRotationSpeed = 0;
-    public static final double defaultGripperSpeed = 0;
+    public static final double defaultGripperSpeed = .17;
 
-    public static final double openGripperTime = 0;
-    public static final double closeGripperTime = 0;
+    public static final double openGripperTime = 1;
+    public static final double closeGripperTime = 1;
   }
   public static class GripperConstants{
     public static final int kGripperMotorID = 5;
