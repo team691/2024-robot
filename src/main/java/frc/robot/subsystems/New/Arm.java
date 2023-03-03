@@ -394,7 +394,7 @@ public class Arm extends SubsystemBase {
           gripperTime.start();
           /* one-time action goes here */
         while (gripperTime.get() < ArmConstants.closeGripperTime){
-          gripperMotor.set(-ArmConstants.defaultGripperSpeed);
+          gripperMotor.set(-ArmConstants.defaultGripperSpeed*2);
         }
         gripperMotor.stopMotor();
       }
