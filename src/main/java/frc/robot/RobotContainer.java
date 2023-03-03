@@ -25,7 +25,6 @@ import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.BalanceAuto;
 import frc.robot.commands.ScoreAuto;
-import frc.robot.commands.ScoreBalanceAuto;
 // import frc.robot.commands.gripperControlCommand;
 import frc.robot.subsystems.New.Arm;
 //import frc.robot.subsystems.New.ArmPosition;
