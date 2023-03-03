@@ -75,9 +75,8 @@ public class RobotContainer {
   /*CommandXboxController xboxControl = new CommandXboxController(OperatorConstants.kXboxControllerPort); //extend arm
   CommandXboxController rightstick = new CommandXboxController(OperatorConstants.kXboxControllerPort); //vertical arm*/
  // XboxController buttons = new XboxController(OperatorConstants.kXboxControllerPort); //open and close gripper
-
   // A chooser for autonomous commands
-  SendableChooser<Command> m_autoChooser = new SendableChooser<>();
+  SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   // A complex auto routine that drives forward, drops a hatch, and then drives backward.
   //private final Command BalanceAuto = new BalanceAuto(m_drive);
@@ -129,10 +128,10 @@ public class RobotContainer {
         // Add commands to the autonomous command chooser
     /*m_chooser.setDefaultOption("Simple Auto", );
     m_chooser.addOption("Complex Auto", m_complexAuto); */
-    m_autoChooser.setDefaultOption("Do Nothing", new WaitCommand(15));
-    m_autoChooser.addOption("Balance", new BalanceAuto(m_drive));
-    m_autoChooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
-    SmartDashboard.putData(/*"Auto Selecter",*/ m_autoChooser);
+    m_chooser.setDefaultOption("Do Nothing", new WaitCommand(15));
+    m_chooser.addOption("Balance", new BalanceAuto(m_drive));
+    m_chooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
+    SmartDashboard.putData(/*"Auto Selecter",*/ m_chooser);
 
     // Put the chooser on the dashboard
     //Shuffleboard.getTab("Autonomous").add(m_autoChooser);
@@ -188,7 +187,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-      return m_autoChooser.getSelected(); /*Autos.goForward(m_drive)
+      return m_chooser.getSelected(); /*Autos.goForward(m_drive)
       .andThen(Autos.goBackward(m_drive))
       .andThen(Autos.balanceEnergyStation(m_drive));*/
    /*  return m_drive
@@ -206,10 +205,10 @@ public class RobotContainer {
   }*/
 
   public void initializeAutoChooser(){
-    m_autoChooser.setDefaultOption("Do Nothing", new WaitCommand(15));
-    m_autoChooser.addOption("Balance", new BalanceAuto(m_drive));
-    m_autoChooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
-    SmartDashboard.putData(/*"Auto Selecter",*/ m_autoChooser);
+    m_chooser.setDefaultOption("Do Nothing", new WaitCommand(15));
+    m_chooser.addOption("Balance", new BalanceAuto(m_drive));
+    m_chooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
+    SmartDashboard.putData( m_chooser);
   }
 
 }
