@@ -26,6 +26,7 @@ import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.BalanceAuto;
 import frc.robot.commands.ScoreAuto;
+import frc.robot.commands.ScoreBalanceAuto;
 // import frc.robot.commands.gripperControlCommand;
 import frc.robot.subsystems.New.Arm;
 //import frc.robot.subsystems.New.ArmPosition;
@@ -208,7 +209,7 @@ public class RobotContainer {
     m_chooser.setDefaultOption("Do Nothing", new WaitCommand(15));
     m_chooser.addOption("Balance", new BalanceAuto(m_drive));
     m_chooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
+    //m_chooser.addOption("ScoreBalanceAuto", new ScoreBalanceAuto());
     SmartDashboard.putData( m_chooser);
   }
-
 }
