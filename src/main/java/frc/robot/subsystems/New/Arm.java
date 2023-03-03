@@ -267,8 +267,7 @@ public class Arm extends SubsystemBase {
       gripperMotor.stopMotor();
     }
 
-    rotationMotor.set(rotation);
-
+    rotationMotor.set(rotation/7);
     /*
      * if (opengripper == true) {
      * gripperMotor.set(1); //speed = positive: to open
