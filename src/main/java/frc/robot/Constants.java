@@ -74,7 +74,7 @@ public final class Constants {
     public static final int extensionMotorChannel = 6;
 
     // rotation constants for time - needs HEAVY trial and error
-    // TODO: Trial and error the movement time need
+    // TODO: Trial and error the movement time need; modify as necessary
     public static final double floorToLow = 0;
     public static final double floorToMid = 0;
     public static final double floorToHigh = 0;
