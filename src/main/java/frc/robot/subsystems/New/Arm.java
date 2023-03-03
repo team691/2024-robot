@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 //import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
@@ -79,6 +80,7 @@ public class Arm extends SubsystemBase {
    * Initializes a new Arm object
    */
   public Arm() {
+    rotationMotor.setNeutralMode(NeutralMode.Brake);
     this.feedforward = new ArmFeedforward(Arm.initialArmStaticGain, Arm.initialArmGravityGain,
         Arm.initialArmVelocityGain, Arm.initialArmAccelerationGain);
 
