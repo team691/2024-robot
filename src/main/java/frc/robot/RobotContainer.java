@@ -129,10 +129,14 @@ public class RobotContainer {
         // Add commands to the autonomous command chooser
     /*m_chooser.setDefaultOption("Simple Auto", );
     m_chooser.addOption("Complex Auto", m_complexAuto); */
+    m_autoChooser.setDefaultOption("Do Nothing", new WaitCommand(15));
+    m_autoChooser.addOption("Balance", new BalanceAuto(m_drive));
+    m_autoChooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
+    SmartDashboard.putData(/*"Auto Selecter",*/ m_autoChooser);
 
     // Put the chooser on the dashboard
-    Shuffleboard.getTab("Autonomous").add(m_autoChooser);
-    initializeAutoChooser();
+    //Shuffleboard.getTab("Autonomous").add(m_autoChooser);
+   // initializeAutoChooser();
   }
 
 
@@ -205,7 +209,7 @@ public class RobotContainer {
     m_autoChooser.setDefaultOption("Do Nothing", new WaitCommand(15));
     m_autoChooser.addOption("Balance", new BalanceAuto(m_drive));
     m_autoChooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
-    SmartDashboard.putData("Auto Selecter", m_autoChooser);
+    SmartDashboard.putData(/*"Auto Selecter",*/ m_autoChooser);
   }
 
 }
