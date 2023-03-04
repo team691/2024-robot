@@ -295,7 +295,7 @@ public class Arm extends SubsystemBase {
           // using encoders or timer to measure distance needed
           rotationTime.start();
           rotationTime.reset();
-          downArm(ArmConstants.timeToDown);
+          downArm(ArmConstants.timeToBar);
           armPosition = ArmPosition.BAR;
         });
   }
@@ -326,7 +326,7 @@ public class Arm extends SubsystemBase {
           } else if (armPosition == ArmPosition.HIGH) {
             downArm(ArmConstants.highToLow);
           } else if (armPosition == ArmPosition.BAR){
-            upArm(ArmConstants.barToLow);
+            downArm(ArmConstants.barToLow);
           }
 
           armPosition = ArmPosition.LOW;
