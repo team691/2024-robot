@@ -74,10 +74,10 @@ public class DriveTrain extends SubsystemBase {
    double angle;
 
    public DriveTrain() {
-      m_frontLeftMotor.setSmartCurrentLimit(40, 40);
-      m_frontRightMotor.setSmartCurrentLimit(40, 40);
-      m_rearLeftMotor.setSmartCurrentLimit(40, 40);
-      m_rearRightMotor.setSmartCurrentLimit(40, 40);
+      m_frontLeftMotor.setSmartCurrentLimit(30, 30);
+      m_frontRightMotor.setSmartCurrentLimit(30, 30);
+      m_rearLeftMotor.setSmartCurrentLimit(30, 30);
+      m_rearRightMotor.setSmartCurrentLimit(30, 30);
       // Sets the distance per pulse for the encoders
       m_leftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
       m_rightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
