@@ -268,7 +268,7 @@ public class Arm extends SubsystemBase {
       gripperMotor.stopMotor();
     }
 
-    rotationMotor.set(rotation/5);
+    rotationMotor.set(rotation/4);
     /*
      * if (opengripper == true) {
      * gripperMotor.set(1); //speed = positive: to open
@@ -325,6 +325,8 @@ public class Arm extends SubsystemBase {
             downArm(ArmConstants.midToLow);
           } else if (armPosition == ArmPosition.HIGH) {
             downArm(ArmConstants.highToLow);
+          } else if (armPosition == ArmPosition.BAR){
+            upArm(ArmConstants.barToLow);
           }
 
           armPosition = ArmPosition.LOW;
@@ -345,6 +347,8 @@ public class Arm extends SubsystemBase {
             downArm(ArmConstants.lowToMid);
           } else if (armPosition == ArmPosition.HIGH) {
             downArm(ArmConstants.highToMid);
+          } else if (armPosition == ArmPosition.BAR){
+            upArm(ArmConstants.barToMid);
           }
 
           armPosition = ArmPosition.MEDIUM;

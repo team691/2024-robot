@@ -75,7 +75,7 @@ public final class Constants {
 
     // rotation constants for time - needs HEAVY trial and error
     // TODO: Trial and error the movement time need; modify as necessary
-    public static final double timeToDown = 5;
+    public static final double timeToDown = 2;
     public static final double floorToLow = 0;
     public static final double floorToMid = 0;
     public static final double floorToHigh = 0;
@@ -92,7 +92,9 @@ public final class Constants {
     public static final double midToFloor = 0;
     public static final double highToFloor = 0;
 
-    public static final double barToHigh = 1;
+    public static final double barToHigh = 3;
+    public static final double barToMid = 4;
+    public static final double barToLow = 5;
     
     public static final double defaultExtentionSpeed = 0;
     public static final double defaultRotationSpeed = .2;
