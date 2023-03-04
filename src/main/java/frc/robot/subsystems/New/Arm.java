@@ -80,6 +80,7 @@ public class Arm extends SubsystemBase {
    * Initializes a new Arm object
    */
   public Arm() {
+    extensionMotor.setNeutralMode(NeutralMode.Brake);
     rotationMotor.setNeutralMode(NeutralMode.Brake);
     this.feedforward = new ArmFeedforward(Arm.initialArmStaticGain, Arm.initialArmGravityGain,
         Arm.initialArmVelocityGain, Arm.initialArmAccelerationGain);
@@ -256,7 +257,7 @@ public class Arm extends SubsystemBase {
                                                                               * boolean stillgripper2
                                                                               */ {
     //rotationMotor.set(rotation);
-    extensionMotor.set(extension);
+    extensionMotor.set(extension/2);
     if (open > close){
       gripperMotor.set(open/6);
     }
@@ -267,7 +268,7 @@ public class Arm extends SubsystemBase {
       gripperMotor.stopMotor();
     }
 
-    rotationMotor.set(rotation/7);
+    rotationMotor.set(rotation/5);
     /*
      * if (opengripper == true) {
      * gripperMotor.set(1); //speed = positive: to open
@@ -287,13 +288,26 @@ public class Arm extends SubsystemBase {
   // WARNING: THIS HAS A LOT OF OPPURTUNITY TO GO WRONG AND IS VERY IMPRECISE, BUT
   // IT'S
 
+  public CommandBase setToBar() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
+    return runOnce(
+        () -> {
+          /* one-time action goes here */
+          // using encoders or timer to measure distance needed
+          rotationTime.start();
+          rotationTime.reset();
+          downArm(ArmConstants.timeToDown);
+          armPosition = ArmPosition.BAR;
+        });
+  }
   // button x pressed
   public CommandBase returnToFloor() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
     return runOnce(
         () -> {
           /* one-time action goes here */
           // using encoders or timer to measure distance needed
+          rotationTime.start();
           rotationTime.reset();
+          downArm(ArmConstants.timeToDown);
           armPosition = ArmPosition.GROUND;
         });
   }
@@ -348,9 +362,11 @@ public class Arm extends SubsystemBase {
           if (armPosition == ArmPosition.GROUND) {
             upArm(ArmConstants.floorToHigh);
           } else if (armPosition == ArmPosition.LOW) {
-            downArm(ArmConstants.lowToHigh);
+            upArm(ArmConstants.lowToHigh);
           } else if (armPosition == ArmPosition.MEDIUM) {
-            downArm(ArmConstants.midToHigh);
+            upArm(ArmConstants.midToHigh);
+          } else if (armPosition == ArmPosition.BAR){
+            upArm(ArmConstants.barToHigh);
           }
 
           armPosition = ArmPosition.HIGH;

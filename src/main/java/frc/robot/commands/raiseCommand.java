@@ -35,7 +35,8 @@ public class raiseCommand extends CommandBase {
 
       case HIGH:
         Autos.highGoalAuto(m_arm);
-
+      case BAR:
+        Autos.setToBarAuto(m_arm);
     }
   }
 

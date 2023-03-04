@@ -46,6 +46,11 @@ public final class Autos {
     .balanceCommand();
   }
 
+  public static CommandBase setToBarAuto (Arm m_arm){
+    return m_arm
+    .setToBar();
+  }
+
   public static CommandBase returnToFloorAuto (Arm m_arm){
     return m_arm
     .returnToFloor();

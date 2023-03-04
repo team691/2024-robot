@@ -176,6 +176,9 @@ public class RobotContainer {
 
     new JoystickButton(opControls, XboxController.Button.kRightBumper.value)
       .onTrue(m_arm.closeGripper());
+    
+      new JoystickButton(opControls, XboxController.Button.kStart.value)
+      .onTrue(m_arm.setToBar());
   }
 
   /**
