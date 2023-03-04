@@ -172,7 +172,7 @@ public class DriveTrain extends SubsystemBase {
       // End command when close enough to 0 angle
       .until (
          () ->
-            getAngle() >= (.5) && getAngle() <= (-.5))
+            getAngle() <= (.5) && getAngle() >= (-.5))
       // Stop the drive when the command ends
       .finallyDo(interrupted -> m_drive.stopMotor());
    }
