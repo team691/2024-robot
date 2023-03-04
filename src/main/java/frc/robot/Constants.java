@@ -43,6 +43,7 @@ public final class Constants {
     public static final double kRadiusTurn = 5;
   }
 
+//Regarding drive train movement, a positive # value moves "forward" with the bar as the front, and a negative # with the battery as the back
   public static class AutoConstants{
     public static final double kTimeoutSeconds = 3;
     public static final double kDriveDistanceMeters = 2;
@@ -50,7 +51,7 @@ public final class Constants {
     public static final double kTurnSpeed = 0.75;
     public static final double kBalancingSpeed = 0.1;
     public static double kAutoDriveDistanceInchesF = 11.0;
-    public static double kAutoDriveDistanceInchesB = -90.0;
+    public static double kAutoDriveDistanceInchesB = -190.0;
     public static double kAutoDriveDistanceInchesBalance = -54.0;
     public static double kAutoDriveSpeed;
     public static double rot;

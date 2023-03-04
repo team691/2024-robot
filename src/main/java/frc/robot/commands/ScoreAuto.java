@@ -20,9 +20,9 @@ public class ScoreAuto extends SequentialCommandGroup {
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
       new raiseCommand(arm, ArmPosition.BAR),
-      new raiseCommand(arm, ArmPosition.LOW),
+      //new raiseCommand(arm, ArmPosition.LOW),
       new gripperControlCommand("open", arm),
-     // new DriveDistanceCommand(AutoConstants.kAutoDriveDistanceInchesF, AutoConstants.kAutoDriveSpeed,0, drive),
+      new DriveDistanceCommand(AutoConstants.kAutoDriveDistanceInchesF, AutoConstants.kAutoDriveSpeed,0, drive),
       new DriveDistanceCommand(AutoConstants.kAutoDriveDistanceInchesB, AutoConstants.kAutoDriveSpeed,0 , drive)
     );
   }
