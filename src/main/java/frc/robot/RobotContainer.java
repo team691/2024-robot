@@ -23,8 +23,9 @@ import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 // constants
 //import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.BalanceAuto;
+//import frc.robot.commands.BalanceAuto;
 import frc.robot.commands.DriveOutOfCommunityAuto;
+import frc.robot.commands.ScoreAuto;
 import frc.robot.commands.armControls.ControlGripperCommand;
 //import frc.robot.commands.ScoreAuto;
 // import frc.robot.commands.gripperControlCommand;
@@ -129,8 +130,8 @@ public class RobotContainer {
     /*m_chooser.setDefaultOption("Simple Auto", );
     m_chooser.addOption("Complex Auto", m_complexAuto); */
     m_chooser.setDefaultOption("Do Nothing", new WaitCommand(15));
-    m_chooser.addOption("Balance", new BalanceAuto(m_drive));
-    //m_chooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
+    //m_chooser.addOption("Balance", new BalanceAuto(m_drive));
+    m_chooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
     m_chooser.addOption("Drive out of community", new DriveOutOfCommunityAuto(m_drive));
     SmartDashboard.putData(m_chooser);
 

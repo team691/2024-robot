@@ -10,20 +10,20 @@ import edu.wpi.first.wpilibj.Encoder;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU.CalibrationTime;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
 //import edu.wpi.first.wpilibj.SPI.Port;
-import com.kauailabs.navx.frc.AHRS;
-import edu.wpi.first.wpilibj.SerialPort;
+//import com.kauailabs.navx.frc.AHRS;
+//import edu.wpi.first.wpilibj.SerialPort;
 // DIFFERENTIAL DRIVE
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj2.command.Command;
 // COMMANDS
-import edu.wpi.first.wpilibj2.command.CommandBase;
+//import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 // CONSTANTS
 import frc.robot.Constants.DriveConstants;
-import frc.robot.Constants.AutoConstants;
+//import frc.robot.Constants.AutoConstants;
 
 
 
@@ -69,7 +69,7 @@ public class DriveTrain extends SubsystemBase {
   
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU();
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kMXP, CalibrationTime._32ms);
-   private final AHRS navx = new AHRS(SerialPort.Port.kUSB);
+   //private final AHRS navx = new AHRS(SerialPort.Port.kUSB);
 
    double angle;
 
@@ -84,9 +84,9 @@ public class DriveTrain extends SubsystemBase {
       // We need to invert one side of the drivetrain so that positive voltages
       // result in both sides moving forward. 
       m_right.setInverted(true);
-      navx.reset();
+      /*navx.reset();
       navx.calibrate();
-     // gyro.setYawAxis(IMUAxis.kX);
+     // gyro.setYawAxis(IMUAxis.kX);*/
    }
    
    /* DRIVE IG */
@@ -149,16 +149,16 @@ public class DriveTrain extends SubsystemBase {
       return m_rightEncoder;
    }
 
-   /* GYRO STUFF */
+   /* GYRO STUFF 
 
    public double getAngle() {
       double angle = navx.getAngle();
       System.out.println(angle);
       return angle;
-   }
+   }*/
 
    // Code to check angle, run until the angle is zero, then set motors to zero when
-   public CommandBase balanceCommand () {
+  /* public CommandBase balanceCommand () {
       return run(
          () -> {
             getAngle();
@@ -179,7 +179,7 @@ public class DriveTrain extends SubsystemBase {
             getAngle() <= (.5) && getAngle() >= (-.5))
       // Stop the drive when the command ends
       .finallyDo(interrupted -> m_drive.stopMotor());
-   }
+   }*/ 
 
    public double getAverageEncoderDistance() {
       return (m_leftEncoder.getDistance() + m_rightEncoder.getDistance()) / 2.0;

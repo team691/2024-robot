@@ -47,9 +47,9 @@ public class Arm extends SubsystemBase {
   private ArmFeedforward feedforward;
 
   // Motors
-  private final WPI_VictorSPX extensionMotor = new WPI_VictorSPX(ArmConstants.extensionMotorChannel); // chain motor
-  private final WPI_TalonFX rotationMotor = new WPI_TalonFX(ArmConstants.rotationMotorChannel); // telescoping motor
-  private final CANSparkMax gripperMotor = new CANSparkMax(ArmConstants.gripperMotorChannel,  MotorType.kBrushless); // mini neo gripper motor
+  private final WPI_VictorSPX extensionMotor = new WPI_VictorSPX(ArmConstants.extensionMotorID); // chain motor
+  private final WPI_TalonFX rotationMotor = new WPI_TalonFX(ArmConstants.rotationMotorID); // telescoping motor
+  private final CANSparkMax gripperMotor = new CANSparkMax(ArmConstants.kGripperMotorID,  MotorType.kBrushless); // mini neo gripper motor
 
   // Motor encoders
 

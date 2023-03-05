@@ -35,11 +35,11 @@ public final class Constants {
     
   /* cycles per revolution; this isn't actually the constants for the variables;
   it's just referenced from the MechanumControllerCommand Example as provided by the WPLib extention on VSCode*/
-    public static final int kEncoderCPR = 42;
+    public static final double kEncoderCPR = 535.5;
     public static final double kWheelDiameterMeters = 0.15;
     public static final double kEncoderDistancePerPulse =
       // Assumes the encoders are directly mounted on the wheel shafts
-      (kWheelDiameterMeters * Math.PI) / (double) kEncoderCPR;
+      (kWheelDiameterMeters * Math.PI) /  kEncoderCPR;
     public static final double kRadiusTurn = 5;
   }
 
@@ -70,9 +70,9 @@ public final class Constants {
   }
   
   public static class ArmConstants{
-    public static final int gripperMotorChannel = 5;
-    public static final int rotationMotorChannel = 7;
-    public static final int extensionMotorChannel = 6;
+    public static final int kGripperMotorID = 5;
+    public static final int rotationMotorID = 7;
+    public static final int extensionMotorID = 6;
 
     // rotation constants for time - needs HEAVY trial and error
     // TODO: Trial and error the movement time need; modify as necessary
@@ -93,18 +93,18 @@ public final class Constants {
     public static final double midToFloor = 0;
     public static final double highToFloor = 0;
 
-    public static final double barToHigh = 3;
-    public static final double barToMid = 4;
+    public static final double barToHigh = 2.75;
+    public static final double barToMid = 3;
     public static final double barToLow = 4;
     
     public static final double defaultExtentionSpeed = 0;
     public static final double defaultRotationSpeed = .25;
     public static final double defaultGripperSpeed = .17;
     public static final double openGripperTime = 1.8;
-    public static final double closeGripperTime = 1;
+    public static final double closeGripperTime = .5;
     public static final double timeToBar = 1.5;
   }
-  public static class GripperConstants{
+  /*public static class GripperConstants{
     public static final int kGripperMotorID = 5;
-  }
+  } */
 }
