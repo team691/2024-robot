@@ -32,7 +32,8 @@ public class DriveTimeCommand extends CommandBase {
 
   @Override
   public void initialize() {
-    m_drive.resetEncoders();
+    m_timer.reset();
+    m_timer.start();
     //m_drive.drive(m_speed, m_rotation);
     System.out.println("DRIVE DISTANCE");
   }
