@@ -17,7 +17,7 @@ public class DriveOutOfCommunityAuto extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new DriveDistanceCommand(72, AutoConstants.kAutoDriveSpeed,0, drive)
+      new DriveDistanceCommand(150, AutoConstants.kAutoDriveSpeed,0, drive)
     );
   }
 }
