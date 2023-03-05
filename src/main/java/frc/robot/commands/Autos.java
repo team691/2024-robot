@@ -9,11 +9,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.command.Commands;
 
 // Constants
-import frc.robot.Constants.AutoConstants;
+//import frc.robot.Constants.AutoConstants;
 
 // Subsystems
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.New.Arm;
+//import frc.robot.subsystems.New.Arm;
 
 
 /*// Shuffleboard
@@ -69,7 +69,7 @@ public final class Autos {
     .highGoal();
   }
 */
-  public static CommandBase closeGripper(Arm m_arm){
+/*  public static CommandBase closeGripper(Arm m_arm){
     return m_arm
     .closeGripper();
   }
@@ -88,7 +88,7 @@ public final class Autos {
     return m_arm
     .extendArm(AutoConstants.retractionTime);
   }
-
+  */
   private Autos() {
     throw new UnsupportedOperationException("This is a utility class!");
   }

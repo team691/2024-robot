@@ -31,12 +31,14 @@ public class DriveDistanceCommand extends CommandBase {
   @Override
   public void initialize() {
     m_drive.resetEncoders();
-    m_drive.drive(m_speed, m_rotation);
+    //m_drive.drive(m_speed, m_rotation);
+    System.out.println("DRIVE DISTANCE");
   }
 
   @Override
   public void execute() {
     m_drive.drive(m_speed, m_rotation);
+    System.out.println("EXECUTE");
   }
 
   @Override

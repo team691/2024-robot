@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.commands.armControls;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -6,7 +6,7 @@ import frc.robot.Constants.ArmConstants;
 import frc.robot.subsystems.New.Arm;
 import frc.robot.subsystems.New.ArmPosition;
 
-public class MidGoalCommand extends CommandBase{
+public class LowGoalCommand extends CommandBase{
     private final Arm m_arm;
     private final Timer m_timer = new Timer();
     private double m_timeout = 0;
@@ -17,7 +17,7 @@ public class MidGoalCommand extends CommandBase{
      *
      * @param subsystem The subsystem used by this command.
      */
-    public MidGoalCommand(Arm arm) {
+    public LowGoalCommand(Arm arm) {
       m_arm = arm;
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(m_arm);
@@ -27,17 +27,17 @@ public class MidGoalCommand extends CommandBase{
     @Override
     public void initialize() {
         if (m_arm.getArmPosition() == ArmPosition.GROUND) {
-          m_timeout = ArmConstants.floorToMid;
+          m_timeout = ArmConstants.floorToLow;
           upGoal = true;
-        } else if (m_arm.getArmPosition() == ArmPosition.LOW) {
-          m_timeout = ArmConstants.lowToMid;
+        } else if (m_arm.getArmPosition() == ArmPosition.MEDIUM) {
+          m_timeout = ArmConstants.midToLow;
           upGoal = false;
         } else if (m_arm.getArmPosition() == ArmPosition.HIGH) {
-            m_timeout =ArmConstants.highToMid;
+            m_timeout =ArmConstants.highToLow;
             upGoal = false;
         } else if (m_arm.getArmPosition() == ArmPosition.BAR){
-            m_timeout = ArmConstants.barToMid;
-            upGoal = true;
+            m_timeout = ArmConstants.barToLow;
+            upGoal = false;
         }
 
         m_arm.setArmPosition(ArmPosition.MEDIUM);
@@ -58,7 +58,7 @@ public class MidGoalCommand extends CommandBase{
     // Called once the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        m_arm.stopArm();
+        m_arm.stopRotate();
     }
   
     // Returns true when the command should end.

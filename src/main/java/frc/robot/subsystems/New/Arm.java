@@ -3,8 +3,6 @@ package frc.robot.subsystems.New;
 import edu.wpi.first.math.controller.ArmFeedforward;
 //import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 //import edu.wpi.first.wpilibj.motorcontrol.PWMTalonFX;
-import edu.wpi.first.wpilibj2.command.CommandBase;
-//import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -23,7 +21,7 @@ import java.time.Instant;
 
 
 // Timer instead of encoders for rotation
-import edu.wpi.first.wpilibj.Timer;
+//import edu.wpi.first.wpilibj.Timer;
 
 public class Arm extends SubsystemBase {
   // Mass measured in grams
@@ -57,9 +55,10 @@ public class Arm extends SubsystemBase {
 
   // ARM POSITION AUTOMATED
   // Timers
-  private final Timer rotationTime = new Timer();
+ /*private final Timer rotationTime = new Timer();
   private final Timer gripperTime = new Timer();
   private final Timer feedForwardTime = new Timer();
+  */
 
   public ArmPosition armPosition = ArmPosition.LOW;
 
@@ -394,49 +393,24 @@ public class Arm extends SubsystemBase {
       rotationMotor.set(-ArmConstants.defaultRotationSpeed);
   }
 
-  public CommandBase openGripper() {
-    return runOnce(
-        () -> {
-          gripperTime.reset();
-          gripperTime.start();
-          /* one-time action goes here */
-        while (gripperTime.get() < ArmConstants.openGripperTime){
-          gripperMotor.set(ArmConstants.defaultGripperSpeed);
-        }
-        gripperMotor.stopMotor();
-      }
-        );
+  public void openGripper() {
+    gripperMotor.set(ArmConstants.defaultGripperSpeed);
   }
 
-  public CommandBase closeGripper() {
-    return runOnce(
-        () -> {
-          gripperTime.reset();
-          gripperTime.start();
-          /* one-time action goes here */
-        while (gripperTime.get() < ArmConstants.closeGripperTime){
-          gripperMotor.set(-ArmConstants.defaultGripperSpeed*2);
-        }
-        gripperMotor.stopMotor();
-      }
-        );
+  public void closeGripper() {
+    gripperMotor.set(-ArmConstants.defaultGripperSpeed*2);
   }
 
-  public CommandBase stillGripper() {
-    return runOnce(
-        () -> {
-          /* one-time action goes here */
-          gripperMotor.stopMotor();
-        });
+  public void stillGripper() {
+    gripperMotor.stopMotor();
   }
 
-  public CommandBase retractArm(double retractionTime){
+ /*  public CommandBase retractArm(double retractionTime){
     return runOnce(
         () -> {
           while (feedForwardTime.get() < retractionTime){
             extensionMotor.set(-ArmConstants.defaultRotationSpeed);
           }
-          /* one-time action goes here */
           extensionMotor.stopMotor();
         });
   }
@@ -446,12 +420,12 @@ public class Arm extends SubsystemBase {
           while (feedForwardTime.get() < extensionTime){
             extensionMotor.set(ArmConstants.defaultRotationSpeed);
           }
-          /* one-time action goes here */
           extensionMotor.stopMotor();
         });
   }
+*/
 
-  public void stopArm() {
+  public void stopRotate() {
     rotationMotor.stopMotor();
   }
 }
