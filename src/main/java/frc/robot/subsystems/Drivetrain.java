@@ -74,10 +74,10 @@ public class DriveTrain extends SubsystemBase {
    double angle;
 
    public DriveTrain() {
-      m_frontLeftMotor.setSmartCurrentLimit(30, 30);
-      m_frontRightMotor.setSmartCurrentLimit(30, 30);
-      m_rearLeftMotor.setSmartCurrentLimit(30, 30);
-      m_rearRightMotor.setSmartCurrentLimit(30, 30);
+      m_frontLeftMotor.setSmartCurrentLimit(28, 28);
+      m_frontRightMotor.setSmartCurrentLimit(28, 28);
+      m_rearLeftMotor.setSmartCurrentLimit(28, 28);
+      m_rearRightMotor.setSmartCurrentLimit(28, 28);
       // Sets the distance per pulse for the encoders
       m_leftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
       m_rightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
@@ -95,6 +95,10 @@ public class DriveTrain extends SubsystemBase {
    // Controller-based drive
    public void drive (double xSpeed, double zRotation) {
       m_drive.arcadeDrive(xSpeed, zRotation);
+   }
+
+   public void stopDrive() {
+      m_drive.stopMotor();
    }
 
    /* option 2?

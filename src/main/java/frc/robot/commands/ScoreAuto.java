@@ -21,10 +21,10 @@ public class ScoreAuto extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new LowGoalCommand(arm),
-      new ControlGripperCommand(arm, false),
-      new DriveDistanceCommand(AutoConstants.kAutoDriveDistanceInchesF, AutoConstants.kAutoDriveSpeed,0, drive),
-      new DriveDistanceCommand(AutoConstants.kAutoDriveDistanceInchesB, AutoConstants.kAutoDriveSpeed,0 , drive)
+      //new LowGoalCommand(arm),
+      //new ControlGripperCommand(arm, false),
+      new DriveTimeCommand(AutoConstants.kAutoDriveSpeed,0, drive, .03),
+      new DriveTimeCommand(-AutoConstants.kAutoDriveSpeed, 0 , drive, 4.25)
     );
   }
 }

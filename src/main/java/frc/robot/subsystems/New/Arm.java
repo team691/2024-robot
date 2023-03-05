@@ -398,7 +398,7 @@ public class Arm extends SubsystemBase {
   }
 
   public void closeGripper() {
-    gripperMotor.set(-ArmConstants.defaultGripperSpeed*2);
+    gripperMotor.set(-ArmConstants.defaultGripperSpeed*1.75);
   }
 
   public void stillGripper() {

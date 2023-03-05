@@ -43,7 +43,7 @@ public class DriveDistanceCommand extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
-    m_drive.drive(0, 0);
+    m_drive.stopDrive();;
   }
 
   @Override
