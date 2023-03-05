@@ -24,7 +24,7 @@ public class ScoreAuto extends SequentialCommandGroup {
       new LowGoalCommand(arm),
       new ControlGripperCommand(arm, false),
       new DriveTimeCommand(-AutoConstants.kAutoDriveSpeed,0, drive, .03),
-      new DriveTimeCommand(AutoConstants.kAutoDriveSpeed, 0 , drive, 4.25)
+      new DriveTimeCommand(AutoConstants.kAutoDriveSpeed, 0 , drive, 4.4)
     );
   }
 }
