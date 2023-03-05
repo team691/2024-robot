@@ -45,7 +45,7 @@ public final class Autos {
     return m_drive
     .balanceCommand();
   }
-
+ /*
   public static CommandBase setToBarAuto (Arm m_arm){
     return m_arm
     .setToBar();
@@ -68,7 +68,7 @@ public final class Autos {
     return m_arm
     .highGoal();
   }
-
+*/
   public static CommandBase closeGripper(Arm m_arm){
     return m_arm
     .closeGripper();

@@ -159,6 +159,14 @@ public class Arm extends SubsystemBase {
     updateArmHardware();
   }
 
+  public ArmPosition getArmPosition() {
+    return armPosition;
+  }
+
+  public void setArmPosition(ArmPosition position) {
+    armPosition = position;
+  }
+
   /**
    * Calculates the static gain of the robot arm from one moment to another
    * 
@@ -288,32 +296,32 @@ public class Arm extends SubsystemBase {
   // WARNING: THIS HAS A LOT OF OPPURTUNITY TO GO WRONG AND IS VERY IMPRECISE, BUT
   // IT'S
 
-  public CommandBase setToBar() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
+ /* public CommandBase setToBar() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
     return runOnce(
         () -> {
-          /* one-time action goes here */
+          /* one-time action goes here 
           // using encoders or timer to measure distance needed
           rotationTime.start();
           rotationTime.reset();
           downArm(ArmConstants.timeToBar);
           armPosition = ArmPosition.BAR;
         });
-  }
+  } */
   // button x pressed
-  public CommandBase returnToFloor() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
+ /*  public CommandBase returnToFloor() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
     return runOnce(
         () -> {
-          /* one-time action goes here */
+          /* one-time action goes here 
           // using encoders or timer to measure distance needed
           rotationTime.start();
           rotationTime.reset();
           downArm(ArmConstants.timeToDown);
           armPosition = ArmPosition.GROUND;
         });
-  }
+  }*/
 
   // button a pressed
-  public CommandBase lowGoal() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
+ /* public CommandBase lowGoal() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
     return runOnce(
         () -> {
           rotationTime.reset();
@@ -332,12 +340,12 @@ public class Arm extends SubsystemBase {
           armPosition = ArmPosition.LOW;
         });
   }
-
+*/ 
   // button b pressed
-  public CommandBase midGoal() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
+ /*  public CommandBase midGoal() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
     return runOnce(
         () -> {
-          /* one-time action goes here */
+          /* one-time action goes here 
           rotationTime.reset();
           rotationTime.start();
 
@@ -353,13 +361,14 @@ public class Arm extends SubsystemBase {
 
           armPosition = ArmPosition.MEDIUM;
         });
+        
   }
-
+*/
   // button y pressed
-  public CommandBase highGoal() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
+ /*  public CommandBase highGoal() { // RETRACT BEFORE VERTICAL DOWNWARD MOVEMENT
     return runOnce(
         () -> {
-          /* one-time action goes here */
+          /* one-time action goes here 
           rotationTime.reset();
           rotationTime.start();
 
@@ -375,21 +384,14 @@ public class Arm extends SubsystemBase {
 
           armPosition = ArmPosition.HIGH;
         });
-  }
+  }*/
 
-  public void upArm(double timeToPos) {
-    while (rotationTime.get() < timeToPos) {
+  public void upArm() {
       rotationMotor.set(ArmConstants.defaultRotationSpeed);
-    }
-
-    rotationMotor.stopMotor();
   }
 
-  public void downArm(double timeToPos) {
-    while (rotationTime.get() < timeToPos) {
+  public void downArm() {
       rotationMotor.set(-ArmConstants.defaultRotationSpeed);
-    }
-    rotationMotor.stopMotor();
   }
 
   public CommandBase openGripper() {
@@ -447,5 +449,9 @@ public class Arm extends SubsystemBase {
           /* one-time action goes here */
           extensionMotor.stopMotor();
         });
+  }
+
+  public void stopArm() {
+    rotationMotor.stopMotor();
   }
 }

@@ -161,7 +161,7 @@ public class RobotContainer {
     // cancelling on release.
     // debounces exampleButton with a 0.1s debounce time, rising edges only
 
-    new JoystickButton(opControls, XboxController.Button.kX.value)
+  /*  new JoystickButton(opControls, XboxController.Button.kX.value)
       .onTrue(m_arm.returnToFloor());
 
     new JoystickButton(opControls, XboxController.Button.kA.value)
@@ -171,7 +171,7 @@ public class RobotContainer {
       .onTrue(m_arm.midGoal());
 
     new JoystickButton(opControls, XboxController.Button.kY.value)
-      .onTrue(m_arm.highGoal());
+      .onTrue(m_arm.highGoal().withTimeout(2)); */
 
     new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
       .onTrue(m_arm.openGripper());
@@ -179,8 +179,8 @@ public class RobotContainer {
     new JoystickButton(opControls, XboxController.Button.kRightBumper.value)
       .onTrue(m_arm.closeGripper());
     
-      new JoystickButton(opControls, XboxController.Button.kStart.value)
-      .onTrue(m_arm.setToBar());
+   /*    new JoystickButton(opControls, XboxController.Button.kStart.value)
+      .onTrue(m_arm.setToBar());*/
   }
 
   /**
