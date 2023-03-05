@@ -5,13 +5,15 @@ public enum ArmPosition {
     LOW,
     MEDIUM,
     HIGH,
-    BAR;
+    BAR,
+    STARTING;
 
     public static final double groundNumericPosition = 0;
     public static final double lowNumericPosition = 1;
     public static final double mediumNumericPosition = 2;
     public static final double highNumericPosition = 3;
     public static final double barNumericPosition = 4;
+    public static final double startingNumericPosition = 4;
 
     public static double numericPosition(ArmPosition pos) {
         switch(pos) {
@@ -23,6 +25,8 @@ public enum ArmPosition {
             return ArmPosition.highNumericPosition;
          case BAR:
             return ArmPosition.barNumericPosition;
+        case STARTING:
+            return ArmPosition.startingNumericPosition;
         default:
             return ArmPosition.groundNumericPosition;
         }

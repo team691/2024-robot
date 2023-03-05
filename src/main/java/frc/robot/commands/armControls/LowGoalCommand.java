@@ -39,6 +39,11 @@ public class LowGoalCommand extends CommandBase{
             m_timeout = ArmConstants.barToLow;
             upGoal = false;
         }
+        else {
+          m_timeout = ArmConstants.experimentalTime;
+          upGoal = true;
+        }
+
 
         m_arm.setArmPosition(ArmPosition.MEDIUM);
                 
