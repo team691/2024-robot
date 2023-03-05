@@ -40,7 +40,7 @@ public class LowGoalCommand extends CommandBase{
             upGoal = false;
         }
         else {
-          m_timeout = ArmConstants.experimentalTime;
+          m_timeout = ArmConstants.LowerTimeout;
           upGoal = true;
         }
 

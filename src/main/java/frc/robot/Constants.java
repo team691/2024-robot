@@ -103,7 +103,7 @@ public final class Constants {
     public static final double openGripperTime = 1.8;
     public static final double closeGripperTime = .5;
     public static final double timeToBar = 1.5;
-    public static final double experimentalTime = 1.5;
+    public static final double LowerTimeout = 1.4;
   }
   /*public static class GripperConstants{
     public static final int kGripperMotorID = 5;
