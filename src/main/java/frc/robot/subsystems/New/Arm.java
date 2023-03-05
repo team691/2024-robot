@@ -1,4 +1,4 @@
-package frc.robot.subsystems.New;
+ package frc.robot.subsystems.New;
 
 import edu.wpi.first.math.controller.ArmFeedforward;
 //import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
@@ -381,7 +381,7 @@ public class Arm extends SubsystemBase {
             upArm(ArmConstants.barToHigh);
           }
 
-          armPosition = ArmPosition.HIGH;
+          armPosition = ArmPosition.HIGH; 
         });
   }*/
 
