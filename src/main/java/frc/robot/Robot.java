@@ -4,7 +4,7 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.DigitalInput;
+//import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -23,9 +23,11 @@ import edu.wpi.first.cameraserver.CameraServer;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
+
+  //Commented out the limit switch stuff, tentative on whether or not it wil be used, but reversions are possible
   // TODO: Get digital input channels
-  DigitalInput topLimitSwitch = new DigitalInput(0);
-  DigitalInput bottomLimitSwitch = new DigitalInput(1);
+  //DigitalInput topLimitSwitch = new DigitalInput(0);
+  //DigitalInput bottomLimitSwitch = new DigitalInput(1);
   
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -94,7 +96,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     // TODO: Determine whether to use `stick` or `stick2` or both or neither
-    setArmMotorSpeed(m_robotContainer.stick.getRawAxis(2));
+    //setArmMotorSpeed(m_robotContainer.stick.getRawAxis(2));
   }
 
   @Override
@@ -115,6 +117,7 @@ public class Robot extends TimedRobot {
   @Override
   public void simulationPeriodic() {}
 
+  /* 
   public void setArmMotorSpeed(double speed) {
     if (speed > 0) {
       if (topLimitSwitch.get()) {
@@ -130,6 +133,5 @@ public class Robot extends TimedRobot {
       } else {
         arm.motor.set(speed);
       }
-    }
-  }
+    }*/
 }
