@@ -92,7 +92,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     // TODO: Determine whether to use `stick` or `stick2` or both or neither
-    setArmMotorSpeed(m_robotContainer.stick.getRawAxis(2));
+    //setArmMotorSpeed(m_robotContainer.stick.getRawAxis(2));
   }
 
   @Override
@@ -113,6 +113,7 @@ public class Robot extends TimedRobot {
   @Override
   public void simulationPeriodic() {}
 
+  /* 
   public void setArmMotorSpeed(double speed) {
     if (speed > 0) {
       if (topLimitSwitch.get()) {
@@ -128,6 +129,5 @@ public class Robot extends TimedRobot {
       } else {
         arm.motor.set(speed);
       }
-    }
-  }
+    }*/
 }
