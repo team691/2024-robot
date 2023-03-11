@@ -77,10 +77,6 @@ public class Arm extends SubsystemBase {
 
   private Instant lastArmChangeTimestamp;
 
-  // Initialize limitswitch and counter
-
-  DigitalInput limitSwitch = new DigitalInput(1);
-  Counter counter = new Counter(limitSwitch);
   /**
    * Initializes a new Arm object
    */
