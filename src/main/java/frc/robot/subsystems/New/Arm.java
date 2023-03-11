@@ -1,6 +1,8 @@
  package frc.robot.subsystems.New;
 
 import edu.wpi.first.math.controller.ArmFeedforward;
+import edu.wpi.first.wpilibj.Counter;
+import edu.wpi.first.wpilibj.DigitalInput;
 //import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 //import edu.wpi.first.wpilibj.motorcontrol.PWMTalonFX;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -75,6 +77,10 @@ public class Arm extends SubsystemBase {
 
   private Instant lastArmChangeTimestamp;
 
+  // Initialize limitswitch and counter
+
+  DigitalInput limitSwitch = new DigitalInput(1);
+  Counter counter = new Counter(limitSwitch);
   /**
    * Initializes a new Arm object
    */
@@ -94,6 +100,8 @@ public class Arm extends SubsystemBase {
     this.currentArmVelocity = Arm.initialArmVelocity;
 
     this.lastArmChangeTimestamp = Instant.now();
+
+
   }
 
   /**
@@ -174,10 +182,13 @@ public class Arm extends SubsystemBase {
    * @return Static gain
    */
   private double calculateStaticGain(Instant startTime, Instant endTime) {
+    //Finding the change in time
     final double deltaTime = (double) Duration.between(startTime, endTime).toMillis();
+    //Coulombs = FRC battery ampere hours * deltaTime
     final double C = 17.6 * (deltaTime);
-
+    //Calculating Force in Newtons to overcome static friction (Mass of Arm * Arm acceleration)
     double NkS = Arm.armMass * calculateAccelerationGain(startTime, endTime);
+    //Convert Newtons to Volts (Static Gain in Newtons * Length of Arm / Coulombs)
     double VkS = (NkS * getLastArmLength()) / C;
 
     return VkS;
