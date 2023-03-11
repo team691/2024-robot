@@ -21,6 +21,7 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
 
+  //Commented out the limit switch stuff, tentative on whether or not it wil be used, but reversions are possible
   // TODO: Get digital input channels
   //DigitalInput topLimitSwitch = new DigitalInput(0);
   //DigitalInput bottomLimitSwitch = new DigitalInput(1);
