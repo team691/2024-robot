@@ -102,7 +102,7 @@ public class RobotContainer {
               () ->
                   m_drive.drive(
                   stick.getY(),
-                  -stick2.getZ()/1.3
+                  -stick2.getZ()
                         ), m_drive
                 ) 
                 );
@@ -113,8 +113,8 @@ public class RobotContainer {
             m_arm.teleopArmControls(
               opControls.getLeftY(), // telescoping
               opControls.getRightY(), // rotation
-              (opControls.getLeftTriggerAxis()), // open
-              (opControls.getRightTriggerAxis()) // close
+              (opControls.getLeftTriggerAxis()/1.5), // open
+              (opControls.getRightTriggerAxis()/1.2) // close
             /* 
             buttons.getRightBumperPressed(), //open gripper
             buttons.getLeftBumperPressed(), //close gripper
