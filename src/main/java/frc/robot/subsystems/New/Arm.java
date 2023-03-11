@@ -3,8 +3,8 @@
  // TODO: Review page: https://docs.wpilib.org/en/2020/docs/software/old-commandbased/commands/limit-switches-control-behavior.html
 
 import edu.wpi.first.math.controller.ArmFeedforward;
-import edu.wpi.first.wpilibj.Counter;
-import edu.wpi.first.wpilibj.DigitalInput;
+//import edu.wpi.first.wpilibj.Counter;
+//import edu.wpi.first.wpilibj.DigitalInput;
 //import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 //import edu.wpi.first.wpilibj.motorcontrol.PWMTalonFX;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -80,8 +80,8 @@ public class Arm extends SubsystemBase {
   private Instant lastArmChangeTimestamp;
 
   // TODO: Edit digital input channel
-  DigitalInput limitSwitch = new DigitalInput(1);
-  Counter counter = new Counter(limitSwitch);
+  //DigitalInput limitSwitch = new DigitalInput(1);
+  //Counter counter = new Counter(limitSwitch);
 
   /**
    * Initializes a new Arm object
