@@ -6,8 +6,9 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants.AutoConstants;
+import frc.robot.commands.armControls.ControlExtensionCommand;
 import frc.robot.commands.armControls.ControlGripperCommand;
-import frc.robot.commands.armControls.LowGoalCommand;
+import frc.robot.commands.armControls.HighGoalCommand;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.New.Arm;
 //import frc.robot.subsystems.New.ArmPosition;
@@ -21,7 +22,8 @@ public class ScoreAuto extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new LowGoalCommand(arm),
+      new HighGoalCommand(arm),
+      new ControlExtensionCommand(arm, true),
       new ControlGripperCommand(arm, false),
       //new DriveTimeCommand(-AutoConstants.kAutoDriveSpeed,0, drive, .03),
       new DriveTimeCommand(AutoConstants.kAutoDriveSpeed, 0 , drive, 4.4)
