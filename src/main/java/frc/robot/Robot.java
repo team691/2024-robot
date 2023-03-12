@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+// import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 // camera
 import edu.wpi.first.cameraserver.CameraServer;
@@ -117,7 +117,7 @@ public class Robot extends TimedRobot {
   @Override
   public void simulationPeriodic() {}
 
-  /* 
+  /* PUT IN ARM CLASS
   public void setArmMotorSpeed(double speed) {
     if (speed > 0) {
       if (topLimitSwitch.get()) {

@@ -9,9 +9,9 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Encoder;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU.CalibrationTime;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
-//import edu.wpi.first.wpilibj.SPI.Port;
-//import com.kauailabs.navx.frc.AHRS;
-//import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.SPI.Port;
+import com.kauailabs.navx.frc.AHRS;
+import edu.wpi.first.wpilibj.SerialPort;
 // DIFFERENTIAL DRIVE
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -69,7 +69,7 @@ public class DriveTrain extends SubsystemBase {
   
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU();
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kMXP, CalibrationTime._32ms);
-   //private final AHRS navx = new AHRS(SerialPort.Port.kUSB);
+   private final AHRS navx = new AHRS(SerialPort.Port.kUSB);
 
    double angle;
 
@@ -84,9 +84,8 @@ public class DriveTrain extends SubsystemBase {
       // We need to invert one side of the drivetrain so that positive voltages
       // result in both sides moving forward. 
       m_right.setInverted(true);
-      /*navx.reset();
+      navx.reset();
       navx.calibrate();
-     // gyro.setYawAxis(IMUAxis.kX);*/
    }
    
    /* DRIVE IG */
@@ -100,35 +99,6 @@ public class DriveTrain extends SubsystemBase {
    public void stopDrive() {
       m_drive.stopMotor();
    }
-
-   /* option 2?
-   public CommandBase arcadeDriveCommand(DoubleSupplier fwd, DoubleSupplier rot) {
-      // A split-stick arcade command, with forward/backward controlled by the left
-      // hand, and turning controlled by the right.
-      return run(() -> m_drive.arcadeDrive(fwd.getAsDouble(), rot.getAsDouble()))
-          .withName("arcadeDrive");
-    } */
-   // Autonomous driving commands
-
-   // referenced from RapidReactCommandBot Example as supplied by WPILIB
-
-  /* public CommandBase driveDistanceCommand(double distanceMeters, double speed, double zRotation) {
-      return runOnce(
-         () -> {
-            // Reset encoders at the start of the command
-            m_leftEncoder.reset();
-            m_rightEncoder.reset();
-         })
-      // Drive forward at specified speed
-      .andThen(run(() -> m_drive.arcadeDrive(speed, zRotation)))
-      // End command when we've traveled the specified distance
-      .until (
-         () ->
-         Math.max(m_leftEncoder.getDistance(), m_rightEncoder.getDistance())
-         >= distanceMeters)
-      // Stop the drive when the command ends
-      .finallyDo(interrupted -> m_drive.stopMotor());
-   }*/ 
 
    /* SLOWER MODE OPTION THING */
    public void setMaxOutput(double maxOutput) {
@@ -153,6 +123,12 @@ public class DriveTrain extends SubsystemBase {
       return m_rightEncoder;
    }
 
+   public double getAngle() {
+      double angle = navx.getAngle();
+      System.out.println(angle);
+      return angle;
+   }
+      
    /* GYRO STUFF 
 
    public double getAngle() {
