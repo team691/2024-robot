@@ -9,11 +9,6 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
-<<<<<<< HEAD
-// import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-=======
-//import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
->>>>>>> 0c9fdfd548410b834dad7a79e73caada8fcf3f3f
 
 // camera
 import edu.wpi.first.cameraserver.CameraServer;
