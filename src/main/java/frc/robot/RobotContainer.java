@@ -183,8 +183,12 @@ public class RobotContainer {
     new JoystickButton(opControls, XboxController.Button.kRightBumper.value)
       .onTrue(new ControlGripperCommand(m_arm, true));
     
+    /* TEST */
     new JoystickButton(opControls, XboxController.Button.kStart.value)
       .onTrue(new BalanceCommand(m_drive));
+    
+    new JoystickButton(opControls, XboxController.Button.kBack.value)
+      .onTrue(m_drive.getAngleTest());
   }
 
   /**

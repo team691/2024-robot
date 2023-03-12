@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.SerialPort;
 // DIFFERENTIAL DRIVE
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 // COMMANDS
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 // CONSTANTS
@@ -108,6 +109,15 @@ public class DriveTrain extends SubsystemBase {
       return angle;
    }
       
+   // PURELY TO TEST
+   public CommandBase getAngleTest() {
+      return runOnce(
+         () -> {
+            double angle = navx.getAngle();
+            System.out.println(angle);
+           /* one-time action goes here */
+         });
+      }
    /* GYRO STUFF 
 
    public double getAngle() {
@@ -117,7 +127,7 @@ public class DriveTrain extends SubsystemBase {
    }*/
 
    // Code to check angle, run until the angle is zero, then set motors to zero when
-  /* public CommandBase balanceCommand () {
+/*public CommandBase balanceCommand () {
       return run(
          () -> {
             getAngle();
@@ -138,7 +148,7 @@ public class DriveTrain extends SubsystemBase {
             getAngle() <= (.5) && getAngle() >= (-.5))
       // Stop the drive when the command ends
       .finallyDo(interrupted -> m_drive.stopMotor());
-   }*/ 
+   }*/
 
    public double getAverageEncoderDistance() {
       return (m_leftEncoder.getDistance() + m_rightEncoder.getDistance()) / 4.0;
