@@ -24,6 +24,7 @@ import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 //import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.BalanceAuto;
+import frc.robot.commands.BalanceCommand;
 //import frc.robot.commands.BalanceAuto;
 import frc.robot.commands.DriveOutOfCommunityAuto;
 import frc.robot.commands.ScoreAuto;
@@ -182,8 +183,8 @@ public class RobotContainer {
     new JoystickButton(opControls, XboxController.Button.kRightBumper.value)
       .onTrue(new ControlGripperCommand(m_arm, true));
     
-   /*    new JoystickButton(opControls, XboxController.Button.kStart.value)
-      .onTrue(m_arm.setToBar());*/
+    new JoystickButton(opControls, XboxController.Button.kStart.value)
+      .onTrue(new BalanceCommand(m_drive));
   }
 
   /**
