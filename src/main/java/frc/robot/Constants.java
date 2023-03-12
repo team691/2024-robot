@@ -100,7 +100,7 @@ public final class Constants {
     public static final double defaultExtentionSpeed = 0;
     public static final double defaultRotationSpeed = .25;
     public static final double defaultGripperSpeed = .17;
-    public static final double openGripperTime = 1.8;
+    public static final double openGripperTime = 1;
     public static final double closeGripperTime = .5;
     public static final double timeToBar = 1.5;
     public static final double LowerTimeout = 0.5;
