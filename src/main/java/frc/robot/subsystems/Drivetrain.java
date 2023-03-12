@@ -103,6 +103,7 @@ public class DriveTrain extends SubsystemBase {
       return m_rightEncoder;
    }
 
+   // TODO: may need to be translated to navx.getPitch() based on testing
    public double getAngle() {
       double angle = navx.getAngle();
       System.out.println(angle);
@@ -110,6 +111,7 @@ public class DriveTrain extends SubsystemBase {
    }
       
    // PURELY TO TEST
+   // TODO: test to make sure that the angle that the robot is getting is correct
    public CommandBase getAngleTest() {
       return runOnce(
          () -> {
