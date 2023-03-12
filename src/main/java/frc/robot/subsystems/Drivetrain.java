@@ -3,29 +3,17 @@ package frc.robot.subsystems;
 // BASIC MOTORS AND ENCODERS
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-// GYRO
-// import java.time.*;
-//import edu.wpi.first.wpilibj.ADIS16470_IMU;
 import edu.wpi.first.wpilibj.Encoder;
-//import edu.wpi.first.wpilibj.ADIS16470_IMU.CalibrationTime;
-//import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
-//import edu.wpi.first.wpilibj.SPI.Port;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SerialPort;
 // DIFFERENTIAL DRIVE
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-//import edu.wpi.first.wpilibj2.command.Command;
 // COMMANDS
-//import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
 // CONSTANTS
 import frc.robot.Constants.DriveConstants;
 //import frc.robot.Constants.AutoConstants;
-
-
 
 public class DriveTrain extends SubsystemBase {
 
@@ -38,12 +26,6 @@ public class DriveTrain extends SubsystemBase {
   private final CANSparkMax m_frontRightMotor = new CANSparkMax(DriveConstants.kFrontRightMotorID, MotorType.kBrushless);
   private final CANSparkMax m_rearRightMotor = new CANSparkMax(DriveConstants.kRearRightMotorID, MotorType.kBrushless);
   MotorControllerGroup m_right = new MotorControllerGroup(m_frontRightMotor, m_rearRightMotor);
-
-  //Motors defined in Arm subsystem, possibly uncomment right here
-  /*private final CANSparkMax m_gripperMotor = new CANSparkMax(DriveConstants.kGripperMotorID, MotorType.kBrushless);
-   *private final CANSparkMax m_verticalMotor = new CANSparkMax(DriveConstants.kVerticalMotorID, MotorType.kBrushless);
-   *private final CANSparkMax m_telescopingMotor = new CANSparkMax(DriveConstants.kTelescopingMotorID, MotorType.kBrushless);
-   */
 
    // The robot's drive
    //private final DifferentialDrive m_drive = new DifferentialDrive(m_left, m_right);
@@ -67,8 +49,6 @@ public class DriveTrain extends SubsystemBase {
       DriveConstants.kRightEncoderReversed
    );
   
-   //private final ADIS16470_IMU gyro = new ADIS16470_IMU();
-   //private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kMXP, CalibrationTime._32ms);
    private final AHRS navx = new AHRS(SerialPort.Port.kMXP);
 
    double angle;
@@ -89,7 +69,6 @@ public class DriveTrain extends SubsystemBase {
    }
    
    /* DRIVE IG */
-   
    
    // Controller-based drive
    public void drive (double xSpeed, double zRotation) {
