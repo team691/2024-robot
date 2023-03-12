@@ -18,7 +18,7 @@ public class USBCamera extends SubsystemBase {
     // private final String name = "cam0";
     public USBCamera() {	
 	    usbCamera = CameraServer.startAutomaticCapture();
-        usbCamera.setResolution(640,480);
+        usbCamera.setResolution(1088,816);
         SmartDashboard.putData((Sendable) usbCamera);
     }
 
