@@ -9,7 +9,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Encoder;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU.CalibrationTime;
 //import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
-import edu.wpi.first.wpilibj.SPI.Port;
+//import edu.wpi.first.wpilibj.SPI.Port;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SerialPort;
 // DIFFERENTIAL DRIVE
@@ -69,7 +69,7 @@ public class DriveTrain extends SubsystemBase {
   
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU();
    //private final ADIS16470_IMU gyro = new ADIS16470_IMU(IMUAxis.kY, Port.kMXP, CalibrationTime._32ms);
-   private final AHRS navx = new AHRS(SerialPort.Port.kUSB);
+   private final AHRS navx = new AHRS(SerialPort.Port.kMXP);
 
    double angle;
 
