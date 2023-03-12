@@ -14,6 +14,7 @@ public class BalanceCommand extends CommandBase {
   /** Creates a new BalanceCommand. */
   public BalanceCommand(DriveTrain drive) {
     m_drive = drive;
+    addRequirements(m_drive);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
