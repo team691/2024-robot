@@ -334,4 +334,5 @@ public class Arm extends SubsystemBase {
   public void stopRotate() {
     rotationMotor.stopMotor();
   }
+
 }
