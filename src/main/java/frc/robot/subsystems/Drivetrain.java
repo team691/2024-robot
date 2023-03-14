@@ -4,8 +4,13 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Joystick;
+
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SerialPort;
+//POTENTIAL COMMENTING OUT:
+import com.revrobotics.RelativeEncoder;
+
 // DIFFERENTIAL DRIVE
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -17,6 +22,13 @@ import frc.robot.Constants.DriveConstants;
 //import frc.robot.Constants.AutoConstants;
 
 public class DriveTrain extends SubsystemBase {
+
+  private CANSparkMax m_motor;
+  private final RelativeEncoder m_frontLeftEncoder;
+  private final RelativeEncoder m_rearLeftEncoder;
+  private final RelativeEncoder m_frontRightEncoder;
+  private final RelativeEncoder m_rearRightEncoder;
+
 
 //Motor control group left
   private final CANSparkMax m_frontLeftMotor = new CANSparkMax(DriveConstants.kFrontLeftMotorID, MotorType.kBrushless);
@@ -67,6 +79,10 @@ public class DriveTrain extends SubsystemBase {
       m_right.setInverted(true);
       navx.reset();
       navx.calibrate();
+      m_frontLeftEncoder = m_motor.getEncoder();
+      m_frontRightEncoder = m_motor.getEncoder();
+      m_rearLeftEncoder = m_motor.getEncoder();
+      m_rearRightEncoder = m_motor.getEncoder();
    }
    
    /* DRIVE IG */
