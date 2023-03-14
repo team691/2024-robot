@@ -198,29 +198,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-      return m_chooser.getSelected(); /*Autos.goForward(m_drive)
-      .andThen(Autos.goBackward(m_drive))
-      .andThen(Autos.balanceEnergyStation(m_drive));*/
-   /*  return m_drive
-        .driveDistanceCommand(AutoConstants.kDriveDistanceMeters, AutoConstants.kDriveSpeed)
-        .withTimeout(AutoConstants.kTimeoutSeconds);*/
-      //return Autos.balanceEnergyStation(m_drive);
+      return m_chooser.getSelected();
   }
-/*   public void displayCamera() {
-    UsbCamera camera = CameraServer.startAutomaticCapture();
-    camera.setResolution(640, 480);
-    CameraServer.startAutomaticCapture();
-    CvSource outputStream = CameraServer.putVideo("Rectangle", 640, 480);
-    outputStream.putFrame(null);
-    SmartDashboard.putData((Sendable) outputStream);
-  }*/
-
-  //public void initializeAutoChooser(){
-  //   public void SendableChooser (){
-  //   m_chooser.setDefaultOption("Do Nothing", new WaitCommand(15));
-  //   m_chooser.addOption("Balance", new BalanceAuto(m_drive));
-  //   m_chooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
-  //   //m_chooser.addOption("ScoreBalanceAuto", new ScoreBalanceAuto());
-  //   SmartDashboard.putData( m_chooser);
-  // }
 }
