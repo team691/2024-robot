@@ -3,7 +3,6 @@ package frc.robot.subsystems;
 // BASIC MOTORS AND ENCODERS
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import edu.wpi.first.wpilibj.Encoder;
 //import edu.wpi.first.wpilibj.Joystick;
 
 import com.kauailabs.navx.frc.AHRS;
