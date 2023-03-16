@@ -4,7 +4,7 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj.Joystick;
 
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SerialPort;
@@ -23,7 +23,6 @@ import frc.robot.Constants.DriveConstants;
 
 public class DriveTrain extends SubsystemBase {
 
-  private CANSparkMax m_motor;
   private final RelativeEncoder m_frontLeftEncoder;
   private final RelativeEncoder m_rearLeftEncoder;
   private final RelativeEncoder m_frontRightEncoder;
@@ -79,10 +78,10 @@ public class DriveTrain extends SubsystemBase {
       m_right.setInverted(true);
       navx.reset();
       navx.calibrate();
-      m_frontLeftEncoder = m_motor.getEncoder();
-      m_frontRightEncoder = m_motor.getEncoder();
-      m_rearLeftEncoder = m_motor.getEncoder();
-      m_rearRightEncoder = m_motor.getEncoder();
+      m_frontLeftEncoder = m_frontLeftMotor.getEncoder();
+      m_frontRightEncoder = m_frontRightMotor.getEncoder();
+      m_rearLeftEncoder = m_rearLeftMotor.getEncoder();
+      m_rearRightEncoder = m_rearRightMotor.getEncoder();
    }
    
    /* DRIVE IG */
