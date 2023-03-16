@@ -43,7 +43,7 @@ public class DriveTrain extends SubsystemBase {
    //private final DifferentialDrive m_drive = new DifferentialDrive(m_left, m_right);
    DifferentialDrive m_drive = new DifferentialDrive(m_left, m_right);
 
-   /* encoders but more condensed? */
+   /* encoders but more condensed? 
 
    // Left-side drive encoder
    private final Encoder m_leftEncoder =
@@ -59,7 +59,7 @@ public class DriveTrain extends SubsystemBase {
       DriveConstants.kRightEncoderPorts[0],
       DriveConstants.kRightEncoderPorts[1],
       DriveConstants.kRightEncoderReversed
-   );
+   );*/
   
    private final AHRS navx = new AHRS(SerialPort.Port.kMXP);
 
@@ -70,9 +70,6 @@ public class DriveTrain extends SubsystemBase {
       m_frontRightMotor.setSmartCurrentLimit(40, 38);
       m_rearLeftMotor.setSmartCurrentLimit(40, 38);
       m_rearRightMotor.setSmartCurrentLimit(40, 38);
-      // Sets the distance per pulse for the encoders
-      m_leftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
-      m_rightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
       // We need to invert one side of the drivetrain so that positive voltages
       // result in both sides moving forward. 
       m_right.setInverted(true);
@@ -82,6 +79,11 @@ public class DriveTrain extends SubsystemBase {
       m_frontRightEncoder = m_frontRightMotor.getEncoder();
       m_rearLeftEncoder = m_rearLeftMotor.getEncoder();
       m_rearRightEncoder = m_rearRightMotor.getEncoder();
+      // Sets the distance per pulse for the encoders
+      m_frontLeftEncoder.setPositionConversionFactor(DriveConstants.kEncoderDistancePerPulse);
+      m_frontRightEncoder.setPositionConversionFactor(DriveConstants.kEncoderDistancePerPulse);
+      m_rearLeftEncoder.setPositionConversionFactor(DriveConstants.kEncoderDistancePerPulse);
+      m_rearRightEncoder.setPositionConversionFactor(DriveConstants.kEncoderDistancePerPulse);
    }
    
    /* DRIVE IG */
@@ -104,19 +106,23 @@ public class DriveTrain extends SubsystemBase {
    
    // Resets the drive encoders to currently read a position of 0.
    public void resetEncoders() {
-      m_leftEncoder.reset();
-      m_rightEncoder.reset();
+      m_frontLeftEncoder.setPosition(0);
+      m_frontRightEncoder.setPosition(0);
+      m_rearLeftEncoder.setPosition(0);
+      m_rearRightEncoder.setPosition(0);
    }
 
-   //Gets the left drive encoder.
+   /*Gets the left drive encoder.
    public Encoder getLeftEncoder() {
       return m_leftEncoder;
    }
+   */
 
+   /* 
    // Gets the  right drive encoder.
    public Encoder getRightEncoder() {
       return m_rightEncoder;
-   }
+   }*/
 
    // TODO: may need to be translated to navx.getPitch() based on testing
    public double getAngle() {
@@ -169,7 +175,15 @@ public class DriveTrain extends SubsystemBase {
       .finallyDo(interrupted -> m_drive.stopMotor());
    }*/
 
+   public double getAverageLeftEncoderDistance() {
+      return (m_frontLeftEncoder.getPosition() + m_rearLeftEncoder.getPosition()) / 2;
+   }
+
+   public double getAverageRightEncoderDistance() {
+      return (m_frontRightEncoder.getPosition() + m_rearRightEncoder.getPosition()) / 2;
+   }
+
    public double getAverageEncoderDistance() {
-      return (m_leftEncoder.getDistance() + m_rightEncoder.getDistance()) / 4.0;
+      return (getAverageLeftEncoderDistance() + getAverageRightEncoderDistance()) / 2;
    }
 }
