@@ -9,11 +9,11 @@ import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.*;
 import edu.wpi.first.networktables.*;
 
-public class Limelight2 extends SubsystemBase {
+public class LimelightTargetTrack extends SubsystemBase {
   private boolean m_LimelightHasValidTarget = false;
   private double m_LimelightDriveCommand = 0.0;
   private double m_LimelightSteerCommand = 0.0;
-  public Limelight2() {}
+  public LimelightTargetTrack() {}
 
   @Override
   public void periodic() {
