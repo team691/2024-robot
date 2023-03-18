@@ -14,8 +14,8 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 //import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+/*import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;*/
 
 //Possible Solution: Comment Out Arm Constants
 import frc.robot.Constants.ArmConstants;
@@ -53,7 +53,7 @@ public class Arm extends SubsystemBase {
   // Motors
   private final WPI_VictorSPX extensionMotor = new WPI_VictorSPX(ArmConstants.extensionMotorID); // chain motor
   private final WPI_TalonFX rotationMotor = new WPI_TalonFX(ArmConstants.rotationMotorID); // telescoping motor
-  private final CANSparkMax gripperMotor = new CANSparkMax(ArmConstants.kGripperMotorID,  MotorType.kBrushless); // mini neo gripper motor
+//  private final CANSparkMax gripperMotor = new CANSparkMax(ArmConstants.kGripperMotorID,  MotorType.kBrushless); // mini neo gripper motor
 
   // Motor encoders
 
@@ -271,14 +271,14 @@ public class Arm extends SubsystemBase {
         calculateAccelerationGain(lastArmChangeTimestamp, currentArmChangeTimestampt)));
   }
 
-  public void teleopArmControls(double extension, double rotation, double open, double close) /*double verticalSpeed, double telescopingSpeed
+  public void teleopArmControls(double extension, double rotation/* , double open, double close*/) /*double verticalSpeed, double telescopingSpeed
                                                                               * , boolean opengripper, boolean
                                                                               * closegripper, boolean stillgripper1,
                                                                               * boolean stillgripper2
                                                                               */ {
     //rotationMotor.set(rotation);
     extensionMotor.set(extension/2);
-    if (open > close){
+   /*  if (open > close){
       gripperMotor.set(open/6);
     }
     else if (close > open){
@@ -286,7 +286,7 @@ public class Arm extends SubsystemBase {
     }
     else{
       gripperMotor.stopMotor();
-    }
+    }*/
 
     rotationMotor.set(rotation/4);
   }
@@ -299,7 +299,7 @@ public class Arm extends SubsystemBase {
       rotationMotor.set(-ArmConstants.defaultRotationSpeed);
   }
 
-  public void openGripper() {
+  /*public void openGripper() {
     gripperMotor.set(ArmConstants.defaultGripperSpeed);
   }
 
@@ -310,7 +310,7 @@ public class Arm extends SubsystemBase {
   public void stillGripper() {
     gripperMotor.stopMotor();
   }
-
+*/
  /*  public CommandBase retractArm(double retractionTime){
     return runOnce(
         () -> {
