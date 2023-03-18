@@ -27,6 +27,7 @@ import frc.robot.commands.BalanceAuto;
 import frc.robot.commands.BalanceCommand;
 //import frc.robot.commands.BalanceAuto;
 import frc.robot.commands.DriveOutOfCommunityAuto;
+import frc.robot.commands.LimelightTrackingCommand;
 import frc.robot.commands.ScoreAuto;
 import frc.robot.commands.armControls.ControlGripperCommand;
 //import frc.robot.commands.ScoreAuto;
@@ -41,7 +42,8 @@ import frc.robot.subsystems.New.Arm;
 
 // subsystems
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.LimelightTargetTrack;
+import frc.robot.subsystems.Limelight;
+//import frc.robot.subsystems.LimelightTargetTrack;
 
 /* 
 // camera
@@ -64,7 +66,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveTrain m_drive = new DriveTrain();
   private final Arm m_arm = new Arm();
-  private final LimelightTargetTrack m_lime = new LimelightTargetTrack();
+  private final Limelight m_lime = new Limelight();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   XboxController opControls = new XboxController(OperatorConstants.kXboxControllerPort);
@@ -136,7 +138,7 @@ public class RobotContainer {
     m_chooser.setDefaultOption("Do Nothing", new WaitCommand(15));
     m_chooser.addOption("Balance", new BalanceAuto(m_drive));
     m_chooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
-    m_chooser.addOption("Drive out of community", new DriveOutOfCommunityAuto(m_drive));
+    m_chooser.addOption("Drive out of community", new DriveOutOfCommunityAuto(m_drive, m_lime));
     SmartDashboard.putData(m_chooser);
 
     // Put the chooser on the dashboard
@@ -195,7 +197,7 @@ public class RobotContainer {
     //Testing LimelightTracking
 
     new JoystickButton(opControls, XboxController.Button.kA.value)
-      .onTrue(m_lime.LimelightTracking());
+      .onTrue(new LimelightTrackingCommand(m_lime));
 
     //Testing Encoders
 

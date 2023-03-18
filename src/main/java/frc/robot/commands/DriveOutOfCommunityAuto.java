@@ -7,17 +7,19 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants.AutoConstants;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Limelight;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class DriveOutOfCommunityAuto extends SequentialCommandGroup {
   /** Creates a new DriveOutOfCommunityAuto. */
-  public DriveOutOfCommunityAuto(DriveTrain drive) {
+  public DriveOutOfCommunityAuto(DriveTrain drive, Limelight lime) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new DriveDistanceCommand(14, AutoConstants.kAutoDriveSpeed,0, drive )
+      new DriveDistanceCommand(14, AutoConstants.kAutoDriveSpeed,0, drive ),
+      new LimelightTrackingCommand(lime)
     );
   }
 }
