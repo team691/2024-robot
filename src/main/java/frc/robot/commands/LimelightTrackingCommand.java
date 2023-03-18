@@ -30,7 +30,7 @@ public class LimelightTrackingCommand extends CommandBase {
   @Override
   public void execute() {
      m_lime.Update_Limelight_Tracking(AutoConstants.kHardTurn);
-    if (m_lime.hasValidTarget())
+    if (m_lime.m_LimelightHasValidTarget)
           {
                 m_drive.drive(AutoConstants.kDriveSpeed, m_lime.m_LimelightSteerCommand);
           }
@@ -44,6 +44,6 @@ public class LimelightTrackingCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return m_lime.hasValidTarget() == false ;
+    return m_lime.m_LimelightHasValidTarget == false ;
   }
 }
