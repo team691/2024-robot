@@ -34,6 +34,7 @@ import frc.robot.commands.armControls.ControlGripperCommand;
 // import frc.robot.commands.gripperControlCommand;
 import frc.robot.subsystems.New.Arm;
 //import frc.robot.subsystems.New.ArmPosition;
+import frc.robot.subsystems.New.Claw;
 
 // stuff for the examples because templete
 //import static edu.wpi.first.wpilibj2.command.Commands.parallel;
@@ -66,6 +67,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveTrain m_drive = new DriveTrain();
   private final Arm m_arm = new Arm();
+  private final Claw m_claw = new Claw();
   private final Limelight m_lime = new Limelight();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
@@ -118,9 +120,9 @@ public class RobotContainer {
         () ->
             m_arm.teleopArmControls(
               opControls.getLeftY(), // telescoping
-              opControls.getRightY(), // rotation
-              opControls.getLeftTriggerAxis(), // open
-              opControls.getRightTriggerAxis() // close
+              opControls.getRightY()//, // rotation
+             /*  opControls.getLeftTriggerAxis(), // open
+              opControls.getRightTriggerAxis() // close*/
             /* 
             buttons.getRightBumperPressed(), //open gripper
             buttons.getLeftBumperPressed(), //close gripper
@@ -137,7 +139,7 @@ public class RobotContainer {
     m_chooser.addOption("Complex Auto", m_complexAuto); */
     m_chooser.setDefaultOption("Do Nothing", new WaitCommand(15));
     m_chooser.addOption("Balance", new BalanceAuto(m_drive));
-    m_chooser.addOption("Score", new ScoreAuto(m_drive, m_arm));
+    m_chooser.addOption("Score", new ScoreAuto(m_drive, m_arm, m_claw));
     m_chooser.addOption("Drive out of community", new DriveOutOfCommunityAuto(m_drive, m_lime));
     SmartDashboard.putData(m_chooser);
 
@@ -182,10 +184,10 @@ public class RobotContainer {
       .onTrue(m_arm.highGoal().withTimeout(2)); */
 
     new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
-      .onTrue(new ControlGripperCommand(m_arm, false));
+      .onTrue(new ControlGripperCommand(m_claw, false));
 
     new JoystickButton(opControls, XboxController.Button.kRightBumper.value)
-      .onTrue(new ControlGripperCommand(m_arm, true));
+      .onTrue(new ControlGripperCommand(m_claw, true));
     
     /* TEST */
     new JoystickButton(opControls, XboxController.Button.kStart.value)

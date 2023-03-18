@@ -8,16 +8,19 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.ArmConstants;
 import frc.robot.subsystems.New.Arm;
+import frc.robot.subsystems.New.Claw;
 
 public class ControlExtensionCommand extends CommandBase {
   private final Arm m_arm;
+  private final Claw m_claw;
   private final Timer m_timer = new Timer();
   private double m_timeout = 0;
   private boolean m_extend = false;
 
   /** Creates a new ControlGripperCommand. */
-  public ControlExtensionCommand(Arm arm, boolean extend) {
+  public ControlExtensionCommand(Arm arm, Claw claw, boolean extend) {
     m_arm = arm;
+    m_claw = claw;
     m_extend = extend;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(arm);
@@ -40,17 +43,17 @@ public class ControlExtensionCommand extends CommandBase {
   @Override
   public void execute() {
     if (m_extend){
-      m_arm.closeGripper();
+      m_claw.closeGripper();
     }
     else{
-      m_arm.openGripper();
+      m_claw.openGripper();
     };
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_arm.stillGripper();
+    m_claw.stillGripper();
   }
 
   // Returns true when the command should end.
