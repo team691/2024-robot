@@ -24,6 +24,19 @@ public class LimelightTrackingCommand extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+<<<<<<< HEAD
+=======
+    m_lime.Update_Limelight_Tracking();
+
+          if (m_lime.hasValidTarget())
+          {
+                m_drive.drive(AutoConstants.kDriveSpeed,m_lime.m_LimelightSteerCommand);
+          }
+          else
+          {
+                m_drive.stopDrive();
+          }
+>>>>>>> 54d2fa31ddd5f53e5b02c4d8c0e8526ec7d9cf48
   }
 
   // Called every time the scheduler runs while the command is scheduled.

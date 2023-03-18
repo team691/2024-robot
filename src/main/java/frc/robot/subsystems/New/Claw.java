@@ -27,7 +27,9 @@ public class Claw extends SubsystemBase {
   }
 
   public void ClawControls(double open, double close, double rotation) {
-    rotationMotor.set(rotation/4);
+    
+    rotationMotor.set(rotation/18); // change division number to adjust speed for more precision
+
     if (open > close){
       gripperMotor.set(open/6);
     }
@@ -37,7 +39,6 @@ public class Claw extends SubsystemBase {
     else{
       gripperMotor.stopMotor();
     }
-
   }
 
   public void openGripper() {
@@ -50,5 +51,12 @@ public class Claw extends SubsystemBase {
 
   public void stillGripper() {
     gripperMotor.stopMotor();
+  }
+  public void upClaw() {
+    rotationMotor.set(ArmConstants.defaultRotationSpeed);
+  }
+
+  public void downClaw() {
+    rotationMotor.set(-ArmConstants.defaultRotationSpeed);
   }
 }

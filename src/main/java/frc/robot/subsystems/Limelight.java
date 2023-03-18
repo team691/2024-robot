@@ -41,6 +41,9 @@ public class Limelight extends SubsystemBase {
     public static final boolean POST_TO_SMART_DASHBOARD = true;
     public boolean m_LimelightHasValidTarget = false;
     public double m_LimelightSteerCommand = 0.0;
+    private boolean m_LimelightHasValidTarget = false;
+    private double m_LimelightDriveCommand = 0.0;
+    public double m_LimelightSteerCommand = 0.0;
 
     //force test variables
     boolean timingTestEntryValue2 = !timingTestEntryValue;
