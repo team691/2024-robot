@@ -28,7 +28,7 @@ public class Claw extends SubsystemBase {
 
   public void ClawControls(double open, double close, double rotation) {
     
-    rotationMotor.set(rotation/12); // change division number to adjrst speed for more precision
+    rotationMotor.set(rotation/18); // change division number to adjust speed for more precision
 
     if (open > close){
       gripperMotor.set(open/6);
