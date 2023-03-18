@@ -26,7 +26,8 @@ public class Claw extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void ClawControls(double open, double close) {
+  public void ClawControls(double open, double close, double rotation) {
+    rotationMotor.set(rotation/4);
     if (open > close){
       gripperMotor.set(open/6);
     }
@@ -36,6 +37,7 @@ public class Claw extends SubsystemBase {
     else{
       gripperMotor.stopMotor();
     }
+
   }
 
   public void openGripper() {
