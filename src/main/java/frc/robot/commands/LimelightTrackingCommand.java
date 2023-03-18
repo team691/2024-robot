@@ -24,29 +24,26 @@ public class LimelightTrackingCommand extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_lime.Update_Limelight_Tracking();
-
-          if (m_lime.hasValidTarget())
-          {
-                m_drive.arcadeDrive(AutoConstants.kDriveSpeed,m_LimelightSteerCommand);
-          }
-          else
-          {
-                m_drive.stopDrive();
-          }
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+     m_lime.Update_Limelight_Tracking(AutoConstants.kHardTurn);
+    if (m_lime.hasValidTarget())
+          {
+                m_drive.drive(AutoConstants.kDriveSpeed, m_lime.m_LimelightSteerCommand);
+          }
   }
-  /* Called once the command ends or is interrupted.
+  // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
-
+  public void end(boolean interrupted) {
+    m_drive.stopDrive();
+  }
+//YOU GUYS ARE DOING SO WELL!!! KEEP UP THE GOOD EFFORT
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
-  }*/ 
+    return m_lime.hasValidTarget() == false ;
+  }
 }

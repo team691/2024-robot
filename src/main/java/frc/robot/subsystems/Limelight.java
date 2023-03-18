@@ -39,9 +39,8 @@ public class Limelight extends SubsystemBase {
     public static final long MAX_UPDATE_TIME = 100_000; // microseconds; 0.1 seconds
     
     public static final boolean POST_TO_SMART_DASHBOARD = true;
-    private boolean m_LimelightHasValidTarget = false;
-    private double m_LimelightDriveCommand = 0.0;
-    private double m_LimelightSteerCommand = 0.0;
+    public boolean m_LimelightHasValidTarget = false;
+    public double m_LimelightSteerCommand = 0.0;
 
     //force test variables
     boolean timingTestEntryValue2 = !timingTestEntryValue;
@@ -493,7 +492,7 @@ public class Limelight extends SubsystemBase {
          * Stops taking snapshots
          */
         STOP(0),
-
+//GO CODE GO CODE GOOOOO CODEEEEE!!!
         /**
          * Takes two snapshots per second
          */
@@ -527,14 +526,10 @@ public class Limelight extends SubsystemBase {
     public static void setSnapshotMode(SnapshotMode mode) {
         SnapshotModeEntry.setNumber(mode.getCodeValue());
     }
-    public void Update_Limelight_Tracking()
+    public void Update_Limelight_Tracking(double turn)
     {
-          // These numbers must be tuned for your Robot!  Be careful!
-          final double STEER_K = 0.03;                    // how hard to turn toward the target
-          final double DRIVE_K = 0.26;                    // how hard to drive fwd toward the target
-          final double DESIRED_TARGET_AREA = 13.0;        // Area of the target when the robot reaches the wall
-          final double MAX_DRIVE = 0.7;                   // Simple speed limit so we don't drive too fast
-  
+        
+         
           double tv = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tv").getDouble(0);
           double tx = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tx").getDouble(0);
           double ty = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ty").getDouble(0);
@@ -543,7 +538,6 @@ public class Limelight extends SubsystemBase {
           if (tv < 1.0)
           {
             m_LimelightHasValidTarget = false;
-            m_LimelightDriveCommand = 0.0;
             m_LimelightSteerCommand = 0.0;
             return;
           }
@@ -551,17 +545,10 @@ public class Limelight extends SubsystemBase {
           m_LimelightHasValidTarget = true;
   
           // Start with proportional steering
-          double steer_cmd = tx * STEER_K;
+          double steer_cmd = tx * turn;
           m_LimelightSteerCommand = steer_cmd;
   
           // try to drive forward until the target area reaches our desired area
-          double drive_cmd = (DESIRED_TARGET_AREA - ta) * DRIVE_K;
-  
-          // don't let the robot drive too fast into the goal
-          if (drive_cmd > MAX_DRIVE)
-          {
-            drive_cmd = MAX_DRIVE;
-          }
-          m_LimelightDriveCommand = drive_cmd;
+         /* double drive_cmd = (DESIRED_TARGET_AREA - ta) * DRIVE_K; */
     }
 }

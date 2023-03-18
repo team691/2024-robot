@@ -50,6 +50,7 @@ public final class Constants {
     public static final double kDriveSpeed = 0.5;
     public static final double kTurnSpeed = 0.75;
     public static final double kBalancingSpeed = 0.1;
+    public static final double kHardTurn = 0;
     public static double kAutoDriveDistanceInchesF = 11.0;
     public static double kAutoDriveDistanceInchesB = -190.0;
     public static double kAutoDriveDistanceInchesBalance = -54.0;
