@@ -39,8 +39,7 @@ public class Limelight extends SubsystemBase {
     public static final long MAX_UPDATE_TIME = 100_000; // microseconds; 0.1 seconds
     
     public static final boolean POST_TO_SMART_DASHBOARD = true;
-    private boolean m_LimelightHasValidTarget = false;
-    private double m_LimelightDriveCommand = 0.0;
+    public boolean m_LimelightHasValidTarget = false;
     public double m_LimelightSteerCommand = 0.0;
 
     //force test variables
@@ -533,8 +532,8 @@ public class Limelight extends SubsystemBase {
          
           double tv = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tv").getDouble(0);
           double tx = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tx").getDouble(0);
-          double ty = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ty").getDouble(0);
-          double ta = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ta").getDouble(0);
+          //double ty = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ty").getDouble(0);
+          //double ta = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ta").getDouble(0);
   
           if (tv < 1.0)
           {
