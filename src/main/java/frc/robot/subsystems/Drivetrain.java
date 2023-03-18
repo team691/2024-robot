@@ -190,14 +190,14 @@ public class DriveTrain extends SubsystemBase {
    public CommandBase printFrontLeftEncoderDistance() {
       return runOnce(
          () -> {
-            System.out.println((m_frontLeftEncoder.getPosition()) / 2);
+            System.out.println("Front Left Encoder:" + (m_frontLeftEncoder.getPosition()) / 2);
          });
       }
       
    public CommandBase printRearLeftEncoderDistance() {
       return runOnce(
          () -> {
-            System.out.println((m_rearLeftEncoder.getPosition()) / 2);
+            System.out.println("Rear Left Encoder:" + ((m_rearLeftEncoder.getPosition()) / 2));
          });
       
    }
@@ -205,7 +205,7 @@ public class DriveTrain extends SubsystemBase {
    public CommandBase printFrontRightEncoderDistance() {
       return runOnce(
          () -> {
-            System.out.println((m_frontRightEncoder.getPosition()) / 2);
+            System.out.println("Front Right Encoder:" + ((m_frontRightEncoder.getPosition()) / 2));
          });
       
    }
@@ -213,7 +213,7 @@ public class DriveTrain extends SubsystemBase {
    public CommandBase printRearRightEncoderDistance() {
       return runOnce(
          () -> {
-            System.out.println((m_rearRightEncoder.getPosition()) / 2);
+            System.out.println("Rear Right Encoder:" + ((m_rearRightEncoder.getPosition()) / 2));
          });
    }
 }
