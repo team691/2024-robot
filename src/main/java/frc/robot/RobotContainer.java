@@ -33,6 +33,7 @@ import frc.robot.commands.armControls.ControlGripperCommand;
 //import frc.robot.commands.ScoreAuto;
 // import frc.robot.commands.gripperControlCommand;
 import frc.robot.subsystems.New.Arm;
+//import frc.robot.subsystems.New.ArmPosition;
 import frc.robot.subsystems.New.Claw;
 
 // stuff for the examples because templete
@@ -120,8 +121,8 @@ public class RobotContainer {
             m_arm.teleopArmControls(
               opControls.getLeftY(), // telescoping
               opControls.getRightY()//, // rotation
-             /*  opControls.getLeftTriggerAxis(), // open
-              opControls.getRightTriggerAxis() // close*/
+              /*opControls.getLeftTriggerAxis(), // open
+              opControls.getRightTriggerAxis() // close
             /* 
             buttons.getRightBumperPressed(), //open gripper
             buttons.getLeftBumperPressed(), //close gripper
@@ -198,7 +199,7 @@ public class RobotContainer {
     //Testing LimelightTracking
 
     new JoystickButton(opControls, XboxController.Button.kA.value)
-      .onTrue(new LimelightTrackingCommand(m_lime));
+      .onTrue(new LimelightTrackingCommand(m_lime, m_drive));
 
     //Testing Encoders
 
