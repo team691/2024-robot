@@ -3,6 +3,7 @@
  // TODO: Review page: https://docs.wpilib.org/en/2020/docs/software/old-commandbased/commands/limit-switches-control-behavior.html
 
 import edu.wpi.first.math.controller.ArmFeedforward;
+import edu.wpi.first.wpilibj.DigitalInput;
 //import edu.wpi.first.wpilibj.Counter;
 //import edu.wpi.first.wpilibj.DigitalInput;
 //import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
@@ -80,7 +81,8 @@ public class Arm extends SubsystemBase {
   private Instant lastArmChangeTimestamp;
 
   // TODO: Edit digital input channel
-  //DigitalInput limitSwitch = new DigitalInput(1);
+  DigitalInput topLimitSwitch = new DigitalInput(0);
+  DigitalInput bottomLimitSwitch = new DigitalInput(1);
   //Counter counter = new Counter(limitSwitch);
 
   /**
@@ -335,4 +337,22 @@ public class Arm extends SubsystemBase {
     rotationMotor.stopMotor();
   }
 
+  // PUT IN ARM CLASS
+  public void setArmMotorSpeed(double speed) {
+    if (speed > 0) {
+      if (topLimitSwitch.get()) {
+        // Arm is nearby limit
+        // TODO: Set arm motor
+        rotationMotor.set(0);
+      } else {
+        rotationMotor.set(speed);
+      }
+    } else {
+      if (bottomLimitSwitch.get()) {
+        rotationMotor.set(0);
+      } else {
+        rotationMotor.set(speed);
+      }
+    }
+  }
 }
