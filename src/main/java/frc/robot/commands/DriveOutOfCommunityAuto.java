@@ -19,7 +19,7 @@ public class DriveOutOfCommunityAuto extends SequentialCommandGroup {
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
       new DriveDistanceCommand(14, AutoConstants.kAutoDriveSpeed,0, drive ),
-      new LimelightTrackingCommand(lime)
+      new LimelightTrackingCommand(lime, drive)
     );
   }
 }
