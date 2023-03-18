@@ -15,7 +15,6 @@ public class ControlGripperCommand extends CommandBase {
   private final Timer m_timer = new Timer();
   private double m_timeout = 0;
   private boolean m_close = false;
-  private boolean m_down = false;
 
 
   /** Creates a new ControlGripperCommand. */
@@ -25,11 +24,7 @@ public class ControlGripperCommand extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(claw);
   }
-  public void ControlRotationCommand(Claw claw, boolean down) {
-    m_down = down;
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(claw);
-  }
+  
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {

@@ -191,11 +191,11 @@ public class RobotContainer {
     new JoystickButton(opControls, XboxController.Button.kY.value)
       .onTrue(m_arm.highGoal().withTimeout(2)); */
 
-    new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
+    /*new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
       .onTrue(new ControlGripperCommand(m_claw, false));
 
     new JoystickButton(opControls, XboxController.Button.kRightBumper.value)
-      .onTrue(new ControlGripperCommand(m_claw, true));
+      .onTrue(new ControlGripperCommand(m_claw, true)); */
     
     /* TEST */
     new JoystickButton(opControls, XboxController.Button.kStart.value)
@@ -203,6 +203,10 @@ public class RobotContainer {
     
     new JoystickButton(opControls, XboxController.Button.kBack.value)
       .onTrue(m_drive.getAngleTest());
+
+    new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
+      .onTrue(m_claw.openGripper())
+      .onFalse(m_claw.stillGripper());
 
     //Testing LimelightTracking
 

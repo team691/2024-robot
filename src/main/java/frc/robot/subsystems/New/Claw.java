@@ -8,6 +8,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ArmConstants;
 
@@ -38,16 +39,22 @@ public class Claw extends SubsystemBase {
     }
   }
 
-  public void openGripper() {
+  public CommandBase openGripper() {
+    return run(
+         () -> {
     intake.set(ArmConstants.defaultGripperSpeed);
+    });
   }
 
   public void closeGripper() {
     intake.set(-ArmConstants.defaultGripperSpeed*1.75);
   }
 
-  public void stillGripper() {
-    intake.stopMotor();
+  public CommandBase stillGripper() {
+    return run(
+         () -> {
+    intake.stopMotor();;
+    });
   }
 
   public void upClaw() {
