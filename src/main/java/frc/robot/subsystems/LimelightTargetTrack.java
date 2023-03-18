@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.networktables.*;
 
@@ -15,9 +16,12 @@ public class LimelightTargetTrack extends SubsystemBase {
 
   @Override
   public void periodic() {
+    LimelightTracking();
     // This method will be called once per scheduler run
   }
-  public void Update_Limelight_Tracking() {
+  public CommandBase LimelightTracking() {
+    return runOnce(
+         () -> {
       
     final double STEER_K = 0.03;                    // how hard to turn toward the target
     final double DRIVE_K = 0.26;                    // how hard to drive fwd toward the target
@@ -34,7 +38,6 @@ public class LimelightTargetTrack extends SubsystemBase {
       m_LimelightHasValidTarget = false;
       m_LimelightDriveCommand = 0.0;
       m_LimelightSteerCommand = 0.0;
-      return;
     }
 
     m_LimelightHasValidTarget = true;
@@ -52,5 +55,6 @@ public class LimelightTargetTrack extends SubsystemBase {
       drive_cmd = MAX_DRIVE;
     }
     m_LimelightDriveCommand = drive_cmd;
+  });
 }
 }

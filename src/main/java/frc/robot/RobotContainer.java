@@ -41,6 +41,7 @@ import frc.robot.subsystems.New.Arm;
 
 // subsystems
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.LimelightTargetTrack;
 
 /* 
 // camera
@@ -63,6 +64,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveTrain m_drive = new DriveTrain();
   private final Arm m_arm = new Arm();
+  private final LimelightTargetTrack m_lime = new LimelightTargetTrack();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   XboxController opControls = new XboxController(OperatorConstants.kXboxControllerPort);
@@ -189,6 +191,11 @@ public class RobotContainer {
     
     new JoystickButton(opControls, XboxController.Button.kBack.value)
       .onTrue(m_drive.getAngleTest());
+
+    //Testing LimelightTracking
+
+    new JoystickButton(opControls, XboxController.Button.kA.value)
+      .onTrue(m_lime.LimelightTracking());
 
     //Testing Encoders
 
