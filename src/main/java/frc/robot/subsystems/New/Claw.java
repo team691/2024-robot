@@ -13,13 +13,16 @@ import frc.robot.Constants.ArmConstants;
 
 public class Claw extends SubsystemBase {
   private final CANSparkMax gripperMotor = new CANSparkMax(ArmConstants.kGripperMotorID,  MotorType.kBrushless); // mini neo gripper motor
-  
+  private final CANSparkMax rotationMotor = new CANSparkMax(ArmConstants.rotationMotorID, MotorType.kBrushless); // telescoping motor
+
   /** Creates a new Claw. */
   public Claw() {}
 
   @Override
   public void periodic() {
     gripperMotor.setIdleMode(IdleMode.kBrake);
+    rotationMotor.setIdleMode(IdleMode.kBrake);
+
     // This method will be called once per scheduler run
   }
 
