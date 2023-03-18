@@ -26,17 +26,15 @@ public class Claw extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void ClawControls(double open, double close, double rotation) {
-    wristMotor.set(rotation/18); // change division number to adjust speed for more precision
-
-    if (open > close){
-      intake.set(open/6);
+  public void telopClawControls(double up, double down) {
+    if (up > down){
+      wristMotor.set(up/16);
     }
-    else if (close > open){
-      intake.set(-close/6);
+    else if (down > up){
+      wristMotor.set(-down/16);
     }
     else{
-      intake.stopMotor();
+      wristMotor.stopMotor();
     }
   }
 

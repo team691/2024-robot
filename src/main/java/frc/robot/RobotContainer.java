@@ -134,6 +134,14 @@ public class RobotContainer {
             )
           );
 
+    m_claw.setDefaultCommand(
+      new RunCommand(
+        () ->
+        m_claw.telopClawControls(
+          opControls.getLeftTriggerAxis(), // wrist up
+          opControls.getRightTriggerAxis() // wrist down
+        ))
+    );
         // Add commands to the autonomous command chooser
     /*m_chooser.setDefaultOption("Simple Auto", );
     m_chooser.addOption("Complex Auto", m_complexAuto); */

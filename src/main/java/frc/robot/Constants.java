@@ -71,7 +71,7 @@ public final class Constants {
   }
   
   public static class ArmConstants{
-    public static final int intakeMotorID = 5;
+    public static final int intakeMotorID = 8;
     public static final int wristMotorID = 5;
     public static final int rotationMotorID = 7;
     public static final int extensionMotorID = 6;
