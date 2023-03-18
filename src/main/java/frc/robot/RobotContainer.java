@@ -198,7 +198,7 @@ public class RobotContainer {
     //Testing LimelightTracking
 
     new JoystickButton(opControls, XboxController.Button.kA.value)
-      .onTrue(new LimelightTrackingCommand(m_lime));
+      .onTrue(new LimelightTrackingCommand(m_lime, m_drive));
 
     //Testing Encoders
 

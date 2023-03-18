@@ -28,7 +28,7 @@ public class LimelightTrackingCommand extends CommandBase {
 
           if (m_lime.hasValidTarget())
           {
-                m_drive.arcadeDrive(AutoConstants.kDriveSpeed,m_LimelightSteerCommand);
+                m_drive.drive(AutoConstants.kDriveSpeed,m_lime.m_LimelightSteerCommand);
           }
           else
           {
