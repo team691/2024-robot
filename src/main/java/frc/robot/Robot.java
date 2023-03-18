@@ -97,7 +97,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     // TODO: Determine whether to use `stick` or `stick2` or both or neither
-    m_arm.setArmMotorSpeed(m_robotContainer.stick.getRawAxis(2));
+    //m_arm.setArmMotorSpeed(m_robotContainer.stick.getRawAxis(2));
   }
 
   @Override
