@@ -140,7 +140,7 @@ public class RobotContainer {
         m_claw.telopClawControls(
           opControls.getLeftTriggerAxis(), // wrist up
           opControls.getRightTriggerAxis() // wrist down
-        ))
+        ), m_claw)
     );
         // Add commands to the autonomous command chooser
     /*m_chooser.setDefaultOption("Simple Auto", );
