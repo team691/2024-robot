@@ -3,6 +3,7 @@
  // TODO: Review page: https://docs.wpilib.org/en/2020/docs/software/old-commandbased/commands/limit-switches-control-behavior.html
 
 import edu.wpi.first.math.controller.ArmFeedforward;
+import edu.wpi.first.wpilibj2.command.Command;
 //import edu.wpi.first.wpilibj.DigitalInput;
 //import edu.wpi.first.wpilibj.Counter;
 //import edu.wpi.first.wpilibj.DigitalInput;
@@ -333,8 +334,11 @@ public class Arm extends SubsystemBase {
   }
 */
 
-  public void stopRotate() {
-    rotationMotor.stopMotor();
+  public Command stopRotate() {
+    return runOnce(
+      () -> {
+        rotationMotor.stopMotor();
+      });
   }
 
   /* 

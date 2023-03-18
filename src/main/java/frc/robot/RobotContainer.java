@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 /* import edu.wpi.first.wpilibj2.command.CommandBase;
 import static edu.wpi.first.wpilibj2.command.Commands.parallel;*/
 //import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -81,6 +83,17 @@ public class RobotContainer {
   
   Joystick stick = new Joystick(OperatorConstants.kStick1ControllerPort);
   Joystick stick2 = new Joystick(OperatorConstants.kStick2ControllerPort);
+
+  
+  // TODO: Edit digital input channel
+  DigitalInput topLimitSwitch = new DigitalInput(0);
+  DigitalInput bottomLimitSwitch = new DigitalInput(1);
+
+  Trigger topTrigger = new Trigger(topLimitSwitch::get);
+  Trigger bottomTrigger = new Trigger(bottomLimitSwitch::get);
+
+
+  
   /*CommandXboxController xboxControl = new CommandXboxController(OperatorConstants.kXboxControllerPort); //extend arm
   CommandXboxController rightstick = new CommandXboxController(OperatorConstants.kXboxControllerPort); //vertical arm*/
  // XboxController buttons = new XboxController(OperatorConstants.kXboxControllerPort); //open and close gripper
@@ -179,7 +192,11 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     // debounces exampleButton with a 0.1s debounce time, rising edges only
+    new Trigger(topLimitSwitch::get)
+    .onTrue(m_arm.stopRotate());
 
+    new Trigger(bottomLimitSwitch::get)
+    .onTrue(m_arm.stopRotate());
   /*  new JoystickButton(opControls, XboxController.Button.kX.value)
       .onTrue(m_arm.returnToFloor());
 
