@@ -189,6 +189,20 @@ public class RobotContainer {
     
     new JoystickButton(opControls, XboxController.Button.kBack.value)
       .onTrue(m_drive.getAngleTest());
+
+    //Testing Encoders
+
+    new JoystickButton(stick, 7)
+      .onTrue(m_drive.printRearRightEncoderDistance());
+    
+    new JoystickButton(stick, 8)
+      .onTrue(m_drive.printFrontRightEncoderDistance());
+    
+    new JoystickButton(stick, 9)
+      .onTrue(m_drive.printRearLeftEncoderDistance());
+    
+    new JoystickButton(stick, 10)
+      .onTrue(m_drive.printFrontLeftEncoderDistance());
   }
 
   /**

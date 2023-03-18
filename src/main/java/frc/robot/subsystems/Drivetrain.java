@@ -194,15 +194,26 @@ public class DriveTrain extends SubsystemBase {
          });
       }
       
-   public void printRearLeftEncoderDistance() {
-      System.out.println((m_rearLeftEncoder.getPosition()) / 2);
+   public CommandBase printRearLeftEncoderDistance() {
+      return runOnce(
+         () -> {
+            System.out.println((m_rearLeftEncoder.getPosition()) / 2);
+         });
+      
    }
 
-   public void printFrontRightEncoderDistance() {
-      System.out.println((m_rearLeftEncoder.getPosition()) / 2);
+   public CommandBase printFrontRightEncoderDistance() {
+      return runOnce(
+         () -> {
+            System.out.println((m_frontRightEncoder.getPosition()) / 2);
+         });
+      
    }
 
-   public void printRearRightEncoderDistance() {
-      System.out.println((m_rearLeftEncoder.getPosition()) / 2);
+   public CommandBase printRearRightEncoderDistance() {
+      return runOnce(
+         () -> {
+            System.out.println((m_rearRightEncoder.getPosition()) / 2);
+         });
    }
 }
