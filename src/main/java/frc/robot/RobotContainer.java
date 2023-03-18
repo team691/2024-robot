@@ -33,7 +33,6 @@ import frc.robot.commands.armControls.ControlGripperCommand;
 //import frc.robot.commands.ScoreAuto;
 // import frc.robot.commands.gripperControlCommand;
 import frc.robot.subsystems.New.Arm;
-//import frc.robot.subsystems.New.ArmPosition;
 import frc.robot.subsystems.New.Claw;
 
 // stuff for the examples because templete
