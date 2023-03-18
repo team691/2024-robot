@@ -12,51 +12,55 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ArmConstants;
 
 public class Claw extends SubsystemBase {
-  private final CANSparkMax gripperMotor = new CANSparkMax(ArmConstants.kGripperMotorID,  MotorType.kBrushless); // mini neo gripper motor
-  private final CANSparkMax rotationMotor = new CANSparkMax(ArmConstants.rotationMotorID, MotorType.kBrushless); // telescoping motor
+  private final CANSparkMax intake = new CANSparkMax(ArmConstants.intakeMotorID,  MotorType.kBrushless); // mini neo gripper motor
+  private final CANSparkMax wristMotor = new CANSparkMax(ArmConstants.wristMotorID, MotorType.kBrushless); // telescoping motor
 
   /** Creates a new Claw. */
   public Claw() {}
 
   @Override
   public void periodic() {
-    gripperMotor.setIdleMode(IdleMode.kBrake);
-    rotationMotor.setIdleMode(IdleMode.kBrake);
+    intake.setIdleMode(IdleMode.kBrake);
+    wristMotor.setIdleMode(IdleMode.kBrake);
 
     // This method will be called once per scheduler run
   }
 
   public void ClawControls(double open, double close, double rotation) {
-    
-    rotationMotor.set(rotation/18); // change division number to adjust speed for more precision
+    wristMotor.set(rotation/18); // change division number to adjust speed for more precision
 
     if (open > close){
-      gripperMotor.set(open/6);
+      intake.set(open/6);
     }
     else if (close > open){
-      gripperMotor.set(-close/6);
+      intake.set(-close/6);
     }
     else{
-      gripperMotor.stopMotor();
+      intake.stopMotor();
     }
   }
 
   public void openGripper() {
-    gripperMotor.set(ArmConstants.defaultGripperSpeed);
+    intake.set(ArmConstants.defaultGripperSpeed);
   }
 
   public void closeGripper() {
-    gripperMotor.set(-ArmConstants.defaultGripperSpeed*1.75);
+    intake.set(-ArmConstants.defaultGripperSpeed*1.75);
   }
 
   public void stillGripper() {
-    gripperMotor.stopMotor();
+    intake.stopMotor();
   }
+
   public void upClaw() {
-    rotationMotor.set(ArmConstants.defaultRotationSpeed);
+    wristMotor.set(ArmConstants.defaultRotationSpeed);
   }
 
   public void downClaw() {
-    rotationMotor.set(-ArmConstants.defaultRotationSpeed);
+    wristMotor.set(-ArmConstants.defaultRotationSpeed);
+  }
+
+  public void stillClaw() {
+    wristMotor.stopMotor();
   }
 }
