@@ -81,8 +81,8 @@ public class Arm extends SubsystemBase {
   private Instant lastArmChangeTimestamp;
 
   // TODO: Edit digital input channel
-  DigitalInput topLimitSwitch = new DigitalInput(0);
-  DigitalInput bottomLimitSwitch = new DigitalInput(1);
+  //DigitalInput topLimitSwitch = new DigitalInput(0);
+  //DigitalInput bottomLimitSwitch = new DigitalInput(1);
   //Counter counter = new Counter(limitSwitch);
 
   /**
@@ -337,6 +337,7 @@ public class Arm extends SubsystemBase {
     rotationMotor.stopMotor();
   }
 
+  /* 
   // PUT IN ARM CLASS
   public void setArmMotorSpeed(double speed) {
     if (speed > 0) {
@@ -355,4 +356,5 @@ public class Arm extends SubsystemBase {
       }
     }
   }
+  */
 }
