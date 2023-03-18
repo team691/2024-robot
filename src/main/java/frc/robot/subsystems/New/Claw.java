@@ -18,6 +18,7 @@ public class Claw extends SubsystemBase {
 
   /** Creates a new Claw. */
   public Claw() {
+    
     intake.setIdleMode(IdleMode.kBrake);
     wristMotor.setIdleMode(IdleMode.kBrake);
     intake.setSmartCurrentLimit(30, 28);
