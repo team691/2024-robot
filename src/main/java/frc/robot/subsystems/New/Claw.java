@@ -26,11 +26,7 @@ public class Claw extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void ClawControls(double open, double close) /*double verticalSpeed, double telescopingSpeed
-                                                                              * , boolean opengripper, boolean
-                                                                              * closegripper, boolean stillgripper1,
-                                                                              * boolean stillgripper2
-                                                                              */ {
+  public void ClawControls(double open, double close) {
     if (open > close){
       gripperMotor.set(open/6);
     }
