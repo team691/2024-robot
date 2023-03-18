@@ -17,13 +17,16 @@ public class Claw extends SubsystemBase {
   private final CANSparkMax wristMotor = new CANSparkMax(ArmConstants.wristMotorID, MotorType.kBrushless); // telescoping motor
 
   /** Creates a new Claw. */
-  public Claw() {}
+  public Claw() {
+    
+    intake.setIdleMode(IdleMode.kBrake);
+    wristMotor.setIdleMode(IdleMode.kBrake);
+    intake.setSmartCurrentLimit(30, 28);
+    wristMotor.setSmartCurrentLimit(30, 28);
+  }
 
   @Override
   public void periodic() {
-    intake.setIdleMode(IdleMode.kBrake);
-    wristMotor.setIdleMode(IdleMode.kBrake);
-
     // This method will be called once per scheduler run
   }
 
