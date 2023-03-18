@@ -24,7 +24,7 @@ public class ControlGripperCommand extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(claw);
   }
-  
+
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
@@ -42,17 +42,17 @@ public class ControlGripperCommand extends CommandBase {
   @Override
   public void execute() {
     if (m_close){
-      m_claw.closeGripper();
+      m_claw.feedIntake();
     }
     else{
-      m_claw.openGripper();
+      m_claw.disposeIntake();
     };
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_claw.stillGripper();
+    m_claw.stillIntake();
   }
 
   // Returns true when the command should end.

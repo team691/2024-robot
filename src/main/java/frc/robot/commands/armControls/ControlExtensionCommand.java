@@ -43,17 +43,17 @@ public class ControlExtensionCommand extends CommandBase {
   @Override
   public void execute() {
     if (m_extend){
-      m_claw.closeGripper();
+    //  m_claw.intake();
     }
     else{
-      m_claw.openGripper();
+    //  m_claw.openGripper();
     };
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_claw.stillGripper();
+   // m_claw.stillGripper();
   }
 
   // Returns true when the command should end.

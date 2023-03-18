@@ -39,18 +39,21 @@ public class Claw extends SubsystemBase {
     }
   }
 
-  public CommandBase openGripper() {
+  public CommandBase feedIntake() {
     return run(
          () -> {
     intake.set(ArmConstants.defaultGripperSpeed);
     });
   }
 
-  public void closeGripper() {
-    intake.set(-ArmConstants.defaultGripperSpeed*1.75);
+  public CommandBase disposeIntake() {
+    return run(
+      () -> {
+    intake.set(-ArmConstants.defaultGripperSpeed);
+    });
   }
 
-  public CommandBase stillGripper() {
+  public CommandBase stillIntake() {
     return run(
          () -> {
     intake.stopMotor();;

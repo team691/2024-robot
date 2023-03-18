@@ -29,7 +29,7 @@ import frc.robot.commands.BalanceCommand;
 import frc.robot.commands.DriveOutOfCommunityAuto;
 import frc.robot.commands.LimelightTrackingCommand;
 import frc.robot.commands.ScoreAuto;
-import frc.robot.commands.armControls.ControlGripperCommand;
+//import frc.robot.commands.armControls.ControlGripperCommand;
 //import frc.robot.commands.ScoreAuto;
 // import frc.robot.commands.gripperControlCommand;
 import frc.robot.subsystems.New.Arm;
@@ -140,7 +140,8 @@ public class RobotContainer {
         m_claw.telopClawControls(
           opControls.getLeftTriggerAxis(), // wrist up
           opControls.getRightTriggerAxis() // wrist down
-        ), m_claw)
+        ), m_claw
+        )
     );
         // Add commands to the autonomous command chooser
     /*m_chooser.setDefaultOption("Simple Auto", );
@@ -205,8 +206,13 @@ public class RobotContainer {
       .onTrue(m_drive.getAngleTest());
 
     new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
-      .onTrue(m_claw.openGripper())
-      .onFalse(m_claw.stillGripper());
+      .onTrue(m_claw.feedIntake())
+      .onFalse(m_claw.stillIntake());
+
+      new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
+      .onTrue(m_claw.disposeIntake())
+      .onFalse(m_claw.stillIntake());
+
 
     //Testing LimelightTracking
 
