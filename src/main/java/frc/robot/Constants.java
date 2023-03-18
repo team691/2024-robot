@@ -71,7 +71,8 @@ public final class Constants {
   }
   
   public static class ArmConstants{
-    public static final int kGripperMotorID = 5;
+    public static final int intakeMotorID = 8;
+    public static final int wristMotorID = 5;
     public static final int rotationMotorID = 7;
     public static final int extensionMotorID = 6;
 
@@ -105,6 +106,8 @@ public final class Constants {
     public static final double closeGripperTime = .5;
     public static final double timeToBar = 1.5;
     public static final double LowerTimeout = 0.5;
+    public static final double lowerGripperTime = 0;
+    public static final double raiseGripperTime = 0;
   }
   /*public static class GripperConstants{
     public static final int kGripperMotorID = 5;
