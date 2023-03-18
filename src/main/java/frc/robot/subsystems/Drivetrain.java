@@ -185,4 +185,24 @@ public class DriveTrain extends SubsystemBase {
    public double getAverageEncoderDistance() {
       return (getAverageLeftEncoderDistance() + getAverageRightEncoderDistance()) / 2;
    }
+
+   //TEST
+   public CommandBase printFrontLeftEncoderDistance() {
+      return runOnce(
+         () -> {
+            System.out.println((m_frontLeftEncoder.getPosition()) / 2);
+         });
+      }
+      
+   public void printRearLeftEncoderDistance() {
+      System.out.println((m_rearLeftEncoder.getPosition()) / 2);
+   }
+
+   public void printFrontRightEncoderDistance() {
+      System.out.println((m_rearLeftEncoder.getPosition()) / 2);
+   }
+
+   public void printRearRightEncoderDistance() {
+      System.out.println((m_rearLeftEncoder.getPosition()) / 2);
+   }
 }
