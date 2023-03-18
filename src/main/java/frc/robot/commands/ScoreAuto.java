@@ -12,13 +12,14 @@ import frc.robot.commands.armControls.HighGoalCommand;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.New.Arm;
 //import frc.robot.subsystems.New.ArmPosition;
+import frc.robot.subsystems.New.Claw;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class ScoreAuto extends SequentialCommandGroup {
   /** Creates a new ScoreAuto. */
-  public ScoreAuto(DriveTrain drive, Arm arm) {
+  public ScoreAuto(DriveTrain drive, Arm arm, Claw claw) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
