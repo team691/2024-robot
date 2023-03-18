@@ -29,10 +29,10 @@ public class Claw extends SubsystemBase {
 
   public void telopClawControls(double up, double down) {
     if (up > down){
-      wristMotor.set(up/16);
+      wristMotor.set(up/6);
     }
     else if (down > up){
-      wristMotor.set(-down/16);
+      wristMotor.set(-down/6);
     }
     else{
       wristMotor.stopMotor();
