@@ -89,7 +89,7 @@ public class DriveTrain extends SubsystemBase {
    
    // Controller-based drive
    public void drive (double xSpeed, double zRotation) {
-      m_drive.arcadeDrive(xSpeed, zRotation);
+      m_drive.arcadeDrive(-xSpeed, zRotation);
    }
 
    public void stopDrive() {
