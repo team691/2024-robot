@@ -1122,8 +1122,7 @@ public class AHRS implements Sendable, Gyro {
      * @return Returns the current barometric pressure (in millibar).
      */
     public float getPressure() {
-        // TODO implement for navX-Aero.
-        return 0;
+        return this.getPressure();
     }
     
 
