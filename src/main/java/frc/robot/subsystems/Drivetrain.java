@@ -18,6 +18,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 // CONSTANTS
 import frc.robot.Constants.DriveConstants;
+
+// SMARTDASHBOARD
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard; 
+
 //import frc.robot.Constants.AutoConstants;
 
 public class DriveTrain extends SubsystemBase {
@@ -137,8 +141,7 @@ public class DriveTrain extends SubsystemBase {
    public CommandBase getAngleTest() {
       return runOnce(
          () -> {
-            double angle = navx.getAngle();
-            System.out.println(angle);
+            SmartDashboard.putNumber("Pitch Angle", getAngle());
            /* one-time action goes here */
          });
       }

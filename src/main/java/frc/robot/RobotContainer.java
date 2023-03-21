@@ -236,6 +236,7 @@ public class RobotContainer {
     new JoystickButton(opControls, XboxController.Button.kA.value)
       .onTrue(new LimelightTrackingCommand(m_lime, m_drive));
 
+    /* 
     //Testing Encoders
 
     new JoystickButton(stick, 7)
@@ -248,7 +249,7 @@ public class RobotContainer {
       .onTrue(m_drive.printRearLeftEncoderDistance());
     
     new JoystickButton(stick, 10)
-      .onTrue(m_drive.printFrontLeftEncoderDistance());
+      .onTrue(m_drive.printFrontLeftEncoderDistance());*/
   }
 
   /**
