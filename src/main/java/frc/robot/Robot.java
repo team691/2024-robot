@@ -8,7 +8,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.subsystems.New.Arm;
 // camera
 import edu.wpi.first.cameraserver.CameraServer;
 // Arm
@@ -22,7 +21,6 @@ import edu.wpi.first.cameraserver.CameraServer;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
-  private final Arm m_arm = new Arm();
   //private final Arm m_arm = new Arm();
 
   //Commented out the limit switch stuff, tentative on whether or not it wil be used, but reversions are possible
