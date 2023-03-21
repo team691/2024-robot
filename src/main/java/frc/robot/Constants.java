@@ -49,7 +49,7 @@ public final class Constants {
     public static final double kDriveDistanceMeters = 2;
     public static final double kDriveSpeed = 0.5;
     public static final double kTurnSpeed = 0.75;
-    public static final double kBalancingSpeed = 0.1;
+    public static final double kBalancingSpeed = 0.01;
     public static final double kHardTurn = 0.1;
     public static double kAutoDriveDistanceInchesF = 11.0;
     public static double kAutoDriveDistanceInchesB = -190.0;
@@ -77,7 +77,6 @@ public final class Constants {
     public static final int extensionMotorID = 6;
 
     // rotation constants for time - needs HEAVY trial and error
-    // TODO: Trial and error the movement time need; modify as necessary
     public static final double timeToDown = 2.25;
     public static final double floorToLow = 0;
     public static final double floorToMid = 0;
