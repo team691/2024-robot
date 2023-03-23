@@ -8,8 +8,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-
-
 // camera
 import edu.wpi.first.cameraserver.CameraServer;
 // Arm
@@ -96,8 +94,6 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    // TODO: Determine whether to use `stick` or `stick2` or both or neither
-    //m_arm.setArmMotorSpeed(m_robotContainer.stick.getRawAxis(2));
   }
 
   @Override
