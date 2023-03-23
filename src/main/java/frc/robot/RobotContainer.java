@@ -218,6 +218,9 @@ public class RobotContainer {
     /* TEST */
     new JoystickButton(opControls, XboxController.Button.kStart.value)
       .onTrue(new BalanceCommand(m_drive));
+
+    new JoystickButton(stick2, 1)
+      .onTrue(new LimelightTrackingCommand(m_lime, m_drive));
     
     new JoystickButton(opControls, XboxController.Button.kBack.value)
       .onTrue(m_drive.getAngleTest());
