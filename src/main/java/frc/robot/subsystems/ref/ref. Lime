@@ -39,3 +39,51 @@ def runPipeline(image, llrobot):
             llpython = [1, x, y, w, h, 9, 8, 7]
 
     return largestContour, image, llpython
+
+
+    //ATTEMPT #SOMETHING ???
+    
+    import numpy as np
+import cv2
+
+# ...
+
+def distance_to_camera(known_width, focal_length, measured_width):
+    return (known_width * focal_length) / measured_width
+
+KNOWN_WIDTH = 12.0
+FOCAL_LENGTH = 450
+
+locked_object = None
+
+def runPipeline(image, llrobot):
+    global locked_object
+
+    img_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    purple_lower = (120, 50, 50)
+    purple_upper = (160, 255, 255)
+    img_threshold = cv2.inRange(img_hsv, purple_lower, purple_upper)
+    contours, _ = cv2.findContours(img_threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    largestContour = np.array([[]])
+    llpython = [0, 0, 0, 0, 0, 0, 0, 0]
+
+    if len(contours) > 0:
+        if locked_object is None:
+            largestContour = max(contours, key=cv2.contourArea)
+            x, y, w, h = cv2.boundingRect(largestContour)
+            locked_object = (x, y, w, h)
+        else:
+            x, y, w, h = locked_object
+            # Calculate the center of the locked object
+            cx, cy = x + w // 2, y + h // 2
+
+            # Find the contour closest to the center of the locked object
+            closest_contour = min(contours, key=lambda c: np.linalg.norm(np.array(cv2.boundingRect(c)[:2]) - np.array([cx, cy])))
+            x, y, w, h = cv2.boundingRect(closest_contour)
+            locked_object = (x, y, w, h)
+
+        cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 255), 2)
+        llpython = [1, x, y, w, h, 9, 8, 7]
+
+    return largestContour, image, llpython
