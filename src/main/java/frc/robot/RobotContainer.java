@@ -229,7 +229,7 @@ public class RobotContainer {
       .onTrue(m_claw.feedIntake())
       .onFalse(m_claw.stillIntake());
 
-    new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
+    new JoystickButton(opControls, XboxController.Button.kRightBumper.value)
       .onTrue(m_claw.disposeIntake())
       .onFalse(m_claw.stillIntake());
 
