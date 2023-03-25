@@ -41,6 +41,7 @@ public class Claw extends SubsystemBase {
     else{
       wristMotor.stopMotor();
     }
+    intake.stopMotor();
   }
 
   public CommandBase feedIntake() {
