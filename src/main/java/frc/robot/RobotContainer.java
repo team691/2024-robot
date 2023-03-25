@@ -229,13 +229,12 @@ public class RobotContainer {
       .onTrue(m_claw.feedIntake())
       .onFalse(m_claw.stillIntake());
 
-      new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
+    new JoystickButton(opControls, XboxController.Button.kLeftBumper.value)
       .onTrue(m_claw.disposeIntake())
       .onFalse(m_claw.stillIntake());
 
 
     //Testing LimelightTracking
-
     new JoystickButton(opControls, XboxController.Button.kA.value)
       .onTrue(new LimelightTrackingCommand(m_lime, m_drive));
 
