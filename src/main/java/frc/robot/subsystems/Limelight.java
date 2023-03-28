@@ -41,6 +41,7 @@ public class Limelight extends SubsystemBase {
     public static final boolean POST_TO_SMART_DASHBOARD = true;
     public boolean m_LimelightHasValidTarget = false;
     public double m_LimelightSteerCommand = 0.0;
+    public double m_LimelightTargetArea = 0;
 
     //force test variables
     boolean timingTestEntryValue2 = !timingTestEntryValue;
@@ -533,7 +534,7 @@ public class Limelight extends SubsystemBase {
           double tv = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tv").getDouble(0);
           double tx = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tx").getDouble(0);
           //double ty = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ty").getDouble(0);
-          //double ta = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ta").getDouble(0);
+          m_LimelightTargetArea = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ta").getDouble(0);
   
           if (tv < 1.0)
           {
@@ -551,4 +552,8 @@ public class Limelight extends SubsystemBase {
           // try to drive forward until the target area reaches our desired area
          /* double drive_cmd = (DESIRED_TARGET_AREA - ta) * DRIVE_K; */
     }
+/* 
+    public double targetArea(){
+        return NetworkTableInstance.getDefault().getTable("limelight").getEntry("ta").getDouble(0);
+    }*/
 }
