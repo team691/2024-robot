@@ -5,7 +5,8 @@
 package frc.robot.subsystems.New;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+//import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -16,13 +17,13 @@ import frc.robot.Constants.ArmConstants;
 
 public class Claw extends SubsystemBase {
   private final CANSparkMax intake = new CANSparkMax(ArmConstants.intakeMotorID,  MotorType.kBrushless); // mini neo gripper motor
-  private final CANSparkMax wristMotor = new CANSparkMax (ArmConstants.wristMotorID,  MotorType.kBrushless); // telescoping motor
+  private final WPI_TalonFX wristMotor = new WPI_TalonFX(ArmConstants.wristMotorID);
 
   /** Creates a new Claw. */
   public Claw() {
     
     intake.setIdleMode(IdleMode.kBrake);
-    wristMotor.setIdleMode(IdleMode.kBrake);
+    wristMotor.setNeutralMode(NeutralMode.Brake);
     intake.setSmartCurrentLimit(30, 28);
   }
 
