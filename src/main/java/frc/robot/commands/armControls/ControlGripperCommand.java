@@ -8,17 +8,17 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.ArmConstants;
 //import frc.robot.subsystems.New.Arm;
-import frc.robot.subsystems.New.Claw;
+import frc.robot.subsystems.New.Intake;
 
 public class ControlGripperCommand extends CommandBase {
-  private final Claw m_claw;
+  private final Intake m_claw;
   private final Timer m_timer = new Timer();
   private double m_timeout = 0;
   private boolean m_close = false;
 
 
   /** Creates a new ControlGripperCommand. */
-  public ControlGripperCommand(Claw claw, boolean close) {
+  public ControlGripperCommand(Intake claw, boolean close) {
     m_claw = claw;
     m_close = close;
     // Use addRequirements() here to declare subsystem dependencies.

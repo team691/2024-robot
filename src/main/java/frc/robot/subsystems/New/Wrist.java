@@ -16,17 +16,16 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ArmConstants;
 
-public class Claw extends SubsystemBase {
-  private final CANSparkMax intake = new CANSparkMax(ArmConstants.intakeMotorID,  MotorType.kBrushless); // mini neo gripper motor
+public class Wrist extends SubsystemBase {
+  //private final CANSparkMax intake = new CANSparkMax(ArmConstants.intakeMotorID,  MotorType.kBrushless); // mini neo gripper motor
   private final WPI_TalonFX wristMotor = new WPI_TalonFX(ArmConstants.wristMotorID);
 
   /** Creates a new Claw. */
-  public Claw() {
+  public Wrist() {
     
-    intake.setIdleMode(IdleMode.kBrake);
     wristMotor.setNeutralMode(NeutralMode.Brake);
     //wristMotor.configSupplyCurrentLimit(null, 500);
-    intake.setSmartCurrentLimit(30, 28);
+    //intake.setSmartCurrentLimit(30, 28);
   }
 
   @Override
@@ -44,27 +43,6 @@ public class Claw extends SubsystemBase {
     else{
       wristMotor.stopMotor();
     }
-  }
-
-  public CommandBase feedIntake() {
-    return run(
-         () -> {
-    intake.set(ArmConstants.defaultGripperSpeed);
-    });
-  }
-
-  public CommandBase disposeIntake() {
-    return run(
-      () -> {
-    intake.set(-ArmConstants.defaultGripperSpeed);
-    });
-  }
-
-  public CommandBase stillIntake() {
-    return run(
-         () -> {
-    intake.stopMotor();;
-    });
   }
 
   public void upClaw() {

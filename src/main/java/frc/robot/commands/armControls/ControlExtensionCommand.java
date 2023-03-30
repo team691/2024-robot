@@ -8,17 +8,18 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.ArmConstants;
 import frc.robot.subsystems.New.Arm;
-import frc.robot.subsystems.New.Claw;
+import frc.robot.subsystems.New.Intake;
+import frc.robot.subsystems.New.Wrist;
 
 public class ControlExtensionCommand extends CommandBase {
   private final Arm m_arm;
-  private final Claw m_claw;
+  private final Wrist m_claw;
   private final Timer m_timer = new Timer();
   private double m_timeout = 0;
   private boolean m_extend = false;
 
   /** Creates a new ControlGripperCommand. */
-  public ControlExtensionCommand(Arm arm, Claw claw, boolean extend) {
+  public ControlExtensionCommand(Arm arm, Wrist claw, boolean extend) {
     m_arm = arm;
     m_claw = claw;
     m_extend = extend;

@@ -12,21 +12,22 @@ import frc.robot.commands.armControls.HighGoalCommand;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.New.Arm;
 //import frc.robot.subsystems.New.ArmPosition;
-import frc.robot.subsystems.New.Claw;
+import frc.robot.subsystems.New.Intake;
+import frc.robot.subsystems.New.Wrist;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class ScoreAuto extends SequentialCommandGroup {
   /** Creates a new ScoreAuto. */
-  public ScoreAuto(DriveTrain drive, Arm arm, Claw claw) {
+  public ScoreAuto(DriveTrain drive, Arm arm, Wrist claw, Intake intake) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     // did we ever configure this to work with an intake rather than the gripper?
     addCommands(
       new HighGoalCommand(arm),
       new ControlExtensionCommand(arm, claw, true),
-      new ControlGripperCommand(claw, false),
+      new ControlGripperCommand(intake, false),
       //new DriveTimeCommand(-AutoConstants.kAutoDriveSpeed,0, drive, .03),
       new DriveTimeCommand(AutoConstants.kAutoDriveSpeed, 0 , drive, 4.4)
       //, new LimelightTrackingCommand(lime, drive)

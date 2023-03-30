@@ -8,16 +8,17 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.ArmConstants;
 //import frc.robot.subsystems.New.Arm;
-import frc.robot.subsystems.New.Claw;
+import frc.robot.subsystems.New.Intake;
+import frc.robot.subsystems.New.Wrist;
 
 public class ControlWrist extends CommandBase {
-  private final Claw m_claw;
+  private final Wrist m_claw;
   private final Timer m_timer = new Timer();
   private double m_timeout = 0;
   //private boolean m_close = false;
   private boolean m_down = false;
 
-  public ControlWrist(Claw claw, boolean down) {
+  public ControlWrist(Wrist claw, boolean down) {
     m_claw = claw;
     m_down = down;
     // Use addRequirements() here to declare subsystem dependencies.
