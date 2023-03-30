@@ -22,6 +22,7 @@ public class ScoreAuto extends SequentialCommandGroup {
   public ScoreAuto(DriveTrain drive, Arm arm, Claw claw) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
+    // did we ever configure this to work with an intake rather than the gripper?
     addCommands(
       new HighGoalCommand(arm),
       new ControlExtensionCommand(arm, claw, true),
