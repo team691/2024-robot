@@ -5,6 +5,7 @@
 package frc.robot.subsystems.New;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 //import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.revrobotics.CANSparkMax;
@@ -24,6 +25,7 @@ public class Claw extends SubsystemBase {
     
     intake.setIdleMode(IdleMode.kBrake);
     wristMotor.setNeutralMode(NeutralMode.Brake);
+    wristMotor.configSupplyCurrentLimit(null, 500);
     intake.setSmartCurrentLimit(30, 28);
   }
 
