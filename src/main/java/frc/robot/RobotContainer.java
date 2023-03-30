@@ -147,12 +147,13 @@ public class RobotContainer {
             )
           );
 
+          //IMPORTANT: for some reason activating the intake and moving the wrist at the same time causes the wrist to be disabled for the rest of the match? (voltage/manufacturing issue?)
     m_claw.setDefaultCommand(
       new RunCommand(
         () ->
         m_claw.telopClawControls(
           opControls.getLeftTriggerAxis(), // wrist up
-          opControls.getLeftTriggerAxis() // wrist down
+          opControls.getRightTriggerAxis() // wrist down
         ), m_claw
         )
     );
