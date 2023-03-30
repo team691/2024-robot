@@ -147,6 +147,7 @@ public class RobotContainer {
             )
           );
 
+          //IMPORTANT: for some reason activating the intake and moving the wrist at the same time causes the wrist to be disabled for the rest of the match? (voltage/manufacturing issue?)
     m_claw.setDefaultCommand(
       new RunCommand(
         () ->
