@@ -11,7 +11,7 @@ import frc.robot.Constants.ArmConstants;
 import frc.robot.subsystems.New.Intake;
 
 public class ControlGripperCommand extends CommandBase {
-  private final Intake m_claw;
+  private final Intake m_intake;
   private final Timer m_timer = new Timer();
   private double m_timeout = 0;
   private boolean m_close = false;
@@ -19,7 +19,7 @@ public class ControlGripperCommand extends CommandBase {
 
   /** Creates a new ControlGripperCommand. */
   public ControlGripperCommand(Intake claw, boolean close) {
-    m_claw = claw;
+    m_intake = claw;
     m_close = close;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(claw);
@@ -42,17 +42,17 @@ public class ControlGripperCommand extends CommandBase {
   @Override
   public void execute() {
     if (m_close){
-      m_claw.feedIntake();
+      m_intake.feedIntake();
     }
     else{
-      m_claw.disposeIntake();
+      m_intake.disposeIntake();
     };
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_claw.stillIntake();
+    m_intake.stillIntake();
   }
 
   // Returns true when the command should end.

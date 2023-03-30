@@ -20,13 +20,13 @@ import frc.robot.subsystems.New.Wrist;
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class ScoreAuto extends SequentialCommandGroup {
   /** Creates a new ScoreAuto. */
-  public ScoreAuto(DriveTrain drive, Arm arm, Wrist claw, Intake intake) {
+  public ScoreAuto(DriveTrain drive, Arm arm, Wrist wristmotor, Intake intake) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     // did we ever configure this to work with an intake rather than the gripper?
     addCommands(
       new HighGoalCommand(arm),
-      new ControlExtensionCommand(arm, claw, true),
+      new ControlExtensionCommand(arm, wristmotor, true),
       new ControlGripperCommand(intake, false),
       //new DriveTimeCommand(-AutoConstants.kAutoDriveSpeed,0, drive, .03),
       new DriveTimeCommand(AutoConstants.kAutoDriveSpeed, 0 , drive, 4.4)

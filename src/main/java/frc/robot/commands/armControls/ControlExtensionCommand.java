@@ -12,15 +12,15 @@ import frc.robot.subsystems.New.Wrist;
 
 public class ControlExtensionCommand extends CommandBase {
   private final Arm m_arm;
-  private final Wrist m_claw;
+  private final Wrist m_wrist;
   private final Timer m_timer = new Timer();
   private double m_timeout = 0;
   private boolean m_extend = false;
 
   /** Creates a new ControlGripperCommand. */
-  public ControlExtensionCommand(Arm arm, Wrist claw, boolean extend) {
+  public ControlExtensionCommand(Arm arm, Wrist wrist, boolean extend) {
     m_arm = arm;
-    m_claw = claw;
+    m_wrist = wrist;
     m_extend = extend;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(arm);
