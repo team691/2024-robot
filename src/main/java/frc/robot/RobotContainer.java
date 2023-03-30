@@ -152,7 +152,7 @@ public class RobotContainer {
         () ->
         m_claw.telopClawControls(
           opControls.getLeftTriggerAxis(), // wrist up
-          opControls.getLeftTriggerAxis() // wrist down
+          opControls.getRightTriggerAxis() // wrist down
         ), m_claw
         )
     );
