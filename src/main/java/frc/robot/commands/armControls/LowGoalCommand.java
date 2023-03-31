@@ -26,7 +26,7 @@ public class LowGoalCommand extends CommandBase{
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        if (m_arm.getArmPosition() == ArmPosition.GROUND) {
+        /*if (m_arm.getArmPosition() == ArmPosition.GROUND) {
           m_timeout = ArmConstants.floorToLow;
           upGoal = true;
         } else if (m_arm.getArmPosition() == ArmPosition.MEDIUM) {
@@ -43,9 +43,11 @@ public class LowGoalCommand extends CommandBase{
           m_timeout = ArmConstants.LowerTimeout;
           upGoal = true;
         }
+        */
 
 
-        m_arm.setArmPosition(ArmPosition.MEDIUM);
+
+        //m_arm.setArmPosition(ArmPosition.MEDIUM);
                 
         m_timer.reset();
         m_timer.start();
@@ -54,10 +56,12 @@ public class LowGoalCommand extends CommandBase{
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        if(upGoal)
+        /*if(upGoal)
             m_arm.upArm();
         else
             m_arm.downArm();
+            */
+            m_arm.upArm();
     }
   
     // Called once the command ends or is interrupted.

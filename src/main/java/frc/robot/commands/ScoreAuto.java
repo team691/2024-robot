@@ -9,6 +9,7 @@ import frc.robot.Constants.AutoConstants;
 import frc.robot.commands.armControls.ControlExtensionCommand;
 import frc.robot.commands.armControls.ControlGripperCommand;
 import frc.robot.commands.armControls.HighGoalCommand;
+import frc.robot.commands.armControls.LowGoalCommand;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.New.Arm;
 //import frc.robot.subsystems.New.ArmPosition;
@@ -25,7 +26,7 @@ public class ScoreAuto extends SequentialCommandGroup {
     // addCommands(new FooCommand(), new BarCommand());
     // did we ever configure this to work with an intake rather than the gripper?
     addCommands(
-      new HighGoalCommand(arm),
+      new LowGoalCommand(arm).withTimeout(0.2),
       new ControlExtensionCommand(arm, wristmotor, true),
       new ControlGripperCommand(intake, false),
       new DriveTimeCommand(AutoConstants.kAutoDriveSpeed, 0 , drive, 4.3)

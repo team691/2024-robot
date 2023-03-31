@@ -30,7 +30,7 @@ public class ControlExtensionCommand extends CommandBase {
   @Override
   public void initialize() {
     if (m_extend){
-    m_timeout = ArmConstants.closeGripperTime;
+    m_timeout = ArmConstants.closeGripperTime; //change to -ArmConstantsClose... or openGripper
     }
     else{
     m_timeout = ArmConstants.openGripperTime;
