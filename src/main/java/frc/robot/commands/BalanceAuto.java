@@ -17,7 +17,7 @@ public class BalanceAuto extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new DriveTimeCommand(AutoConstants.kAutoDriveSpeed, 0 , drive, 4.9),
+      new DriveTimeCommand(AutoConstants.kAutoBalanceSpeed, 0 , drive, 2.5),
       new BalanceCommand(drive)
     );
   }
