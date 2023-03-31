@@ -23,7 +23,7 @@ public class Intake extends SubsystemBase {
     intake.setIdleMode(IdleMode.kBrake);
     //wristMotor.setNeutralMode(NeutralMode.Brake);
     //wristMotor.configSupplyCurrentLimit(null, 500);
-    intake.setSmartCurrentLimit(30, 28);
+    intake.setSmartCurrentLimit(34, 32);
   }
 
   @Override

@@ -20,9 +20,9 @@ public class DriveOutOfCommunityAuto extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new DriveTimeCommand(AutoConstants.kAutoDriveSpeed,0, drive, 3.04)
+      new DriveTimeCommand(AutoConstants.kAutoDriveSpeed,0, drive, 2.54)
       //TO TEST LATER:
-      , new LimelightTrackingCommand(lime, drive).withTimeout(1.2)
+      , new LimelightTrackingCommand(lime, drive).withTimeout(0.8)
 
       //, new TargetTrackingCommand(lime, drive).withTimeout(1.5), 
       //new driveForwardToTarget(lime, drive).withTimeout(1.3)
