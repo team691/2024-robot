@@ -28,8 +28,7 @@ public class ScoreAuto extends SequentialCommandGroup {
       new HighGoalCommand(arm),
       new ControlExtensionCommand(arm, wristmotor, true),
       new ControlGripperCommand(intake, false),
-      //new DriveTimeCommand(-AutoConstants.kAutoDriveSpeed,0, drive, .03),
-      new DriveTimeCommand(AutoConstants.kAutoDriveSpeed, 0 , drive, 4.4)
+      new DriveTimeCommand(AutoConstants.kAutoDriveSpeed, 0 , drive, 4.3)
       //, new LimelightTrackingCommand(lime, drive)
     );
   }
