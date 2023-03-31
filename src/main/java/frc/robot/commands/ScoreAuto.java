@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants.AutoConstants;
 import frc.robot.commands.armControls.ControlExtensionCommand;
 import frc.robot.commands.armControls.ControlGripperCommand;
-import frc.robot.commands.armControls.HighGoalCommand;
+//import frc.robot.commands.armControls.HighGoalCommand;
 import frc.robot.commands.armControls.LowGoalCommand;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.New.Arm;
