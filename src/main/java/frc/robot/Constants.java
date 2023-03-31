@@ -55,7 +55,8 @@ public final class Constants {
     public static double kAutoDriveDistanceInchesB = -190.0;
     public static double kAutoDriveDistanceInchesBalance = -54.0;
     public static double kAutoDriveSpeed = 0.6;
-    public static double kAutoBalanceSpeed = 0.6;
+    public static double kAutoBalanceSpeed1 = 0.3;
+    public static double kAutoBalanceSpeed2 = 0.6;
     public static double rot;
     public static double rot1;
     public static double rot2;
