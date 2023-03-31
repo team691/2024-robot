@@ -6,6 +6,8 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants.AutoConstants;
+import frc.robot.commands.limelightControls.TargetTrackingCommand;
+import frc.robot.commands.limelightControls.driveForwardToTarget;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Limelight;
 
@@ -22,8 +24,8 @@ public class DriveOutOfCommunityAuto extends SequentialCommandGroup {
       //TO TEST LATER:
       //, new LimelightTrackingCommand(lime, drive)
 
-      //, new TargetTrackingCommand(lime, drive), 
-      //new driveForwardToTarget(lime, drive)
+      , new TargetTrackingCommand(lime, drive), 
+      new driveForwardToTarget(lime, drive, 1.3)
 
     );
   }
