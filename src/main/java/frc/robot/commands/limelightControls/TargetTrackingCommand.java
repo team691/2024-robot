@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants.AutoConstants;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Limelight;
+import edu.wpi.first.wpilibj.Timer;
 
 public class TargetTrackingCommand extends CommandBase {
   private final Limelight m_lime;
@@ -38,7 +39,6 @@ public class TargetTrackingCommand extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    new driveForwardToTarget(m_lime, m_drive);
   }
 //YOU GUYS ARE DOING SO WELL!!! KEEP UP THE GOOD EFFORT
   // Returns true when the command should end.

@@ -24,8 +24,8 @@ public class DriveOutOfCommunityAuto extends SequentialCommandGroup {
       //TO TEST LATER:
       //, new LimelightTrackingCommand(lime, drive)
 
-      , new TargetTrackingCommand(lime, drive), 
-      new driveForwardToTarget(lime, drive, 1.3)
+      , new TargetTrackingCommand(lime, drive).withTimeout(1.5), 
+      new driveForwardToTarget(lime, drive).withTimeout(1.3)
 
     );
   }
