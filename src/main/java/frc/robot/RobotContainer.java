@@ -165,7 +165,7 @@ public class RobotContainer {
     m_chooser.setDefaultOption("Do Nothing", new WaitCommand(15));
     m_chooser.addOption("Balance", new BalanceAuto(m_drive));
     m_chooser.addOption("Score", new ScoreAuto(m_drive, m_arm, m_claw, m_intake));
-    m_chooser.addOption("Drive out of community", new DriveOutOfCommunityAuto(m_drive, m_lime));
+    m_chooser.addOption("Drive out of community", new DriveOutOfCommunityAuto(m_drive));
     SmartDashboard.putData(m_chooser);
 
     // Put the chooser on the dashboard
