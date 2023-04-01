@@ -9,18 +9,18 @@ import frc.robot.Constants.AutoConstants;
 //import frc.robot.commands.limelightControls.TargetTrackingCommand;
 //import frc.robot.commands.limelightControls.driveForwardToTarget;
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.Limelight;
+//import frc.robot.subsystems.Limelight;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class DriveOutOfCommunityAuto extends SequentialCommandGroup {
   /** Creates a new DriveOutOfCommunityAuto. */
-  public DriveOutOfCommunityAuto(DriveTrain drive, Limelight lime) {
+  public DriveOutOfCommunityAuto(DriveTrain drive) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new DriveTimeCommand(AutoConstants.kAutoDriveSpeed,0, drive, 3.5)
+      new DriveTimeCommand(AutoConstants.kAutoDriveSpeed,0, drive, 3.0)
       //TO TEST LATER:
       //, new LimelightTrackingCommand(lime, drive).withTimeout(0.8)
 
