@@ -71,46 +71,4 @@ public final class Constants {
     public static final int DEFAULT_PIPELINE = 0;
     public static final int DRIVE_PIPELINE = 2;
   }
-  
-  public static class ArmConstants{
-    public static final int intakeMotorID = 8;
-    public static final int wristMotorID = 5;
-    public static final int rotationMotorID = 7;
-    public static final int extensionMotorID = 6;
-
-    // rotation constants for time - needs HEAVY trial and error
-    public static final double timeToDown = 2.25;
-    public static final double floorToLow = 0;
-    public static final double floorToMid = 0;
-    public static final double floorToHigh = 0;
-
-    public static final double lowToMid = 0;
-    public static final double lowToHigh = 0;
-    public static final double midToHigh = 0;
-
-    public static final double midToLow = 0;
-    public static final double highToMid = 0;
-    public static final double highToLow = 0;
-
-    public static final double lowToFloor = 0;
-    public static final double midToFloor = 0;
-    public static final double highToFloor = 0;
-
-    public static final double barToHigh = 2.75;
-    public static final double barToMid = 3;
-    public static final double barToLow = 4;
-    
-    public static final double defaultExtentionSpeed = 0;
-    public static final double defaultRotationSpeed = .25;
-    public static final double defaultGripperSpeed = -1.0;
-    public static final double openGripperTime = 1;
-    public static final double closeGripperTime = .5;
-    public static final double timeToBar = 1.5;
-    public static final double LowerTimeout = 0.5;
-    public static final double lowerGripperTime = 0;
-    public static final double raiseGripperTime = 0;
-  }
-  /*public static class GripperConstants{
-    public static final int kGripperMotorID = 5;
-  } */
 }

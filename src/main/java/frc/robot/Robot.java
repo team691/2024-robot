@@ -10,8 +10,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 // camera
 import edu.wpi.first.cameraserver.CameraServer;
-// Arm
-//import frc.robot.subsystems.New.Arm;
+
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
  * each mode, as described in the TimedRobot documentation. If you change the name of this class or
@@ -21,12 +20,6 @@ import edu.wpi.first.cameraserver.CameraServer;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
-  //private final Arm m_arm = new Arm();
-
-  //Commented out the limit switch stuff, tentative on whether or not it wil be used, but reversions are possible
-  // TODO: Get digital input channels
-  //DigitalInput topLimitSwitch = new DigitalInput(0);
-  //DigitalInput bottomLimitSwitch = new DigitalInput(1);
   
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -113,22 +106,4 @@ public class Robot extends TimedRobot {
   /** This function is called periodically whilst in simulation. */
   @Override
   public void simulationPeriodic() {}
-
-  /* PUT IN ARM CLASS
-  public void setArmMotorSpeed(double speed) {
-    if (speed > 0) {
-      if (topLimitSwitch.get()) {
-        // Arm is nearby limit
-        // TODO: Set arm motor
-        arm.motor.set(0);
-      } else {
-        arm.motor.set(speed);
-      }
-    } else {
-      if (bottomLimitSwitch.get()) {
-        arm.motor.set(0);
-      } else {
-        arm.motor.set(speed);
-      }
-    }*/
 }
