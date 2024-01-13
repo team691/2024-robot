@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.DriveOutOfCommunityAuto;
-
+import frc.robot.commands.testCommands.RedAlliance;
 // subsystems
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Limelight;
@@ -35,6 +35,10 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveTrain m_drive = new DriveTrain();
   private final Limelight m_lime = new Limelight();
+
+  private static final String kDefaultAuto = "Default";
+  private static final String kCustomAuto = "My Auto";
+  private String m_autoSelected;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   //XboxController opControls = new XboxController(OperatorConstants.kXboxControllerPort);
@@ -73,6 +77,10 @@ public class RobotContainer {
     m_chooser.addOption("Complex Auto", m_complexAuto); */
     m_chooser.setDefaultOption("Do Nothing", new WaitCommand(15));
     m_chooser.addOption("Drive out of community", new DriveOutOfCommunityAuto(m_drive));
+
+    // m_chooser.addOption("Default Auto", new RedAlliance());
+    // m_chooser.addOption("My Auto", kCustomAuto); --> need to fix later
+    SmartDashboard.putData("Auto Choices", m_chooser);
     SmartDashboard.putData(m_chooser);
   }
 
